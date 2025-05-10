@@ -1,0 +1,110 @@
+# Administrative Law Case Illustration Prompts
+
+This document contains prompts for creating illustrations of key administrative law cases. Each illustration depicts the fact pattern of a specific case and features one of the Admin Law Guide mascots to aid memory and reinforce doctrinal connections.
+
+## Global Style Guide
+
+All illustrations should maintain the following consistent elements:
+
+- **Medium**: Hand-drawn line art with minimal watercolor-style coloring
+- **Line Quality**: Clean, confident black pen lines of consistent weight
+- **Background**: Clean white with very subtle contextual elements
+- **Composition**: Central focus with mascot and key elements taking 60-70% of image area
+- **Character Integration**: Each illustration features the relevant doctrine mascot
+- **Color Application**: Semi-transparent watercolors allowing line work to show through
+- **Color Palette**:
+  - Nondelegation/Major Questions: Ambers/Oranges (#f57c00, #fff3e0)
+  - Political Control: Blues (#4b7bbd, #f2f7fd, #2c5899)
+  - Rulemaking/APA: Light Blues (#03a9f4, #e1f5fe)
+  - Judicial Review: Purples (#6f4bbd, #f9f5ff, #523890)
+  - Standing/Access: Greens (#4bbd4b, #f2f9f2, #2d7d2d)
+- **Text Elements**: Simple, clear handwritten font style, integrated organically
+- **Format**: Square (1:1 aspect ratio) at 1024x1024 pixels minimum
+- **File Type**: PNG with transparent background
+
+## Nondelegation Doctrine & Major Questions Cases
+
+### A.L.A. Schechter Poultry Corp. v. United States (1935)
+Hand-drawn line art illustration showing Major Questions Mole examining a chaotic poultry market scene. The mole wears a concerned expression while looking at a large document labeled "NIRA: CODES OF FAIR COMPETITION" with an oversized presidential seal stamped on it. Scattered chicken coops are labeled with different industry rules. A scale in the background shows "Legislative Power" heavily outweighing "Executive Power." Style: clean black pen line drawing with minimal watercolor-style coloring in constitutional ambers and oranges, white background. The image should convey the concept of excessive delegation of legislative power without clear standards.
+
+### Whitman v. American Trucking Associations (2001)
+Hand-drawn line art illustration showing Major Questions Mole wearing a small EPA hat while measuring air with scientific instruments. The mole stands between a factory and a hospital, with a clipboard noting "PROTECT PUBLIC HEALTH" with a question mark. A banner stretches across reading "REQUISITE...WITH ADEQUATE MARGIN" with the terms underlined. Style: clean black pen line drawing with minimal watercolor-style coloring in constitutional ambers and regulatory blues, white background. The image should convey the tension between agency discretion and intelligible principles from Congress.
+
+### West Virginia v. EPA (2022)
+Hand-drawn line art illustration showing Major Questions Mole standing at a crossroads between coal plants and wind turbines. The mole holds up a magnifying glass examining fine print in Section 111(d) of the Clean Air Act while wearing a small judicial cap. Behind the mole is a large power grid transformation diagram with a giant question mark. A small West Virginia state flag is planted nearby. Style: clean black pen line drawing with minimal watercolor-style coloring in constitutional ambers with touches of judicial purple, white background. The image should convey the concept of agencies making decisions of vast economic and political significance without clear congressional authorization.
+
+## Political Control of Agencies Cases
+
+### INS v. Chadha (1983)
+Hand-drawn line art illustration showing a person (representing Chadha) standing on a document bridge labeled "SUSPENSION OF DEPORTATION" that's being scissored in half by a floating hand labeled "ONE-HOUSE VETO." APA Architect stands nearby with a blueprint showing "BICAMERALISM & PRESENTMENT" with two houses of Congress and the President. A flag of Kenya and student visa are visible in the background. Style: clean black pen line drawing with minimal watercolor-style coloring in procedural light blues and constitutional ambers, white background. The image should convey separation of powers and the requirements for legislative action.
+
+### Seila Law LLC v. Consumer Financial Protection Bureau (2020)
+Hand-drawn line art illustration showing a CFPB building structure with a single director at the top connected to the President by a chain labeled "FOR CAUSE REMOVAL" that's being cut with scissors. APA Architect examines the structure with a level tool labeled "SEPARATION OF POWERS." A document labeled "DODD-FRANK" is visible in the background. Style: clean black pen line drawing with minimal watercolor-style coloring in executive blues and procedural light blues, white background. The image should convey the constitutional issues with insulating a single agency head from presidential control.
+
+### Free Enterprise Fund v. Public Company Accounting Oversight Board (2010)
+Hand-drawn line art illustration showing a tower-like structure with the PCAOB at the top, SEC in the middle, and the President at the bottom. Two safety nets labeled "FOR CAUSE REMOVAL" are stretched between each level. APA Architect is removing the top safety net while examining the structure with a constitutional measuring tape. A small Sarbanes-Oxley document is visible. Style: clean black pen line drawing with minimal watercolor-style coloring in executive blues and procedural light blues, white background. The image should convey the problem of dual layers of removal protection insulating officials from presidential oversight.
+
+## Rulemaking and Adjudication Cases
+
+### Vermont Yankee Nuclear Power Corp. v. NRDC (1978)
+Hand-drawn line art illustration showing APA Architect holding up a simple rulebook labeled "APA: NOTICE & COMMENT" while courthouse judges try to add additional pages labeled "CROSS-EXAMINATION," "ORAL HEARINGS," etc. A small nuclear power plant is visible in the background. The architect points to the APA book with a decisive expression. Style: clean black pen line drawing with minimal watercolor-style coloring in procedural light blues and judicial purples, white background. The image should convey courts attempting to impose additional procedural requirements beyond the APA.
+
+### NLRB v. Bell Aerospace Co. (1974)
+Hand-drawn line art illustration showing APA Architect holding two different tools: a gavel labeled "ADJUDICATION" and a drafting pen labeled "RULEMAKING." The architect looks thoughtfully at a document labeled "BUYERS = MANAGERIAL?" with Bell Aerospace employees in the background wearing "MANAGER?" name tags. Style: clean black pen line drawing with minimal watercolor-style coloring in procedural light blues, white background. The image should convey agency discretion to choose between policymaking tools.
+
+### United States v. Mead Corp. (2001)
+Hand-drawn line art illustration showing Chevron Chameleon examining different types of agency documents. The chameleon holds a rulebook labeled "NOTICE & COMMENT" with a golden "FORCE OF LAW" seal, while looking skeptically at a small stack of papers labeled "TARIFF CLASSIFICATION RULING LETTERS." A tiny day planner (Mead's product) sits on a customs desk. Style: clean black pen line drawing with minimal watercolor-style coloring in judicial purples and blues, white background. The image should convey the distinction between formal procedures deserving deference and less formal agency actions.
+
+## Judicial Review Cases
+
+### Motor Vehicle Manufacturers Association v. State Farm (1983)
+Hand-drawn line art illustration showing Chevron Chameleon in a car with a clipboard checking off "AIRBAGS?" and "AUTO SEATBELTS?" while NHTSA officials try to erase the options. The chameleon points to a regulation with a crossed-out passive restraint requirement. Car safety testing dummies sit in the background. Style: clean black pen line drawing with minimal watercolor-style coloring in judicial purples and blues, white background. The image should convey the need for agencies to consider alternatives and provide reasoned explanations.
+
+### Chevron U.S.A. Inc. v. NRDC (1984)
+Hand-drawn line art illustration showing Chevron Chameleon perched on a scale of justice balancing "AGENCY INTERPRETATION" and "JUDICIAL READING." The chameleon wears judicial glasses while examining a Clean Air Act document with "STATIONARY SOURCE?" highlighted. A factory with a bubble enclosing multiple emission points is visible in the background. Style: clean black pen line drawing with minimal watercolor-style coloring in judicial purples and blues, white background. The image should convey the concept of deference to reasonable agency interpretations of ambiguous statutes.
+
+### Loper Bright Enterprises v. Raimondo (2024)
+Hand-drawn line art illustration showing Chevron Chameleon stepping off a judicial pedestal labeled "DEFERENCE" while holding a balance scale now tilted toward "JUDICIAL INTERPRETATION." A fishing boat with observers on board is visible in the background, with a document labeled "WHO PAYS?" floating above it. A gavel replaces the chameleon's usual question mark tail. Style: clean black pen line drawing with minimal watercolor-style coloring in judicial purples with fading blues, white background. The image should convey the shift away from agency deference toward judicial interpretation.
+
+### Kisor v. Wilkie (2019)
+Hand-drawn line art illustration showing Chevron Chameleon carefully examining agency regulations with a magnifying glass labeled "GENUINE AMBIGUITY?" The chameleon stands at a crossroads with signposts pointing to "AUER DEFERENCE" and "INDEPENDENT JUDGMENT." A veteran's file with "PTSD" and "RELEVANT?" stamps is visible in the background. Style: clean black pen line drawing with minimal watercolor-style coloring in judicial purples and blues, white background. The image should convey the narrowed approach to deferring to agency interpretations of their own regulations.
+
+## Access to Judicial Review Cases
+
+### Abbott Laboratories v. Gardner (1967)
+Hand-drawn line art illustration showing Standing Sam holding open a courthouse door with "PRE-ENFORCEMENT REVIEW" written above it. Sam uses a ripeness gauge with two dials: "FITNESS FOR REVIEW" and "HARDSHIP FROM DELAY." Pharmaceutical bottles with brand names and generic labels visible are lined up outside the door. Style: clean black pen line drawing with minimal watercolor-style coloring in greens and blues, white background. The image should convey accessibility to pre-enforcement judicial review when regulations have direct effects.
+
+### Lujan v. Defenders of Wildlife (1992)
+Hand-drawn line art illustration showing Standing Sam measuring the distance between plaintiffs and endangered animals with an extremely long tape measure labeled "SOMEDAY INTENTIONS." Sam looks skeptical at the measurement while checking a clipboard with "CONCRETE," "PARTICULARIZED," and "IMMINENT" checkboxes, all unchecked. A faded map shows international project locations with question marks. Style: clean black pen line drawing with minimal watercolor-style coloring in greens and blues, white background. The image should convey the requirement for concrete, imminent injury rather than speculative future harm.
+
+### Massachusetts v. EPA (2007)
+Hand-drawn line art illustration showing Standing Sam wearing a special "STATE" hat and measuring rising water levels against a coastal property marker. Sam holds a document labeled "SPECIAL SOLICITUDE" with a gold star. In the background, car emissions form question marks in the air, with a tiny EPA building visible with blinds drawn. Style: clean black pen line drawing with minimal watercolor-style coloring in greens, blues and touches of executive blue, white background. The image should convey states' special standing position and concrete injury from climate impacts.
+
+### Heckler v. Chaney (1985)
+Hand-drawn line art illustration showing Standing Sam being blocked from entering a courtroom door by FDA officials who are pointing to a sign reading "ENFORCEMENT DISCRETION: PRESUMPTIVELY UNREVIEWABLE." Sam looks frustrated while holding a scale of justice. In the background, prison elements and medicine vials are faintly visible. Style: clean black pen line drawing with minimal watercolor-style coloring in greens, blues, and touches of executive blue, white background. The image should convey the concept of agency discretion in enforcement decisions being shielded from judicial review.
+
+## Best Practices for Consistent Implementation
+
+1. **Character Expression**: Each mascot should maintain their core characteristics while reacting appropriately to the case scenario:
+   - Chevron Chameleon: Curious, adaptive, thoughtful expression
+   - Major Questions Mole: Inquisitive, analytical, boundary-conscious
+   - Standing Sam: Measuring, evaluating, access-focused
+   - APA Architect: Methodical, process-oriented, structured
+
+2. **Case Elements**: Include specific factual elements that make each case recognizable and distinct:
+   - Key parties represented visually
+   - Central dispute or question clearly illustrated
+   - Relevant legal documents or principles labeled
+
+3. **Visual Memory Aids**: Use visual metaphors and symbolic elements to enhance memory:
+   - Scales for balancing tests
+   - Bridges/doors for access issues
+   - Measuring tools for standards
+   - Question marks for ambiguities
+
+4. **Doctrinal Integration**: Ensure each illustration connects with the broader doctrinal framework:
+   - Color palette reflects doctrinal area
+   - Visual elements reinforce conceptual relationships
+   - Mascot actions embody core principles of the relevant doctrine
+
+These prompts are designed to create a cohesive visual language around key administrative law cases while maintaining consistency with the existing Admin Law Guide visual style.
