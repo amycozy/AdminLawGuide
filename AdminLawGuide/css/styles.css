@@ -249,6 +249,21 @@ a:hover {
     overflow: hidden;
 }
 
+/* Case illustrations */
+.case-illustration {
+    text-align: center;
+    margin: 20px auto;
+    max-width: 70%;
+}
+
+.case-illustration img {
+    max-width: 100%;
+    max-height: 450px;
+    width: auto;
+    border-radius: 5px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
 .case-box::before {
     content: "";
     position: absolute;
@@ -497,11 +512,13 @@ tr:nth-child(even) {
 .concept-illustration {
     text-align: center;
     margin: 30px auto;
-    max-width: 80%;
+    max-width: 70%;
 }
 
 .concept-illustration img {
     max-width: 100%;
+    max-height: 450px;
+    width: auto;
     border-radius: 5px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
@@ -734,4 +751,82 @@ tr:nth-child(even) {
     border-radius: 3px;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath d='M0 0 L40 0 L40 40 L0 40 Z' fill='%236f4bbd' fill-opacity='0.05'/%3E%3C/svg%3E");
     box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+}
+
+/* Flex layout containers for image-text combinations */
+.flex-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+    margin: 30px 0;
+}
+
+.flex-container.reverse {
+    flex-direction: row-reverse;
+}
+
+.flex-image {
+    flex: 0 0 35%;
+}
+
+.flex-image img {
+    max-width: 100%;
+    max-height: 350px;
+    width: auto;
+    border-radius: 5px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.flex-content {
+    flex: 1;
+}
+
+/* Case illustration with side-by-side layout */
+.case-illustration-flex {
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+    margin: 30px 0;
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+}
+
+.case-illustration-flex .case-image {
+    flex: 0 0 35%;
+    text-align: center;
+}
+
+.case-illustration-flex .case-image img {
+    max-width: 100%;
+    max-height: 300px;
+    width: auto;
+    border-radius: 5px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.case-illustration-flex .case-content {
+    flex: 1;
+}
+
+.case-illustration-flex h4 {
+    margin-top: 0;
+    color: var(--case-primary);
+    border-bottom: 1px solid var(--case-secondary);
+    padding-bottom: 8px;
+}
+
+/* Responsive adjustments for flex layouts */
+@media (max-width: 768px) {
+    .flex-container,
+    .case-illustration-flex {
+        flex-direction: column;
+    }
+    
+    .flex-image,
+    .case-illustration-flex .case-image {
+        flex: 0 0 100%;
+        margin-bottom: 15px;
+    }
 }
