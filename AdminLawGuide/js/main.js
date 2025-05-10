@@ -15,6 +15,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Set up interactive elements
     setupInteractiveElements();
+    
+    // Set up visual knowledge maps interactions
+    setupVisualKnowledgeMaps();
 });
 
 // Initialize Mermaid diagrams
@@ -105,6 +108,14 @@ function setupNavigation() {
                 
                 // Initialize mermaid diagrams in the new content
                 mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+                
+                // Set up visual knowledge maps if this is the visual-knowledge-maps section
+                if (sectionName === 'visual-knowledge-maps') {
+                    setupVisualKnowledgeMaps();
+                }
+                
+                // Initialize toggle answer buttons
+                setupInteractiveElements();
                 
                 // Scroll to top
                 window.scrollTo(0, 0);
@@ -274,6 +285,87 @@ function setupInteractiveElements() {
         container.addEventListener('mouseleave', function() {
             this.style.transform = 'translateY(0)';
             this.style.boxShadow = '2px 2px 5px rgba(0,0,0,0.05)';
+        });
+    });
+}
+
+// Set up visual knowledge maps interactions
+function setupVisualKnowledgeMaps() {
+    // Initialize all scenario answers to be hidden
+    document.querySelectorAll('.scenario-answer').forEach(answer => {
+        answer.style.display = 'none';
+    });
+    
+    // Add hover effects to decision trees and concept webs
+    const visualElements = document.querySelectorAll('.decision-tree, .concept-web, .process-map');
+    visualElements.forEach(element => {
+        element.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.01)';
+            this.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+            this.style.transition = 'transform 0.3s, box-shadow 0.3s';
+        });
+        
+        element.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+            this.style.boxShadow = 'none';
+        });
+    });
+    
+    // Add interactive behavior to decision tree nodes
+    document.querySelectorAll('.node-question').forEach(node => {
+        node.addEventListener('click', function() {
+            this.classList.toggle('highlight');
+            if (this.classList.contains('highlight')) {
+                this.style.backgroundColor = '#e8f5e9';
+                this.style.borderColor = '#4caf50';
+            } else {
+                this.style.backgroundColor = 'white';
+                this.style.borderColor = '#2c3e50';
+            }
+        });
+    });
+    
+    // Add interactive behavior to concept web nodes
+    document.querySelectorAll('.central-node, .connected-node').forEach(node => {
+        node.addEventListener('click', function() {
+            this.classList.toggle('highlight');
+            if (this.classList.contains('highlight')) {
+                this.style.backgroundColor = '#e3f2fd';
+                this.style.borderColor = '#1976d2';
+                this.style.fontWeight = 'bold';
+            } else {
+                this.style.backgroundColor = 'white';
+                this.style.borderColor = '';
+                this.style.fontWeight = '';
+            }
+        });
+    });
+    
+    // Add interactive behavior to timeline items
+    document.querySelectorAll('.timeline-content').forEach(item => {
+        item.addEventListener('click', function() {
+            this.classList.toggle('highlight');
+            if (this.classList.contains('highlight')) {
+                this.style.backgroundColor = '#f5f5f5';
+                this.style.transform = 'scale(1.05)';
+                this.style.boxShadow = '0 8px 16px rgba(0,0,0,0.1)';
+            } else {
+                this.style.backgroundColor = 'white';
+                this.style.transform = 'scale(1)';
+                this.style.boxShadow = '0 1px 5px rgba(0,0,0,0.15)';
+            }
+        });
+    });
+    
+    // Process map interactions
+    document.querySelectorAll('.process-step, .process-branch').forEach(step => {
+        step.addEventListener('mouseenter', function() {
+            this.style.backgroundColor = '#f1f8e9';
+            this.style.transition = 'background-color 0.3s';
+        });
+        
+        step.addEventListener('mouseleave', function() {
+            this.style.backgroundColor = '';
         });
     });
 }

@@ -1,0 +1,385 @@
+/* Visual Knowledge Maps Styles */
+
+/* Decision Trees */
+.decision-tree {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #f9f5ff;
+    border-radius: 10px;
+}
+
+.tree {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.tree li {
+    position: relative;
+    margin: 10px 0;
+    padding-left: 15px;
+}
+
+.tree li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-left: 2px solid #6f4bbd;
+    height: 100%;
+}
+
+.tree li:last-child::before {
+    height: 15px;
+}
+
+.tree li::after {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 0;
+    border-top: 2px solid #6f4bbd;
+    width: 15px;
+}
+
+.node-question {
+    display: block;
+    padding: 8px 12px;
+    background-color: white;
+    border: 1px solid #2c3e50;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.node-answer {
+    display: inline-block;
+    margin-right: 10px;
+    font-style: italic;
+    color: #6f4bbd;
+}
+
+.node-result {
+    display: inline-block;
+    padding: 4px 8px;
+    background-color: #e8f5e9;
+    border: 1px solid #4caf50;
+    border-radius: 5px;
+}
+
+.node-result.negative {
+    background-color: #ffebee;
+    border-color: #c62828;
+}
+
+.key-tests {
+    background-color: #f0f0f0;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+.key-tests h5 {
+    color: #6f4bbd;
+    margin-top: 0;
+}
+
+.key-tests ul {
+    padding-left: 20px;
+}
+
+.note {
+    font-style: italic;
+    color: #555;
+    margin-top: 10px;
+}
+
+/* Concept Webs */
+.concept-web {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #f2f7fd;
+    border-radius: 10px;
+}
+
+.web-central {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.central-node {
+    text-align: center;
+    padding: 15px;
+    margin: 0 auto 20px auto;
+    width: 150px;
+    background-color: white;
+    border: 3px solid #4b7bbd;
+    border-radius: 75px;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.node-connection {
+    position: relative;
+    margin: 30px 0;
+    padding-left: 20px;
+}
+
+.node-connection::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    border-left: 2px solid #4b7bbd;
+    height: 15px;
+}
+
+.connected-node {
+    display: block;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    border: 2px solid #4b7bbd;
+    border-radius: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.node-connection:nth-child(odd) .connected-node {
+    border-color: #6f4bbd;
+}
+
+.node-connection:nth-child(3) .connected-node {
+    border-color: #4bbd4b;
+}
+
+.node-connection:nth-child(5) .connected-node {
+    border-color: #f57c00;
+}
+
+.node-connection ul {
+    list-style-type: disc;
+    padding-left: 30px;
+}
+
+/* Timelines */
+.timeline {
+    position: relative;
+    max-width: 100%;
+    margin: 20px auto;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: #6f4bbd;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+}
+
+.timeline-container {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 44%;
+}
+
+.timeline-container.left {
+    left: 0;
+}
+
+.timeline-container.right {
+    left: 50%;
+}
+
+.timeline-container::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: -10px;
+    background-color: white;
+    border: 4px solid #6f4bbd;
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.timeline-container.right::after {
+    left: -10px;
+}
+
+.timeline-content {
+    padding: 15px;
+    background-color: white;
+    position: relative;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.timeline-content h4 {
+    margin-top: 0;
+    color: #6f4bbd;
+}
+
+/* Process Maps */
+.process-map {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #e8f5e9;
+    border-radius: 10px;
+}
+
+.process-steps {
+    list-style-type: none;
+    padding-left: 0;
+    position: relative;
+}
+
+.process-steps::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20px;
+    height: 100%;
+    width: 2px;
+    background-color: #4bbd4b;
+}
+
+.process-step {
+    position: relative;
+    margin-bottom: 20px;
+    padding-left: 50px;
+}
+
+.process-step::before {
+    content: '';
+    position: absolute;
+    left: 12px;
+    top: 15px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #4bbd4b;
+    z-index: 1;
+}
+
+.step-title {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #2c3e50;
+}
+
+.step-description, .step-requirements {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.step-requirements {
+    font-style: italic;
+    color: #555;
+    font-size: 0.9em;
+}
+
+.process-branch {
+    position: relative;
+    margin-top: 30px;
+    padding-left: 50px;
+    padding-top: 15px;
+    border-top: 2px dashed #6f4bbd;
+}
+
+.branch-title {
+    display: block;
+    font-weight: bold;
+    color: #6f4bbd;
+    margin-bottom: 5px;
+}
+
+.process-decision {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.decision-point {
+    border: 2px solid #6f4bbd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: white;
+}
+
+.decision-question {
+    display: block;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.decision-branches {
+    list-style-type: none;
+    padding-left: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.decision-branch {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 0 10px;
+}
+
+.branch-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #4b7bbd;
+}
+
+.branch-result {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.branch-note {
+    display: block;
+    font-style: italic;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.process-note {
+    margin-top: 15px;
+    font-style: italic;
+    color: #555;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+
+/* Back to Top Link */
+.back-to-top {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.back-to-top a {
+    padding: 8px 15px;
+    background-color: #6f4bbd;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.back-to-top a:hover {
+    background-color: #523890;
+}

@@ -1,0 +1,48 @@
+# Admin Law Guide Mascot Style Guidelines
+
+To ensure visual consistency across all mascot illustrations, please adhere to the following guidelines:
+
+## Overall Style
+- Medium: Hand-drawn line art with minimal watercolor-style coloring
+- Line Quality: Clean, confident black pen lines of consistent weight
+- Background: Clean white with very subtle contextual elements
+- Composition: Character centered, taking up approximately 60-70% of the image area
+
+## Character Design
+- Proportions: Slightly oversized heads for a friendly, approachable look
+- Expressiveness: Clear, friendly facial expressions
+- Detail Level: Moderate detail in characters, minimal detail in backgrounds
+- Anthropomorphism: Animal characters should have some human-like qualities while maintaining species characteristics
+
+## Color Palette
+- Application: Minimal watercolor-style coloring with deliberate color choices
+- Opacity: Semi-transparent, allowing line work to show through
+- Branch-Specific Colors:
+  - Legislative: Greens (#4bbd4b, #f2f9f2, #2d7d2d)
+  - Executive: Blues (#4b7bbd, #f2f7fd, #2c5899)
+  - Judicial: Purples (#6f4bbd, #f9f5ff, #523890)
+  - Procedural: Light Blues (#03a9f4, #e1f5fe)
+  - Substantive: Pinks/Roses (#bd4b7a, #fef2f7)
+  - Constitutional: Amber/Orange (#f57c00, #fff3e0)
+
+## Typography
+- Text Style: Simple, clear handwritten font style
+- Text Placement: Integrate labels organically within the illustration
+- Legibility: Ensure all text is easily readable
+- Hierarchy: Use text size/weight to indicate importance
+
+## Individual Mascot Specifics
+1. Chevron Chameleon: Blues to purples color transition, judge-like elements, scales of justice
+2. Major Questions Mole: Earth tones and ambers, academic/detective elements, boundary indication
+3. Standing Sam: Greens and blues, measurement tools, badge/checkpoint elements
+4. APA Architect: Blues and light browns, construction/building elements, procedural tools
+
+## Technical Specifications
+- Format: Square (1:1 aspect ratio)
+- Resolution: 1024x1024 pixels minimum
+- File Type: PNG with transparent background
+
+## Emotion & Tone
+- All characters should appear friendly, helpful, and knowledgeable
+- Convey approachability while maintaining academic credibility
+- Express the core concept of each doctrine through visual metaphor

@@ -1,0 +1,267 @@
+/* Admin Law Guide Mascot Styling */
+
+/* General Mascot Container */
+.mascot-container {
+    position: relative;
+    margin: 20px auto;
+    text-align: center;
+    max-width: 80%;
+    transition: transform 0.3s ease;
+}
+
+.mascot-container:hover {
+    transform: translateY(-5px);
+}
+
+/* Mascot Images */
+.mascot-image {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Meet Your Guide Panel */
+.guide-panel {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 30px 0;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.guide-panel-image {
+    flex: 0 0 150px;
+    margin-right: 20px;
+}
+
+.guide-panel-image img {
+    max-width: 100%;
+    border-radius: 50%;
+    border: 3px solid;
+}
+
+.guide-panel-content {
+    flex: 1;
+}
+
+.guide-panel h3 {
+    margin-top: 0;
+    border-left: none;
+    padding-left: 0;
+}
+
+/* Branch-specific styling */
+.guide-panel.judicial .guide-panel-image img {
+    border-color: var(--judicial-primary);
+}
+
+.guide-panel.judicial h3 {
+    color: var(--judicial-primary);
+}
+
+.guide-panel.executive .guide-panel-image img {
+    border-color: var(--executive-primary);
+}
+
+.guide-panel.executive h3 {
+    color: var(--executive-primary);
+}
+
+.guide-panel.legislative .guide-panel-image img {
+    border-color: var(--legislative-primary);
+}
+
+.guide-panel.legislative h3 {
+    color: var(--legislative-primary);
+}
+
+/* Mascot Speech Bubbles */
+.mascot-speech {
+    position: relative;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 15px;
+    margin: 20px;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+    border-left: 4px solid var(--judicial-primary);
+}
+
+.mascot-speech::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 15px solid #fff;
+    bottom: -15px;
+    left: 30px;
+    filter: drop-shadow(0 3px 2px rgba(0,0,0,0.1));
+}
+
+.mascot-speech.right-bubble::before {
+    left: auto;
+    right: 30px;
+}
+
+/* Character-specific styles */
+.chevron-chameleon .mascot-speech {
+    border-left-color: var(--judicial-primary);
+    background-color: var(--judicial-background);
+}
+
+.major-questions-mole .mascot-speech {
+    border-left-color: var(--constitutional-primary);
+    background-color: var(--constitutional-background);
+}
+
+.standing-sam .mascot-speech {
+    border-left-color: var(--procedural-primary);
+    background-color: var(--procedural-background);
+}
+
+.apa-architect .mascot-speech {
+    border-left-color: var(--executive-primary);
+    background-color: var(--executive-background);
+}
+
+/* Mascot concept boxes */
+.mascot-concept {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 25px 0;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    position: relative;
+    padding-left: 100px;
+    min-height: 80px;
+}
+
+.mascot-concept-icon {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--judicial-primary);
+}
+
+/* Mascot-themed headers */
+.mascot-header {
+    display: flex;
+    align-items: center;
+    margin: 30px 0 20px 0;
+}
+
+.mascot-header img {
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+    border-radius: 50%;
+}
+
+.mascot-header h3, .mascot-header h4 {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+/* Mascot checkpoint - special callout sections */
+.mascot-checkpoint {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-left: 5px solid var(--judicial-primary);
+    padding: 15px 15px 15px 80px;
+    margin: 20px 0;
+    border-radius: 5px;
+    position: relative;
+}
+
+.mascot-checkpoint::before {
+    content: "";
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    width: 50px;
+    height: 50px;
+    background-image: url('../assets/chevron-chameleon.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.mascot-checkpoint.major-questions::before {
+    background-image: url('../assets/major-questions-mole.svg');
+}
+
+.mascot-checkpoint.standing::before {
+    background-image: url('../assets/standing-sam.svg');
+}
+
+.mascot-checkpoint.apa::before {
+    background-image: url('../assets/apa-architect.svg');
+}
+
+/* Interactive character elements */
+.character-challenge {
+    background-color: var(--quiz-background);
+    border: 1px solid var(--quiz-primary);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 30px 0;
+    position: relative;
+}
+
+.character-challenge-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.character-challenge-header img {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+    border-radius: 50%;
+}
+
+.character-challenge-header h4 {
+    margin: 0;
+    color: var(--quiz-primary);
+}
+
+/* For navigation icons */
+.nav-mascot-icon {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 5px;
+    border-radius: 50%;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+    .guide-panel {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .guide-panel-image {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+    
+    .mascot-concept {
+        padding-left: 20px;
+        padding-top: 90px;
+    }
+    
+    .mascot-concept-icon {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
