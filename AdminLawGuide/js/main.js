@@ -9,6 +9,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Set up control buttons
     setupControlButtons();
+    
+    // Apply visual enhancements
+    applyVisualEnhancements();
+    
+    // Set up interactive elements
+    setupInteractiveElements();
 });
 
 // Initialize Mermaid diagrams
@@ -149,4 +155,125 @@ function setupControlButtons() {
             printInstructions.style.display = 'none';
         });
     }
+}
+
+// Apply visual enhancements to headings and elements
+function applyVisualEnhancements() {
+    // Add icons to headings based on their content
+    document.querySelectorAll('h2, h3, h4').forEach(heading => {
+        const headingText = heading.textContent.toLowerCase();
+        
+        // Add appropriate classes based on heading content
+        if (headingText.includes('legislat') || headingText.includes('congress') || headingText.includes('statute')) {
+            heading.classList.add('icon-legislative');
+        } else if (headingText.includes('executive') || headingText.includes('president') || headingText.includes('agency')) {
+            heading.classList.add('icon-executive');
+        } else if (headingText.includes('judici') || headingText.includes('court') || headingText.includes('review')) {
+            heading.classList.add('icon-judicial');
+        } else if (headingText.includes('procedure') || headingText.includes('process')) {
+            heading.classList.add('icon-procedural');
+        } else if (headingText.includes('constitution')) {
+            heading.classList.add('icon-constitutional');
+        }
+    });
+    
+    // Add visual hover effects to case boxes
+    document.querySelectorAll('.case-box').forEach(box => {
+        box.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-5px)';
+            this.style.boxShadow = '0 8px 16px rgba(0,0,0,0.1)';
+            this.style.transition = 'transform 0.3s, box-shadow 0.3s';
+        });
+        
+        box.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+            this.style.boxShadow = '0 3px 6px rgba(0,0,0,0.1)';
+        });
+    });
+    
+    // Enhance mermaid diagrams with better visibility
+    document.querySelectorAll('.mermaid').forEach(diagram => {
+        diagram.style.backgroundColor = '#fcfcff';
+        diagram.style.padding = '15px';
+        diagram.style.borderRadius = '8px';
+    });
+}
+
+// Set up interactive elements for mastery center
+function setupInteractiveElements() {
+    // Set up flashcard functionality
+    document.querySelectorAll('.flashcard').forEach(card => {
+        card.addEventListener('click', function() {
+            this.classList.toggle('flipped');
+        });
+    });
+    
+    // Set up mastery center tabs
+    document.querySelectorAll('.mastery-tab').forEach(tab => {
+        tab.addEventListener('click', function() {
+            // Remove active class from all tabs
+            document.querySelectorAll('.mastery-tab').forEach(t => {
+                t.classList.remove('active');
+            });
+            
+            // Add active class to clicked tab
+            this.classList.add('active');
+            
+            // Hide all sections
+            document.querySelectorAll('.mastery-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show the corresponding section
+            const tabId = this.getAttribute('data-tab');
+            document.getElementById(tabId).classList.add('active');
+        });
+    });
+    
+    // Set up toggle answer buttons
+    document.querySelectorAll('.toggle-answer').forEach(button => {
+        button.addEventListener('click', function() {
+            const targetId = this.getAttribute('data-target');
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement.style.display === 'none' || !targetElement.style.display) {
+                targetElement.style.display = 'block';
+                this.textContent = 'Hide Analysis';
+            } else {
+                targetElement.style.display = 'none';
+                this.textContent = 'Show Analysis';
+            }
+        });
+    });
+    
+    // Set up quiz functionality
+    const checkAnswersButton = document.getElementById('check-answers');
+    if (checkAnswersButton) {
+        checkAnswersButton.addEventListener('click', function() {
+            const feedbackElements = document.querySelectorAll('.quiz-feedback');
+            feedbackElements.forEach(element => {
+                element.style.display = 'block';
+            });
+            
+            const radioButtons = document.querySelectorAll('.quiz-options input[type="radio"]');
+            radioButtons.forEach(radio => {
+                radio.disabled = true;
+            });
+        });
+    }
+    
+    // Add hover effects to doctrine boxes and other containers
+    const enhanceableContainers = document.querySelectorAll('.doctrine-box, .legislative-box, .executive-box, .judicial-box, .case-box');
+    enhanceableContainers.forEach(container => {
+        container.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-3px)';
+            this.style.boxShadow = '0 6px 12px rgba(0,0,0,0.1)';
+            this.style.transition = 'transform 0.3s, box-shadow 0.3s';
+        });
+        
+        container.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+            this.style.boxShadow = '2px 2px 5px rgba(0,0,0,0.05)';
+        });
+    });
 }

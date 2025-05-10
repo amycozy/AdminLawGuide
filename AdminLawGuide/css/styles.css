@@ -1,5 +1,43 @@
 /* Main styles for Administrative Law Guide */
 
+/* CSS Variables for consistent color usage */
+:root {
+    /* Branch-specific colors */
+    --legislative-primary: #4bbd4b;
+    --legislative-background: #f2f9f2;
+    --legislative-accent: #2d7d2d;
+    
+    --executive-primary: #4b7bbd;
+    --executive-background: #f2f7fd;
+    --executive-accent: #2c5899;
+    
+    --judicial-primary: #6f4bbd;
+    --judicial-background: #f9f5ff;
+    --judicial-accent: #523890;
+    
+    /* Conceptual area colors */
+    --procedural-primary: #03a9f4;
+    --procedural-background: #e1f5fe;
+    
+    --substantive-primary: #bd4b7a;
+    --substantive-background: #fef2f7;
+    
+    --constitutional-primary: #f57c00;
+    --constitutional-background: #fff3e0;
+    
+    /* Interactive element colors */
+    --interactive-primary: #2980b9;
+    --interactive-hover: #3498db;
+    
+    /* Quiz and practice colors */
+    --quiz-primary: #8e44ad;
+    --quiz-background: #f5eefa;
+    
+    /* Case illustration colors */
+    --case-primary: #d4a76a;
+    --case-secondary: #c68642;
+}
+
 body {
     font-family: 'Noto Serif', 'Times New Roman', serif;
     line-height: 1.6;
@@ -10,6 +48,7 @@ body {
     margin: 0 auto;
     background-color: #f9f9f9;
     background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e0e0e0' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    transition: background-color 0.3s ease;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -17,6 +56,17 @@ h1, h2, h3, h4, h5, h6 {
     color: #2c3e50;
     margin-top: 1.5em;
     margin-bottom: 0.5em;
+    position: relative;
+}
+
+/* Icon space for headings */
+h2::before, h3::before, h4::before {
+    margin-right: 10px;
+    font-family: 'Georgia', serif;
+    opacity: 0.8;
+    display: inline-block;
+    width: 24px;
+    text-align: center;
 }
 
 h1 {
@@ -46,11 +96,16 @@ h2 {
     font-size: 1.8em;
     border-bottom: 1px solid #ddd;
     padding-bottom: 0.2em;
+    background: linear-gradient(90deg, rgba(41, 128, 185, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+    padding-left: 10px;
+    border-radius: 4px 4px 0 0;
 }
 
 h3 {
     font-size: 1.5em;
     color: #2980b9;
+    padding-left: 5px;
+    border-left: 3px solid #2980b9;
 }
 
 h4 {
@@ -411,6 +466,175 @@ tr:nth-child(even) {
 
 .comparison-table tr:hover td {
     background-color: #e8f1fa;
+}
+
+/* Enhanced Visual Elements */
+.icon-legislative::before {
+    content: "🏛️";
+}
+
+.icon-executive::before {
+    content: "📋";
+}
+
+.icon-judicial::before {
+    content: "⚖️";
+}
+
+.icon-procedural::before {
+    content: "⚙️";
+}
+
+.icon-substantive::before {
+    content: "📝";
+}
+
+.icon-constitutional::before {
+    content: "📜";
+}
+
+/* Concept illustration containers */
+.concept-illustration {
+    text-align: center;
+    margin: 30px auto;
+    max-width: 80%;
+}
+
+.concept-illustration img {
+    max-width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.concept-illustration figcaption {
+    font-style: italic;
+    color: #666;
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+
+/* Interactive elements */
+.interactive-element {
+    background-color: var(--quiz-background);
+    border: 1px solid var(--quiz-primary);
+    border-radius: 5px;
+    padding: 20px;
+    margin: 25px 0;
+    position: relative;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.interactive-element:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.interactive-element h4 {
+    color: var(--quiz-primary);
+    margin-top: 0;
+}
+
+/* Admin Law Mastery Center */
+.mastery-center {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    margin: 40px 0;
+    overflow: hidden;
+}
+
+.mastery-center-header {
+    background: linear-gradient(135deg, var(--quiz-primary) 0%, #6c3483 100%);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.mastery-center-header h3 {
+    margin: 0;
+    color: white;
+    border-left: none;
+    padding-left: 0;
+}
+
+.mastery-tabs {
+    display: flex;
+    border-bottom: 1px solid #eee;
+}
+
+.mastery-tab {
+    flex: 1;
+    text-align: center;
+    padding: 15px;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s;
+}
+
+.mastery-tab:hover, .mastery-tab.active {
+    background-color: var(--quiz-background);
+    border-bottom-color: var(--quiz-primary);
+}
+
+.mastery-content {
+    padding: 20px;
+}
+
+.mastery-section {
+    display: none;
+}
+
+.mastery-section.active {
+    display: block;
+}
+
+/* Flashcard system */
+.flashcard {
+    width: 100%;
+    height: 200px;
+    perspective: 1000px;
+    margin-bottom: 20px;
+}
+
+.flashcard-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.flashcard:hover .flashcard-inner {
+    transform: rotateY(10deg);
+}
+
+.flashcard.flipped .flashcard-inner {
+    transform: rotateY(180deg);
+}
+
+.flashcard-front, .flashcard-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.flashcard-front {
+    background-color: white;
+    border: 1px solid #ddd;
+}
+
+.flashcard-back {
+    background-color: var(--quiz-background);
+    transform: rotateY(180deg);
 }
 
 /* Timeline */
