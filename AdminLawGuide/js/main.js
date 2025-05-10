@@ -212,6 +212,33 @@ function applyVisualEnhancements() {
 
 // Set up interactive elements for mastery center
 function setupInteractiveElements() {
+    // Set up mastery navigation links
+    document.querySelectorAll('.mastery-nav-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Remove active class from all navigation links
+            document.querySelectorAll('.mastery-nav-link').forEach(l => {
+                l.classList.remove('active');
+            });
+            
+            // Add active class to clicked link
+            this.classList.add('active');
+            
+            // Hide all mastery sections
+            document.querySelectorAll('.mastery-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show the target section
+            const targetId = this.getAttribute('data-target');
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+        });
+    });
+
     // Set up flashcard functionality
     document.querySelectorAll('.flashcard').forEach(card => {
         card.addEventListener('click', function() {
@@ -235,9 +262,19 @@ function setupInteractiveElements() {
                 section.classList.remove('active');
             });
             
-            // Show the corresponding section
+            // Show the corresponding section - modified to work with mastery-* IDs
             const tabId = this.getAttribute('data-tab');
-            document.getElementById(tabId).classList.add('active');
+            if (tabId.startsWith('tab-')) {
+                // For tab-based navigation, allow both old and new ID formats
+                const newId = 'mastery-' + tabId.substring(4); // convert tab-flashcards to mastery-flashcards
+                const section = document.getElementById(tabId) || document.getElementById(newId);
+                if (section) {
+                    section.classList.add('active');
+                }
+            } else {
+                // For other tabs
+                document.getElementById(tabId).classList.add('active');
+            }
         });
     });
     

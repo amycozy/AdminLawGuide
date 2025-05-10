@@ -1,10 +1,10 @@
 <h2 id="mastery-center-section">Admin Law Mastery Center</h2>
 
-<div class="section-navigation">
-    <a href="#concept-reinforcement">Concept Reinforcement</a>
-    <a href="#application-practice">Application Practice</a>
-    <a href="#synthesis-challenges">Synthesis Challenges</a>
-    <a href="#visual-knowledge-maps">Visual Knowledge Maps</a>
+<div class="mastery-navigation">
+    <a href="#" class="mastery-nav-link active" data-target="mastery-flashcards">Flashcards</a>
+    <a href="#" class="mastery-nav-link" data-target="mastery-scenarios">Practice Scenarios</a>
+    <a href="#" class="mastery-nav-link" data-target="mastery-comparisons">Concept Comparisons</a>
+    <a href="#" class="mastery-nav-link" data-target="mastery-quizzes">Self-Quizzes</a>
 </div>
 
 <div class="explanation" id="mastery-center-intro">
@@ -24,62 +24,317 @@
         </div>
         <div class="mastery-content">
             <!-- Flashcards Section -->
-            <div id="tab-flashcards" class="mastery-section active">
+            <div class="mastery-section active" id="mastery-flashcards">
                 <h4>Spaced Repetition Flashcards</h4>
                 <p>Click on a card to flip it and check your understanding. Come back to these cards regularly to solidify your knowledge through spaced repetition.</p>
                 
-                <!-- Flashcard 1: Chevron Doctrine -->
-                <div class="flashcard">
-                    <div class="flashcard-inner">
-                        <div class="flashcard-front">
-                            <h4>Chevron Doctrine</h4>
-                            <p>What was the two-step framework for judicial review of agency statutory interpretations?</p>
+                <div class="flashcard-controls">
+                    <button id="show-different-cards" class="control-button">Show Different Cards</button>
+                    <p><small>Currently showing 3 of 25 total flashcards</small></p>
+                </div>
+                
+                <div id="flashcard-container">
+                    <!-- Initial static flashcards -->
+                    <div class="flashcard">
+                        <div class="flashcard-inner">
+                            <div class="flashcard-front">
+                                <h4>Chevron Doctrine</h4>
+                                <p>What was the two-step framework for judicial review of agency statutory interpretations?</p>
+                            </div>
+                            <div class="flashcard-back">
+                                <h4>Chevron Doctrine</h4>
+                                <p><strong>Step 1:</strong> Has Congress directly spoken to the precise question at issue? If yes, that's the end of the matter.<br><br><strong>Step 2:</strong> If the statute is silent or ambiguous, is the agency's interpretation reasonable?<br><br><em>Note: Loper Bright (2024) overturned this framework.</em></p>
+                            </div>
                         </div>
-                        <div class="flashcard-back">
-                            <h4>Chevron Doctrine</h4>
-                            <p><strong>Step 1:</strong> Has Congress directly spoken to the precise question at issue? If yes, that's the end of the matter.</p>
-                            <p><strong>Step 2:</strong> If the statute is silent or ambiguous, is the agency's interpretation reasonable?</p>
-                            <p><em>Note: Loper Bright (2024) overturned this framework.</em></p>
+                    </div>
+                    
+                    <div class="flashcard">
+                        <div class="flashcard-inner">
+                            <div class="flashcard-front">
+                                <h4>Major Questions Doctrine</h4>
+                                <p>When does the Major Questions Doctrine apply, and what does it require?</p>
+                            </div>
+                            <div class="flashcard-back">
+                                <h4>Major Questions Doctrine</h4>
+                                <p>Applies when an agency claims authority over a question of vast economic and political significance.<br><br>Requires: Clear congressional authorization for the agency's action.<br><br>Key cases: West Virginia v. EPA, NFIB v. OSHA</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flashcard">
+                        <div class="flashcard-inner">
+                            <div class="flashcard-front">
+                                <h4>Article III Standing</h4>
+                                <p>What are the three requirements for Article III standing?</p>
+                            </div>
+                            <div class="flashcard-back">
+                                <h4>Article III Standing</h4>
+                                <p><strong>1. Injury in fact:</strong> Concrete, particularized, actual or imminent<br><br><strong>2. Causation:</strong> Fairly traceable to the challenged action<br><br><strong>3. Redressability:</strong> Likely to be redressed by a favorable decision<br><br>Zone of interests is a separate prudential requirement.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Flashcard 2: Major Questions Doctrine -->
-                <div class="flashcard">
-                    <div class="flashcard-inner">
-                        <div class="flashcard-front">
-                            <h4>Major Questions Doctrine</h4>
-                            <p>When does the Major Questions Doctrine apply, and what does it require?</p>
-                        </div>
-                        <div class="flashcard-back">
-                            <h4>Major Questions Doctrine</h4>
-                            <p>Applies when an agency claims authority over a question of vast economic and political significance.</p>
-                            <p>Requires: Clear congressional authorization for the agency's action.</p>
-                            <p>Key cases: West Virginia v. EPA, NFIB v. OSHA</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Flashcard 3: Standing -->
-                <div class="flashcard">
-                    <div class="flashcard-inner">
-                        <div class="flashcard-front">
-                            <h4>Article III Standing</h4>
-                            <p>What are the three requirements for Article III standing?</p>
-                        </div>
-                        <div class="flashcard-back">
-                            <h4>Article III Standing</h4>
-                            <p><strong>1. Injury in fact:</strong> Concrete, particularized, actual or imminent</p>
-                            <p><strong>2. Causation:</strong> Fairly traceable to the challenged action</p>
-                            <p><strong>3. Redressability:</strong> Likely to be redressed by a favorable decision</p>
-                            <p>Zone of interests is a separate prudential requirement.</p>
-                        </div>
-                    </div>
-                </div>
+                <script>
+                    // Array of all 25 flashcards
+                    const allFlashcards = [
+                        // 1. Chevron Doctrine
+                        {
+                            title: "Chevron Doctrine",
+                            question: "What was the two-step framework for judicial review of agency statutory interpretations?",
+                            answer: "<strong>Step 1:</strong> Has Congress directly spoken to the precise question at issue? If yes, that's the end of the matter.<br><br><strong>Step 2:</strong> If the statute is silent or ambiguous, is the agency's interpretation reasonable?<br><br><em>Note: Loper Bright (2024) overturned this framework.</em>"
+                        },
+                        
+                        // 2. Major Questions Doctrine
+                        {
+                            title: "Major Questions Doctrine",
+                            question: "When does the Major Questions Doctrine apply, and what does it require?",
+                            answer: "Applies when an agency claims authority over a question of vast economic and political significance.<br><br>Requires: Clear congressional authorization for the agency's action.<br><br>Key cases: West Virginia v. EPA, NFIB v. OSHA"
+                        },
+                        
+                        // 3. Article III Standing
+                        {
+                            title: "Article III Standing",
+                            question: "What are the three requirements for Article III standing?",
+                            answer: "<strong>1. Injury in fact:</strong> Concrete, particularized, actual or imminent<br><br><strong>2. Causation:</strong> Fairly traceable to the challenged action<br><br><strong>3. Redressability:</strong> Likely to be redressed by a favorable decision<br><br>Zone of interests is a separate prudential requirement."
+                        },
+                        
+                        // 4. Loper Bright Decision
+                        {
+                            title: "Loper Bright Enterprises v. Raimondo",
+                            question: "How did the Supreme Court's 2024 decision in Loper Bright change administrative law?",
+                            answer: "Overturned the Chevron deference framework after nearly 40 years.<br><br>Held that courts should determine the best reading of a statute using traditional tools of statutory interpretation, rather than deferring to agency interpretations of ambiguous statutes.<br><br>Significantly reduced agency interpretive authority."
+                        },
+                        
+                        // 5. APA § 553 Requirements
+                        {
+                            title: "Notice and Comment Rulemaking",
+                            question: "What are the basic requirements for notice and comment rulemaking under APA § 553?",
+                            answer: "<strong>1. Notice:</strong> Publication of proposed rule in Federal Register<br><br><strong>2. Comment:</strong> Opportunity for interested persons to submit comments<br><br><strong>3. Statement:</strong> Concise general statement of basis and purpose with final rule<br><br><strong>4. Publication:</strong> 30 days before effective date (with exceptions)"
+                        },
+                        
+                        // 6. APA § 553 Exceptions
+                        {
+                            title: "Exceptions to Notice and Comment",
+                            question: "What are the three main exceptions to APA § 553 notice and comment requirements?",
+                            answer: "<strong>1. Interpretive rules:</strong> Explain but don't add to existing legal obligations<br><br><strong>2. Policy statements:</strong> Tentative agency positions that don't bind the public<br><br><strong>3. Procedural rules:</strong> Rules of agency organization, procedure, or practice<br><br>Courts interpret these exceptions narrowly."
+                        },
+                        
+                        // 7. Formal Adjudication
+                        {
+                            title: "Formal Adjudication",
+                            question: "What are the key procedural requirements for formal adjudication under the APA?",
+                            answer: "<strong>APA §§ 554, 556, 557 require:</strong><br>- Notice of time, place, and nature of hearing<br>- Legal authority and matters of fact and law asserted<br>- Opportunity to submit facts and arguments<br>- Hearing before an ALJ<br>- Burden of proof on the proponent<br>- Right to present evidence and cross-examine<br>- Decision based on the record with statement of findings and conclusions"
+                        },
+                        
+                        // 8. Arbitrary and Capricious Review
+                        {
+                            title: "Arbitrary and Capricious Review",
+                            question: "What are the key factors courts consider in 'hard look' arbitrary and capricious review?",
+                            answer: "Under Motor Vehicle Manufacturers Ass'n v. State Farm, courts evaluate whether the agency:<br><br>1. Examined the relevant data<br>2. Articulated a satisfactory explanation connecting facts to the choice made<br>3. Considered all important aspects of the problem<br>4. Offered an explanation that runs counter to the evidence<br>5. Is so implausible it couldn't be attributed to expertise or disagreement"
+                        },
+                        
+                        // 9. Vermont Yankee
+                        {
+                            title: "Vermont Yankee",
+                            question: "What principle did Vermont Yankee v. NRDC establish about rulemaking procedures?",
+                            answer: "Courts cannot impose procedural requirements beyond those in the APA.<br><br>Agencies have discretion to decide what procedures to use beyond the APA's minimum requirements.<br><br>This limits judicial review of the adequacy of rulemaking procedures."
+                        },
+                        
+                        // 10. Ripeness
+                        {
+                            title: "Ripeness",
+                            question: "What is the test for ripeness in challenges to agency action?",
+                            answer: "From Abbott Laboratories v. Gardner:<br><br><strong>1. Fitness for judicial review:</strong> Is the issue purely legal and final?<br><br><strong>2. Hardship to the parties:</strong> What hardship would result from withholding review?<br><br>Pre-enforcement review is available if these factors are satisfied."
+                        },
+                        
+                        // 11. Finality
+                        {
+                            title: "Final Agency Action",
+                            question: "What makes an agency action 'final' for purposes of judicial review under the APA?",
+                            answer: "Bennett v. Spear established a two-part test:<br><br>1. The action must mark the <strong>consummation</strong> of the agency's decision-making process<br><br>2. The action must be one by which <strong>rights or obligations have been determined</strong> or from which <strong>legal consequences will flow</strong>"
+                        },
+                        
+                        // 12. Exhaustion
+                        {
+                            title: "Exhaustion of Administrative Remedies",
+                            question: "When is a plaintiff required to exhaust administrative remedies before seeking judicial review?",
+                            answer: "<strong>If required by statute:</strong> Mandatory and jurisdictional<br><br><strong>If judge-made:</strong> Discretionary and subject to exceptions for:<br>- Futility<br>- Irreparable harm<br>- Bias<br>- Challenging the agency's jurisdiction<br>- Raising constitutional questions"
+                        },
+                        
+                        // 13. Nondelegation Doctrine
+                        {
+                            title: "Nondelegation Doctrine",
+                            question: "What is the nondelegation doctrine and when has it been successfully invoked?",
+                            answer: "Based on Article I's vesting clause that gives legislative power to Congress.<br><br>Requires Congress to supply an 'intelligible principle' to guide agency discretion.<br><br>Only successfully used twice, both in 1935 (Panama Refining and Schechter Poultry).<br><br>Recently, there has been renewed interest in strengthening the doctrine."
+                        },
+                        
+                        // 14. Removal Power
+                        {
+                            title: "Presidential Removal Power",
+                            question: "What are the rules governing the President's power to remove agency officials?",
+                            answer: "<strong>Executive agencies:</strong> At-will removal<br><br><strong>Independent agencies:</strong> Typically 'for cause' removal protection<br><br><strong>Key limitations:</strong><br>- Single-head independent agencies with removal protection are unconstitutional (Seila Law)<br>- Two levels of for-cause protection are usually unconstitutional (Free Enterprise Fund)<br>- Multi-member commissions can have removal protection (Humphrey's Executor)"
+                        },
+                        
+                        // 15. Legislative Veto
+                        {
+                            title: "Legislative Veto",
+                            question: "Why did the Supreme Court invalidate the legislative veto in INS v. Chadha?",
+                            answer: "Invalidated because it violated:<br><br>1. <strong>Bicameralism:</strong> Required action by both houses of Congress<br><br>2. <strong>Presentment:</strong> Required presenting legislation to the President for signature or veto<br><br>The Court held that any congressional action that has the 'purpose and effect of altering legal rights' must follow bicameralism and presentment."
+                        },
+                        
+                        // 16. Due Process in Agency Adjudication
+                        {
+                            title: "Due Process in Agency Adjudication",
+                            question: "What is the test for determining what procedural due process is required in agency adjudication?",
+                            answer: "Mathews v. Eldridge balancing test weighs three factors:<br><br>1. <strong>Private interest</strong> affected by the official action<br><br>2. <strong>Risk of erroneous deprivation</strong> through current procedures and probable value of additional safeguards<br><br>3. <strong>Government's interest</strong>, including fiscal and administrative burdens of additional procedures"
+                        },
+                        
+                        // 17. Londoner v. Denver vs. Bi-Metallic
+                        {
+                            title: "Londoner v. Bi-Metallic Distinction",
+                            question: "What is the distinction between Londoner v. Denver and Bi-Metallic Investment Co. v. State Board?",
+                            answer: "<strong>Londoner:</strong> Due process requires a hearing when government action affects a small number of people in an individualized way (adjudicative facts)<br><br><strong>Bi-Metallic:</strong> No hearing required when government action affects a large class of people based on general policy considerations (legislative facts)<br><br>This distinction determines when due process requires a hearing."
+                        },
+                        
+                        // 18. State Farm Test
+                        {
+                            title: "State Farm's 'Reasoned Decision-making'",
+                            question: "What does 'reasoned decision-making' require under State Farm?",
+                            answer: "An agency must:<br><br>1. Consider all relevant factors<br>2. Offer explanations that address available alternatives<br>3. Respond to significant comments<br>4. Rely on factors Congress intended it to consider<br>5. Demonstrate a rational connection between facts found and choices made<br><br>The court must not substitute its judgment for the agency's."
+                        },
+                        
+                        // 19. APA Record Requirement
+                        {
+                            title: "Administrative Record",
+                            question: "What constitutes the 'whole record' for purposes of judicial review under the APA?",
+                            answer: "The administrative record includes:<br><br>- All materials before the agency at the time of decision<br>- The complete basis for the agency's decision<br>- Materials the agency considered, not just relied upon<br><br>Generally, courts may not consider extra-record evidence except in limited circumstances (e.g., to explain technical terms, show bad faith)."
+                        },
+                        
+                        // 20. Remedies for APA Violations
+                        {
+                            title: "APA Remedies",
+                            question: "What remedies are available when a court finds an agency violated the APA?",
+                            answer: "Under APA § 706, a court may:<br><br>1. <strong>Set aside</strong> (vacate) the agency action<br>2. <strong>Remand</strong> to the agency for further proceedings<br>3. <strong>Compel</strong> agency action unlawfully withheld<br>4. <strong>Postpone</strong> the effective date of action pending review<br><br>Courts typically remand without vacatur when defects are likely to be corrected and vacatur would be disruptive."
+                        },
+                        
+                        // 21. Judicial Deference After Loper Bright
+                        {
+                            title: "Judicial Deference Post-Loper Bright",
+                            question: "What frameworks still exist for judicial deference to agencies after Loper Bright?",
+                            answer: "While Chevron deference is no longer applicable, courts may still apply:<br><br><strong>Skidmore deference:</strong> Agency interpretations have 'power to persuade' based on thoroughness, validity, consistency, and expertise<br><br><strong>Auer/Kisor deference:</strong> Deference to agency interpretations of their own regulations (though significantly limited by Kisor v. Wilkie)<br><br><strong>Baltimore Gas:</strong> High deference to agency scientific and technical judgments"
+                        },
+                        
+                        // 22. Practical Reason Exception
+                        {
+                            title: "Practical Reasons Exception",
+                            question: "When may an agency avoid rulemaking under the 'impracticable, unnecessary, or contrary to the public interest' exception?",
+                            answer: "<strong>Impracticable:</strong> When time constraints make notice and comment infeasible<br><br><strong>Unnecessary:</strong> When the rule is routine, non-controversial, or minor<br><br><strong>Contrary to public interest:</strong> When advance notice would defeat the purpose of the rule<br><br>The agency must provide a statement of reasons and public comments are accepted after implementation."
+                        },
+                        
+                        // 23. Legislative vs. Non-Legislative Rules
+                        {
+                            title: "Legislative vs. Non-Legislative Rules",
+                            question: "How do courts distinguish between legislative rules (requiring notice and comment) and non-legislative rules (exempt)?",
+                            answer: "Courts look at:<br><br><strong>Legal effect test:</strong> Does the rule create new rights or obligations?<br><br><strong>Substantial impact test:</strong> Does the rule have a substantial impact on regulated parties?<br><br><strong>Agency's label:</strong> Given some weight but not determinative<br><br><strong>Binding effect:</strong> Does the rule bind the agency or merely explain its position?"
+                        },
+                        
+                        // 24. Substantive vs. Procedural Rules
+                        {
+                            title: "Substantive vs. Procedural Rules",
+                            question: "How do courts distinguish between substantive rules (requiring notice and comment) and procedural rules (exempt)?",
+                            answer: "A rule is procedural (and exempt) if it:<br><br>1. Primarily deals with agency's internal operations<br>2. Does not substantially alter rights or interests of parties<br>3. Encodes agency practice rather than creating new obligations<br><br>If the rule significantly affects primary conduct of regulated parties, it's likely substantive and requires notice and comment."
+                        },
+                        
+                        // 25. Unreviewable Agency Action
+                        {
+                            title: "Unreviewable Agency Action",
+                            question: "When is agency action 'committed to agency discretion by law' and thus unreviewable?",
+                            answer: "Agency action is unreviewable when:<br><br>1. The statute provides <strong>no law to apply</strong> (no meaningful standard against which to judge the agency's exercise of discretion)<br><br>2. The decision involves <strong>resource allocation</strong> or <strong>enforcement priorities</strong> (Heckler v. Chaney)<br><br>3. The action is of a category traditionally regarded as <strong>unreviewable</strong> (e.g., military or foreign affairs judgments)"
+                        }
+                    ];
+                    
+                    // Keep track of which flashcards are currently shown
+                    let currentlyShown = [0, 1, 2];
+                    
+                    // Function to display a set of flashcards
+                    function displayFlashcards(cardIndices) {
+                        const container = document.getElementById('flashcard-container');
+                        container.innerHTML = ''; // Clear existing cards
+                        
+                        cardIndices.forEach(index => {
+                            const card = allFlashcards[index];
+                            const cardHTML = `
+                                <div class="flashcard">
+                                    <div class="flashcard-inner">
+                                        <div class="flashcard-front">
+                                            <h4>${card.title}</h4>
+                                            <p>${card.question}</p>
+                                        </div>
+                                        <div class="flashcard-back">
+                                            <h4>${card.title}</h4>
+                                            <p>${card.answer}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                            container.innerHTML += cardHTML;
+                        });
+                        
+                        // Apply click handlers to newly created cards
+                        applyFlashcardHandlers();
+                        
+                        currentlyShown = cardIndices;
+                    }
+                    
+                    // Function to apply click handlers to flashcards
+                    function applyFlashcardHandlers() {
+                        document.querySelectorAll('.flashcard').forEach(card => {
+                            card.addEventListener('click', function() {
+                                this.classList.toggle('flipped');
+                            });
+                        });
+                    }
+                    
+                    // Get random indices that aren't currently shown
+                    function getRandomIndices(count, exclude) {
+                        const indices = [];
+                        const available = Array.from(Array(allFlashcards.length).keys())
+                            .filter(i => !exclude.includes(i));
+                            
+                        // If we've shown all cards, reset and allow all to be shown again
+                        if (available.length < count) {
+                            return getRandomIndices(count, []);
+                        }
+                        
+                        while (indices.length < count && available.length > 0) {
+                            const randomIndex = Math.floor(Math.random() * available.length);
+                            indices.push(available[randomIndex]);
+                            available.splice(randomIndex, 1);
+                        }
+                        
+                        return indices;
+                    }
+                    
+                    // Set up the page when loaded
+                    document.addEventListener('DOMContentLoaded', function() {
+                        // Apply click handlers to the initial static cards
+                        applyFlashcardHandlers();
+                        
+                        // Set up button click handler
+                        const button = document.getElementById('show-different-cards');
+                        if (button) {
+                            button.addEventListener('click', function() {
+                                const newIndices = getRandomIndices(3, currentlyShown);
+                                displayFlashcards(newIndices);
+                            });
+                        }
+                    });
+                </script>
             </div>
             
             <!-- Practice Scenarios Section -->
-            <div id="tab-scenarios" class="mastery-section">
+            <div class="mastery-section" id="mastery-scenarios">
                 <h4>Application Practice Scenarios</h4>
                 <p>Test your ability to apply administrative law concepts to hypothetical situations. Think through these scenarios carefully before revealing the analysis.</p>
                 
@@ -122,7 +377,7 @@
             </div>
             
             <!-- Concept Comparisons Section -->
-            <div id="tab-comparisons" class="mastery-section">
+            <div class="mastery-section" id="mastery-comparisons">
                 <h4>Concept Comparisons</h4>
                 <p>Strengthen your understanding by comparing and contrasting related concepts in administrative law.</p>
                 
@@ -198,7 +453,7 @@
             </div>
             
             <!-- Self-Quizzes Section -->
-            <div id="tab-quizzes" class="mastery-section">
+            <div class="mastery-section" id="mastery-quizzes">
                 <h4>Self-Assessment Quizzes</h4>
                 <p>Test your knowledge with these multiple-choice questions covering key administrative law concepts.</p>
                 
@@ -219,193 +474,4 @@
                 <div class="quiz-question">
                     <p><strong>2. After Loper Bright Enterprises v. Raimondo (2024), how should courts approach agency statutory interpretations?</strong></p>
                     <div class="quiz-options">
-                        <label><input type="radio" name="q2" value="a"> A. Apply the Chevron two-step framework</label>
-                        <label><input type="radio" name="q2" value="b"> B. Determine the best reading of the statute using traditional tools of interpretation</label>
-                        <label><input type="radio" name="q2" value="c"> C. Defer to the agency's interpretation if it is reasonable</label>
-                        <label><input type="radio" name="q2" value="d"> D. Apply the Skidmore "power to persuade" standard to all agency interpretations</label>
-                    </div>
-                    <div class="quiz-feedback" id="feedback-q2" style="display:none;">
-                        <p><strong>Correct Answer: B. Determine the best reading of the statute using traditional tools of interpretation</strong></p>
-                        <p>In Loper Bright, the Supreme Court overturned Chevron, holding that courts should no longer defer to agency interpretations of ambiguous statutes. Instead, courts must determine the best reading of the statute using traditional tools of interpretation.</p>
-                    </div>
-                </div>
-                
-                <div class="quiz-question">
-                    <p><strong>3. What is required for a rule to be exempt from notice and comment as an "interpretive rule"?</strong></p>
-                    <div class="quiz-options">
-                        <label><input type="radio" name="q3" value="a"> A. It must be published in the Federal Register</label>
-                        <label><input type="radio" name="q3" value="b"> B. It must not create new rights or obligations</label>
-                        <label><input type="radio" name="q3" value="c"> C. It must be approved by the White House Office of Information and Regulatory Affairs</label>
-                        <label><input type="radio" name="q3" value="d"> D. It must be temporary in nature</label>
-                    </div>
-                    <div class="quiz-feedback" id="feedback-q3" style="display:none;">
-                        <p><strong>Correct Answer: B. It must not create new rights or obligations</strong></p>
-                        <p>Interpretive rules explain the agency's understanding of the statutes or rules it administers without creating new legal obligations. If a rule creates new rights or obligations, it is a legislative rule that requires notice and comment under APA § 553.</p>
-                    </div>
-                </div>
-                
-                <button id="check-answers" class="control-button">Check Answers</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="explanation" id="concept-reinforcement">
-    <h3 class="icon-judicial">Concept Reinforcement</h3>
-    
-    <p>These visual mnemonics combine key concepts with memorable images to help reinforce your understanding of administrative law principles.</p>
-    
-    <div class="concept-illustration">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 250">
-          <!-- Background -->
-          <rect width="500" height="250" fill="#f9f5ff" rx="10" ry="10"/>
-          
-          <!-- Title -->
-          <text x="250" y="30" font-family="Georgia, serif" font-size="20" text-anchor="middle" fill="#2c3e50" font-weight="bold">APA Rulemaking Exceptions</text>
-          
-          <!-- Main Container -->
-          <rect x="50" y="50" width="400" height="180" fill="white" stroke="#6f4bbd" stroke-width="2" rx="5" ry="5"/>
-          
-          <!-- Exception Boxes -->
-          <rect x="70" y="70" width="110" height="140" fill="#f9f5ff" stroke="#6f4bbd" stroke-width="1" rx="3" ry="3"/>
-          <text x="125" y="90" font-family="Georgia, serif" font-size="14" text-anchor="middle" fill="#6f4bbd" font-weight="bold">Interpretive Rules</text>
-          <text x="125" y="110" font-family="Georgia, serif" font-size="12" text-anchor="middle" fill="#2c3e50">Explain existing</text>
-          <text x="125" y="130" font-family="Georgia, serif" font-size="12" text-anchor="middle" fill="#2c3e50">No new rights</text>
-          <text x="125" y="150" font-family="Georgia, serif" font-size="12" text-anchor="middle" fill="#2c3e50">or obligations</text>
-          <text x="125" y="190" font-family="Georgia, serif" font-size="10" text-anchor="middle" fill="#2c3e50" font-style="italic">Interpretive memos,</text>
-          <text x="125" y="205" font-family="Georgia, serif" font-size="10" text-anchor="middle" fill="#2c3e50" font-style="italic">guidance documents</text>
-          
-          <rect x="195" y="70" width="110" height="140" fill="#f9f5ff" stroke="#6f4bbd" stroke-width="1" rx="3" ry="3"/>
-          <text x="250" y="90" font-family="Georgia, serif" font-size="14" text-anchor="middle" fill="#6f4bbd" font-weight="bold">Policy Statements</text>
-          <text x="250" y="110" font-family="Georgia, serif" font-size="12" text-anchor="middle" fill="#2c3e50">Tentative intentions</text>
-          <text x="250" y="130" font-family="Georgia, serif" font-size="12" text-anchor="middle" fill="#2c3e50">Preserves discretion</text>
-          <text x="250" y="150" font-family="Georgia, serif" font-size="12" text-anchor="middle" fill="#2c3e50">No binding effect</text>
-          <text x="250" y="190" font-family="Georgia, serif" font-size="10" text-anchor="middle" fill="#2c3e50" font-style="italic">Enforcement priorities,</text>
-          <text x="250" y="205" font-family="Georgia, serif" font-size="10" text-anchor="middle" fill="#2c3e50" font-style="italic">interim guidelines</text>
-          
-          <rect x="320" y="70" width="110" height="140" fill="#f9f5ff" stroke="#6f4bbd" stroke-width="1" rx="3" ry="3"/>
-          <text x="375" y="90" font-family="Georgia, serif" font-size="14" text-anchor="middle" fill="#6f4bbd" font-weight="bold">Procedural Rules</text>
-          <text x="375" y="110" font-family="Georgia, serif" font-size="12" text-anchor="middle" fill="#2c3e50">Agency operations</text>
-          <text x="375" y="130" font-family="Georgia, serif" font-size="12" text-anchor="middle" fill="#2c3e50">No substantive</text>
-          <text x="375" y="150" font-family="Georgia, serif" font-size="12" text-anchor="middle" fill="#2c3e50">effect on rights</text>
-          <text x="375" y="190" font-family="Georgia, serif" font-size="10" text-anchor="middle" fill="#2c3e50" font-style="italic">Filing requirements,</text>
-          <text x="375" y="205" font-family="Georgia, serif" font-size="10" text-anchor="middle" fill="#2c3e50" font-style="italic">hearing procedures</text>
-        </svg>
-    </div>
-    
-    <p>The illustration above highlights the three main exceptions to notice-and-comment requirements under APA § 553. Remember that courts interpret these exceptions narrowly, and the agency bears the burden of proving an exception applies.</p>
-</div>
-
-<div class="explanation" id="application-practice">
-    <h3 class="icon-executive">Application Practice</h3>
-    
-    <p>Practice applying administrative law doctrines to hypothetical scenarios. These exercises will help you develop the analytical skills needed for the exam.</p>
-    
-    <div class="interactive-element">
-        <h4>Hard Look Review Exercise</h4>
-        <p>Analyze this hypothetical agency action under State Farm's "hard look" review standard:</p>
-        <blockquote>
-            The National Highway Traffic Safety Administration (NHTSA) has required automobile manufacturers to install passive restraints (airbags or automatic seatbelts) in all new vehicles for the past 10 years. NHTSA now rescinds this requirement entirely, citing studies showing that driver education programs are equally effective at reducing fatalities. The agency did not consider requiring only airbags, despite evidence suggesting that airbags are more effective than automatic seatbelts. Several consumer safety groups challenge the rescission.
-        </blockquote>
-        <button class="toggle-answer" data-target="answer-application1">Show Analysis Framework</button>
-        <div id="answer-application1" class="scenario-answer" style="display:none;">
-            <h5>State Farm Analysis Framework:</h5>
-            <ol>
-                <li><strong>Examine the relevant data:</strong> Did NHTSA thoroughly review the data on passive restraints vs. driver education?</li>
-                <li><strong>Articulate a satisfactory explanation:</strong> Has NHTSA explained the connection between the facts found and the choice made?</li>
-                <li><strong>Consider important aspects:</strong> Did NHTSA fail to consider an important aspect of the problem by not evaluating an airbags-only option?</li>
-                <li><strong>Respond to alternatives:</strong> Did NHTSA explain why it rejected obvious alternatives like requiring only airbags?</li>
-                <li><strong>Change in position:</strong> Since this is a rescission of a longstanding rule, did NHTSA acknowledge the change and provide good reasons for it?</li>
-            </ol>
-            <p>Based on the facts provided, a court would likely find this rescission arbitrary and capricious under State Farm because the agency failed to consider an important aspect of the problem (the airbags-only option) and did not adequately explain why driver education programs, which serve a different function than passive restraints, are an adequate substitute.</p>
-        </div>
-    </div>
-</div>
-
-<div class="explanation" id="synthesis-challenges">
-    <h3 class="icon-legislative">Synthesis Challenges</h3>
-    
-    <p>Test your ability to integrate multiple administrative law doctrines in complex scenarios. These exercises help you build connections between different areas of the course.</p>
-    
-    <div class="interactive-element">
-        <h4>Cross-Doctrinal Analysis: Consumer Financial Protection Bureau</h4>
-        <p>Analyze this scenario by identifying and applying all relevant administrative law doctrines:</p>
-        <blockquote>
-            Congress creates the Consumer Financial Protection Bureau (CFPB) with a single director who can only be removed by the President for "inefficiency, neglect of duty, or malfeasance in office." The CFPB, citing its authority to regulate "unfair, deceptive, or abusive acts or practices," issues a rule requiring all credit card companies to simplify their fee structures and disclose fees more prominently. The rule would affect approximately $50 billion in annual credit card fees. Several credit card companies challenge both the constitutionality of the CFPB's structure and the substance of the rule.
-        </blockquote>
-        <button class="toggle-answer" data-target="answer-synthesis1">Show Multi-Doctrinal Analysis</button>
-        <div id="answer-synthesis1" class="scenario-answer" style="display:none;">
-            <h5>Doctrines to Apply:</h5>
-            <ol>
-                <li><strong>Removal Power/Unitary Executive:</strong> Under Seila Law v. CFPB, the Supreme Court held that the CFPB's structure with a single director removable only for cause violated the separation of powers. The Court severed the removal restriction, allowing the CFPB to continue operating with a director removable at will by the President.</li>
-                <li><strong>Major Questions Doctrine:</strong> Regulation affecting $50 billion in annual fees likely qualifies as a question of vast economic significance. Does the statute clearly authorize the CFPB to mandate specific fee structures, or is the language "unfair, deceptive, or abusive acts or practices" too vague for such major regulation?</li>
-                <li><strong>Statutory Authority:</strong> Even if the Major Questions Doctrine does not apply, does the CFPB's authority to regulate "unfair, deceptive, or abusive acts or practices" encompass mandating specific fee structures?</li>
-                <li><strong>Arbitrary and Capricious Review:</strong> Did the CFPB examine relevant data, articulate a satisfactory explanation, consider important aspects of the problem, and respond to alternatives?</li>
-                <li><strong>Severability:</strong> If the removal restriction is unconstitutional, can it be severed from the rest of the statute?</li>
-            </ol>
-            <p>This scenario requires balancing multiple doctrines from different areas of administrative law, including separation of powers, agency authority, and standards of review. After Seila Law, the constitutionality issue is largely settled (the removal restriction is unconstitutional but severable), so the case would likely focus on the Major Questions Doctrine and whether Congress clearly authorized the CFPB to make such significant economic regulations.</p>
-        </div>
-    </div>
-</div>
-
-<div class="explanation" id="visual-knowledge-maps">
-    <h3 class="icon-judicial">Visual Knowledge Maps</h3>
-    
-    <p>These visual representations help you see the connections between different administrative law concepts and organize your knowledge effectively.</p>
-    
-    <h4>Administrative Law Decision Tree</h4>
-    <div class="concept-illustration">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
-          <!-- Background -->
-          <rect width="600" height="400" fill="#f9f9f9" rx="10" ry="10"/>
-          
-          <!-- Title -->
-          <text x="300" y="30" font-family="Georgia, serif" font-size="20" text-anchor="middle" fill="#2c3e50" font-weight="bold">Administrative Law Analysis Framework</text>
-          
-          <!-- Start Node -->
-          <rect x="250" y="50" width="100" height="40" rx="20" ry="20" fill="#2980b9" stroke="#2c3e50" stroke-width="1"/>
-          <text x="300" y="75" font-family="Georgia, serif" font-size="14" text-anchor="middle" fill="white">Agency Action</text>
-          
-          <!-- Connectors from Start -->
-          <line x1="300" y1="90" x2="300" y2="110" stroke="#2c3e50" stroke-width="2"/>
-          
-          <!-- Threshold Issues -->
-          <rect x="225" y="110" width="150" height="40" rx="5" ry="5" fill="#f9f5ff" stroke="#6f4bbd" stroke-width="2"/>
-          <text x="300" y="135" font-family="Georgia, serif" font-size="14" text-anchor="middle" fill="#2c3e50">Threshold Issues</text>
-          
-          <!-- Connector to branches -->
-          <line x1="300" y1="150" x2="300" y2="170" stroke="#2c3e50" stroke-width="2"/>
-          <line x1="300" y1="170" x2="150" y2="170" stroke="#2c3e50" stroke-width="2"/>
-          <line x1="300" y1="170" x2="450" y2="170" stroke="#2c3e50" stroke-width="2"/>
-          <line x1="150" y1="170" x2="150" y2="190" stroke="#2c3e50" stroke-width="2"/>
-          <line x1="450" y1="170" x2="450" y2="190" stroke="#2c3e50" stroke-width="2"/>
-          
-          <!-- Reviewability -->
-          <rect x="75" y="190" width="150" height="40" rx="5" ry="5" fill="#f2f7fd" stroke="#4b7bbd" stroke-width="2"/>
-          <text x="150" y="215" font-family="Georgia, serif" font-size="14" text-anchor="middle" fill="#2c3e50">Reviewability</text>
-          
-          <!-- Standing -->
-          <rect x="375" y="190" width="150" height="40" rx="5" ry="5" fill="#f2f7fd" stroke="#4b7bbd" stroke-width="2"/>
-          <text x="450" y="215" font-family="Georgia, serif" font-size="14" text-anchor="middle" fill="#2c3e50">Standing</text>
-          
-          <!-- Connector to Procedural Issues -->
-          <line x1="150" y1="230" x2="150" y2="260" stroke="#2c3e50" stroke-width="2"/>
-          <line x1="450" y1="230" x2="450" y2="260" stroke="#2c3e50" stroke-width="2"/>
-          <line x1="150" y1="260" x2="300" y2="260" stroke="#2c3e50" stroke-width="2"/>
-          <line x1="450" y1="260" x2="300" y2="260" stroke="#2c3e50" stroke-width="2"/>
-          <line x1="300" y1="260" x2="300" y2="280" stroke="#2c3e50" stroke-width="2"/>
-          
-          <!-- Procedural Issues -->
-          <rect x="225" y="280" width="150" height="40" rx="5" ry="5" fill="#f2f9f2" stroke="#4bbd4b" stroke-width="2"/>
-          <text x="300" y="305" font-family="Georgia, serif" font-size="14" text-anchor="middle" fill="#2c3e50">Procedural Issues</text>
-          
-          <!-- Connector to Substantive Issues -->
-          <line x1="300" y1="320" x2="300" y2="340" stroke="#2c3e50" stroke-width="2"/>
-          
-          <!-- Substantive Issues -->
-          <rect x="225" y="340" width="150" height="40" rx="5" ry="5" fill="#fef2f7" stroke="#bd4b7a" stroke-width="2"/>
-          <text x="300" y="365" font-family="Georgia, serif" font-size="14" text-anchor="middle" fill="#2c3e50">Substantive Issues</text>
-          
-          <!-- Labels -->
-          <text x="40" y="215" font-family="Georgia, serif" font-size="10" text-anchor="middle" fill="#4b7bbd">- APA Preclusion</text>
-          <text x="40" y="230" font-family
+                        <label><input type="radio" name
