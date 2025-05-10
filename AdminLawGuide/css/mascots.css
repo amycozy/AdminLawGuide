@@ -189,21 +189,21 @@
     top: 15px;
     width: 50px;
     height: 50px;
-    background-image: url('../assets/chevron-chameleon.svg');
+    background-image: url('../assets/cutestchevronchameleon.png');
     background-size: contain;
     background-repeat: no-repeat;
 }
 
 .mascot-checkpoint.major-questions::before {
-    background-image: url('../assets/major-questions-mole.svg');
+    background-image: url('../assets/mqm.png');
 }
 
 .mascot-checkpoint.standing::before {
-    background-image: url('../assets/standing-sam.svg');
+    background-image: url('../assets/slothsam.png');
 }
 
 .mascot-checkpoint.apa::before {
-    background-image: url('../assets/apa-architect.svg');
+    background-image: url('../assets/APAarchitect.png');
 }
 
 /* Interactive character elements */

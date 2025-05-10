@@ -1,4 +1,4 @@
-<h2 id="visual-learning-section">Visual Learning Center</h2>
+t<h2 id="visual-learning-section">Visual Learning Center</h2>
 
 <div class="section-navigation">
     <a href="#doctrine-mascots">Doctrine Mascots</a>
@@ -34,15 +34,15 @@
             <!-- Chevron Chameleon -->
             <div class="doctrine-mascot">
                 <div class="mascot-header">
-                    <img src="../assets/chevron-chameleon.svg" alt="Chevron Chameleon Icon">
+                    <img src="../assets/cutestchevronchameleon.png" alt="Chevron Chameleon Icon">
                     <h4>The Chevron Chameleon</h4>
                 </div>
                 
                 <div class="mascot-container chevron-chameleon">
-                    <img class="mascot-image" src="../assets/studycutechevron.png" alt="Chevron Chameleon studying the law">
                     <div class="mascot-speech">
                         <p>Hello! I'm Chevron Chameleon. When there's ambiguity in a statute, I used to help judges determine when to defer to an agency's reasonable interpretation. However, after the <em>Loper Bright</em> decision in 2024, the Supreme Court rejected the Chevron framework!</p>
                     </div>
+                    <img class="mascot-image" src="../assets/studycutechevron.png" alt="Chevron Chameleon studying the law">
                 </div>
                 
                 <div class="mascot-concept">
@@ -74,10 +74,10 @@
                 </div>
                 
                 <div class="mascot-container major-questions-mole">
-                    <img class="mascot-image" src="../assets/mqmtough.png" alt="Major Questions Mole examining statutes">
                     <div class="mascot-speech">
                         <p>Hello! I'm Major Questions Mole. I help courts dig deep into statutory interpretation when agencies claim authority over questions of vast economic and political significance. I demand clear congressional authorization for major agency actions!</p>
                     </div>
+                    <img class="mascot-image" src="../assets/mqmtough.png" alt="Major Questions Mole examining statutes">
                 </div>
                 
                 <div class="mascot-concept">
@@ -109,10 +109,10 @@
                 </div>
                 
                 <div class="mascot-container apa-architect">
-                    <img class="mascot-image" src="../assets/apalligatorrulemaking.png" alt="APAlligator examining regulations">
                     <div class="mascot-speech">
                         <p>Hello! I'm the APAlligator. I help navigate the complex procedural waters of administrative rulemaking. I ensure agencies follow proper procedures when creating, amending, or repealing rules under the Administrative Procedure Act!</p>
                     </div>
+                    <img class="mascot-image" src="../assets/apalligatorrulemaking.png" alt="APAlligator examining regulations">
                 </div>
                 
                 <div class="mascot-concept">
@@ -141,19 +141,19 @@
             <!-- Standing Sam - Note: Images need to be added for Standing Sam -->
             <div class="doctrine-mascot">
                 <div class="mascot-header">
-                    <!-- Placeholder for Standing Sam icon -->
+                    <img src="../assets/slothsam.png" alt="Standing Sam Icon">
                     <h4>Standing Sam</h4>
                 </div>
                 
                 <div class="mascot-container standing-sam">
-                    <!-- Placeholder for Standing Sam image -->
                     <div class="mascot-speech">
                         <p>Hello! I'm Standing Sam. I help courts determine who has the right to bring a case to federal court. My job is to ensure that only plaintiffs with a real stake in the outcome can challenge agency actions!</p>
                     </div>
+                    <img class="mascot-image" src="../assets/zoneofinterestsam.png" alt="Standing Sam examining court access">
                 </div>
                 
                 <div class="mascot-concept">
-                    <!-- Placeholder for Standing Sam concept icon -->
+                    <img class="mascot-concept-icon" src="../assets/noentrysam.png" alt="Standing Sam concept icon">
                     <p>I help you remember the requirements for Article III standing, which determines who can bring cases to federal court:</p>
                     <ul>
                         <li><strong>Injury in Fact</strong>: Concrete, particularized, and actual or imminent harm</li>
@@ -223,69 +223,50 @@
     
     <h4>Procedural Due Process Balance</h4>
     <div class="concept-illustration">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200">
-          <!-- Background -->
-          <rect width="400" height="200" fill="#f9f9f9" rx="10" ry="10"/>
-          
-          <!-- Due Process Balance -->
-          <line x1="200" y1="50" x2="200" y2="120" stroke="#2c3e50" stroke-width="3"/>
-          <circle cx="200" cy="50" r="10" fill="#f57c00"/>
-          
-          <!-- Left Scale - Individual Interests -->
-          <line x1="200" y1="60" x2="120" y2="100" stroke="#2c3e50" stroke-width="2"/>
-          <circle cx="120" cy="110" r="25" fill="#fff3e0" stroke="#f57c00" stroke-width="2"/>
-          <text x="120" y="115" font-family="Georgia, serif" font-size="10" text-anchor="middle" fill="#2c3e50">Individual Interest</text>
-          
-          <!-- Right Scale - Government Interests -->
-          <line x1="200" y1="60" x2="280" y2="100" stroke="#2c3e50" stroke-width="2"/>
-          <circle cx="280" cy="110" r="25" fill="#fff3e0" stroke="#f57c00" stroke-width="2"/>
-          <text x="280" y="115" font-family="Georgia, serif" font-size="10" text-anchor="middle" fill="#2c3e50">Government Interest</text>
-          
-          <!-- Mathews factors -->
-          <text x="60" y="150" font-family="Georgia, serif" font-size="12" fill="#2c3e50">1. Private interest</text>
-          <text x="200" y="150" font-family="Georgia, serif" font-size="12" text-anchor="middle" fill="#2c3e50">2. Risk of erroneous deprivation</text>
-          <text x="340" y="150" font-family="Georgia, serif" font-size="12" text-anchor="end" fill="#2c3e50">3. Government burden</text>
-          
-          <!-- Title -->
-          <text x="200" y="180" font-family="Georgia, serif" font-size="14" text-anchor="middle" fill="#2c3e50" font-weight="bold">Mathews v. Eldridge Balancing Test</text>
-        </svg>
+        <div class="mermaid">
+        graph TD
+            Title["Mathews v. Eldridge Balancing Test"]
+            Balance((Balance))
+            Individual["Individual Interest"]
+            Government["Government Interest"]
+            Factor1["1. Private interest"]
+            Factor2["2. Risk of erroneous deprivation"]
+            Factor3["3. Government burden"]
+            
+            Balance --- Individual
+            Balance --- Government
+            Individual -.-> Factor1
+            Balance -.-> Factor2
+            Government -.-> Factor3
+            
+            classDef default fill:#f9f9f9,stroke:#2c3e50,stroke-width:1px;
+            classDef balance fill:#f57c00,stroke:#2c3e50,stroke-width:2px;
+            classDef interest fill:#fff3e0,stroke:#f57c00,stroke-width:2px;
+            classDef factor fill:#f9f9f9,stroke:none,color:#2c3e50;
+            
+            class Balance balance;
+            class Individual,Government interest;
+            class Factor1,Factor2,Factor3 factor;
+        </div>
     </div>
     
     <h4>Rulemaking Process Visualization</h4>
     <div class="concept-illustration">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200">
-          <!-- Background -->
-          <rect width="600" height="200" fill="#f2f7fd" rx="10" ry="10"/>
-          
-          <!-- Process Steps -->
-          <rect x="20" y="80" width="120" height="40" rx="5" ry="5" fill="white" stroke="#4b7bbd" stroke-width="2"/>
-          <text x="80" y="105" font-family="Georgia, serif" font-size="12" text-anchor="middle" fill="#2c3e50">Notice of Proposed Rulemaking</text>
-          
-          <rect x="190" y="80" width="100" height="40" rx="5" ry="5" fill="white" stroke="#4b7bbd" stroke-width="2"/>
-          <text x="240" y="105" font-family="Georgia, serif" font-size="12" text-anchor="middle" fill="#2c3e50">Comment Period</text>
-          
-          <rect x="340" y="80" width="100" height="40" rx="5" ry="5" fill="white" stroke="#4b7bbd" stroke-width="2"/>
-          <text x="390" y="105" font-family="Georgia, serif" font-size="12" text-anchor="middle" fill="#2c3e50">Final Rule</text>
-          
-          <rect x="490" y="80" width="80" height="40" rx="5" ry="5" fill="white" stroke="#4b7bbd" stroke-width="2"/>
-          <text x="530" y="105" font-family="Georgia, serif" font-size="12" text-anchor="middle" fill="#2c3e50">Judicial Review</text>
-          
-          <!-- Arrows -->
-          <line x1="140" y1="100" x2="190" y2="100" stroke="#4b7bbd" stroke-width="2" marker-end="url(#arrow)"/>
-          <line x1="290" y1="100" x2="340" y2="100" stroke="#4b7bbd" stroke-width="2" marker-end="url(#arrow)"/>
-          <line x1="440" y1="100" x2="490" y2="100" stroke="#4b7bbd" stroke-width="2" marker-end="url(#arrow)"/>
-          
-          <!-- Arrow marker -->
-          <defs>
-            <marker id="arrow" markerWidth="10" markerHeight="7" refX="7" refY="3.5" orient="auto">
-              <polygon points="0 0, 10 3.5, 0 7" fill="#4b7bbd"/>
-            </marker>
-          </defs>
-          
-          <!-- Title -->
-          <text x="300" y="40" font-family="Georgia, serif" font-size="16" text-anchor="middle" fill="#2c3e50" font-weight="bold">Notice and Comment Rulemaking</text>
-          <text x="300" y="170" font-family="Georgia, serif" font-size="14" text-anchor="middle" fill="#2c3e50">APA § 553</text>
-        </svg>
+        <div class="mermaid">
+        graph LR
+            subgraph "Notice and Comment Rulemaking"
+            NPRM["Notice of Proposed Rulemaking"] --> Comment["Comment Period"]
+            Comment --> Final["Final Rule"]
+            Final --> Review["Judicial Review"]
+            end
+            
+            caption["APA § 553"]
+            
+            classDef default fill:white,stroke:#4b7bbd,stroke-width:2px,color:#2c3e50;
+            classDef caption fill:none,stroke:none,color:#2c3e50;
+            
+            class caption caption;
+        </div>
     </div>
 </div>
 
@@ -296,38 +277,28 @@
     
     <h4>West Virginia v. EPA (2022)</h4>
     <div class="concept-illustration">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 200">
-          <!-- Background -->
-          <rect width="500" height="200" fill="#f9f5ff" rx="10" ry="10"/>
-          
-          <!-- EPA Building -->
-          <rect x="50" y="60" width="100" height="80" fill="#f2f7fd" stroke="#4b7bbd" stroke-width="2"/>
-          <text x="100" y="100" font-family="Georgia, serif" font-size="14" text-anchor="middle" fill="#2c3e50">EPA</text>
-          <text x="100" y="130" font-family="Georgia, serif" font-size="10" text-anchor="middle" fill="#2c3e50">Clean Power Plan</text>
-          
-          <!-- Power Plant -->
-          <rect x="200" y="90" width="40" height="50" fill="#e0e0e0" stroke="#757575" stroke-width="1"/>
-          <rect x="210" y="50" width="20" height="40" fill="#e0e0e0" stroke="#757575" stroke-width="1"/>
-          <circle cx="220" cy="45" r="5" fill="#f44336"/>
-          <path d="M200,90 L240,90 L220,70 Z" fill="#9e9e9e" stroke="#757575" stroke-width="1"/>
-          <text x="220" y="115" font-family="Georgia, serif" font-size="10" text-anchor="middle" fill="#2c3e50">Power Plant</text>
-          
-          <!-- Supreme Court -->
-          <path d="M350,60 L450,60 L450,140 L350,140 Z" fill="#f9f5ff" stroke="#6f4bbd" stroke-width="2"/>
-          <rect x="360" y="120" width="80" height="20" fill="#f9f5ff" stroke="#6f4bbd" stroke-width="1"/>
-          <path d="M350,60 L450,60 L400,40 Z" fill="#f9f5ff" stroke="#6f4bbd" stroke-width="2"/>
-          <line x1="370" y1="60" x2="370" y2="120" stroke="#6f4bbd" stroke-width="1"/>
-          <line x1="400" y1="60" x2="400" y2="120" stroke="#6f4bbd" stroke-width="1"/>
-          <line x1="430" y1="60" x2="430" y2="120" stroke="#6f4bbd" stroke-width="1"/>
-          <text x="400" y="90" font-family="Georgia, serif" font-size="14" text-anchor="middle" fill="#2c3e50">Supreme Court</text>
-          
-          <!-- Major Questions Doctrine -->
-          <path d="M150,60 Q250,30 350,60" fill="none" stroke="#bd4b7a" stroke-width="2" stroke-dasharray="5,5"/>
-          <text x="250" y="25" font-family="Georgia, serif" font-size="14" text-anchor="middle" fill="#bd4b7a">Major Questions Doctrine</text>
-          
-          <!-- Title -->
-          <text x="250" y="180" font-family="Georgia, serif" font-size="16" text-anchor="middle" fill="#2c3e50" font-weight="bold">West Virginia v. EPA (2022)</text>
-        </svg>
+        <div class="mermaid">
+        graph LR
+            subgraph "West Virginia v. EPA (2022)"
+            EPA["EPA<br>Clean Power Plan"] --- PowerPlant["Power Plant"]
+            EPA --- SupremeCourt["Supreme Court"]
+            
+            MajorQuestions["Major Questions Doctrine"]
+            MajorQuestions -.- EPA
+            MajorQuestions -.- SupremeCourt
+            end
+            
+            classDef default fill:#f9f5ff,stroke:#2c3e50,stroke-width:1px,color:#2c3e50;
+            classDef epa fill:#f2f7fd,stroke:#4b7bbd,stroke-width:2px;
+            classDef court fill:#f9f5ff,stroke:#6f4bbd,stroke-width:2px;
+            classDef plant fill:#e0e0e0,stroke:#757575,stroke-width:1px;
+            classDef doctrine fill:none,stroke:none,color:#bd4b7a,stroke-dasharray:5;
+            
+            class EPA epa;
+            class SupremeCourt court;
+            class PowerPlant plant;
+            class MajorQuestions doctrine;
+        </div>
     </div>
     
     <p class="case-explanation">
