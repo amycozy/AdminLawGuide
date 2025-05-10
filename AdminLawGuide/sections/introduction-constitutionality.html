@@ -1,0 +1,416 @@
+<h2 id="introduction-constitutionality-section">Part I: Introduction and Constitutionality</h2>
+
+<div class="section-navigation">
+    <a href="#administrative-state">The Administrative State</a>
+    <a href="#nondelegation">Nondelegation Doctrine</a>
+    <a href="#major-questions">Major Questions Doctrine</a>
+    <a href="#congressional-control">Congressional Control of Agencies</a>
+    <a href="#presidential-control">Presidential Control of Agencies</a>
+    <a href="#appointment-removal">Appointment and Removal Powers</a>
+</div>
+
+<div class="explanation" id="administrative-state">
+    <h3>The Administrative State and Its Constitutional Foundations</h3>
+    
+    <p>The modern administrative state consists of numerous agencies that perform vital governmental functions. These agencies operate at the intersection of the three traditional branches of government, combining aspects of legislative, executive, and judicial power. This structure raises fundamental questions about the proper allocation of governmental authority under the Constitution.</p>
+    
+    <div class="mermaid">
+    flowchart TD
+        const["THE U.S. CONSTITUTION"] --> leg["LEGISLATIVE
+        Congress"]
+        const --> exec["EXECUTIVE
+        President & VP"]
+        const --> jud["JUDICIARY
+        Supreme Court &
+        Lower Courts"]
+        
+        leg --> house["House"]
+        leg --> senate["Senate"]
+        
+        exec --> execagencies["EXECUTIVE AGENCIES
+        (e.g., EPA, DOJ, DHS)"]
+        exec --> indagencies["INDEPENDENT AGENCIES
+        (e.g., FCC, SEC, NLRB)"]
+        
+        classDef branch fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+        classDef subbranch fill:#bbdefb,stroke:#1976d2,stroke-width:1px
+        classDef agency fill:#e8f5e9,stroke:#388e3c,stroke-width:1px
+        
+        class const,leg,exec,jud branch
+        class house,senate,execagencies,indagencies subbranch
+    </div>
+
+    <div class="key-point">
+        <h4>What Do Agencies Do?</h4>
+        <p>Administrative agencies serve several critical functions:</p>
+        <ul>
+            <li><strong>Rulemaking</strong>: Creating regulations with the force of law to implement statutory directives</li>
+            <li><strong>Adjudication</strong>: Resolving disputes and enforcing compliance with regulations</li>
+            <li><strong>Licensing and Permitting</strong>: Granting permissions for regulated activities</li>
+            <li><strong>Investigation and Enforcement</strong>: Monitoring compliance and penalizing violations</li>
+            <li><strong>Information Gathering and Dissemination</strong>: Collecting data and issuing guidance</li>
+        </ul>
+    </div>
+    
+    <div class="key-point">
+        <h4>Rationales for Administrative Agencies</h4>
+        <p>Several justifications support the delegation of authority to administrative agencies:</p>
+        <ul>
+            <li><strong>Market Failures</strong>: Addressing externalities, information asymmetries, monopolies, and public goods</li>
+            <li><strong>Expertise</strong>: Leveraging specialized knowledge for complex problems</li>
+            <li><strong>Efficiency</strong>: Responding quickly and adapting to changing conditions</li>
+            <li><strong>Collective Values</strong>: Protecting resources and providing services based on shared societal values</li>
+            <li><strong>Redistribution</strong>: Implementing policies to increase equality and protect vulnerable populations</li>
+        </ul>
+    </div>
+    
+    <p>The case of <span class="case-name">Massachusetts v. EPA</span> (2007) illustrates these principles in action, where the Supreme Court considered the EPA's authority and obligation to regulate greenhouse gases under the Clean Air Act.</p>
+</div>
+
+<div class="explanation" id="nondelegation">
+    <h3>The Nondelegation Doctrine</h3>
+    
+    <p>The nondelegation doctrine stems from Article I of the Constitution, which states that "All legislative Powers herein granted shall be vested in a Congress." This raises a fundamental question: Can Congress delegate its legislative powers to the executive branch (including administrative agencies)?</p>
+    
+    <div class="case-box">
+        <h4 class="case-name">A.L.A. Schechter Poultry Corp. v. United States (1935)</h4>
+        <p class="case-citation">295 U.S. 495</p>
+        <div class="case-facts">
+            <p>The National Industrial Recovery Act (NIRA) authorized the President to approve "codes of fair competition" written by various industries. These codes would then have the force of law. Schechter Poultry was charged with violating the "Live Poultry Code."</p>
+        </div>
+        <div class="case-rule">
+            <p>The Supreme Court unanimously struck down this delegation as unconstitutional, with Justice Cardozo referring to it as "delegation running riot." The Court held that Congress must provide an "intelligible principle" to guide agency discretion.</p>
+        </div>
+        <div class="case-reasoning">
+            <p>The Court found the delegation problematic because:</p>
+            <ul>
+                <li>It effectively allowed industry groups to write laws governing themselves</li>
+                <li>The term "fair competition" was too vague and undefined</li>
+                <li>There were insufficient constraints on the President's discretion</li>
+                <li>This amounted to Congress abdication of its lawmaking function</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="case-box">
+        <h4 class="case-name">Whitman v. American Trucking Associations (2001)</h4>
+        <p class="case-citation">531 U.S. 457</p>
+        <div class="case-facts">
+            <p>The Clean Air Act directed the EPA to set air quality standards "requisite to protect the public health" with "an adequate margin of safety." Industry groups challenged this delegation as lacking an "intelligible principle."</p>
+        </div>
+        <div class="case-rule">
+            <p>The Supreme Court upheld the delegation, finding that the Clean Air Act provided a sufficiently intelligible principle to guide the EPA's discretion.</p>
+        </div>
+        <div class="case-reasoning">
+            <p>Justice Scalia, writing for the Court, explained:</p>
+            <ul>
+                <li>The Court has "almost never felt qualified to second-guess Congress regarding the permissible degree of policy judgment that can be left to agencies"</li>
+                <li>The phrase "requisite to protect the public health" with "an adequate margin of safety" provides sufficient guidance</li>
+                <li>The Court has only twice in its history found statutes that lacked an intelligible principle</li>
+                <li>An agency cannot cure an unconstitutionally broad delegation by adopting limiting constructions of the statute</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="case-box">
+        <h4 class="case-name">Gundy v. United States (2019)</h4>
+        <p class="case-citation">139 S. Ct. 2116</p>
+        <div class="case-facts">
+            <p>The Sex Offender Registration and Notification Act (SORNA) gave the Attorney General authority to "specify the applicability" of registration requirements to pre-Act offenders.</p>
+        </div>
+        <div class="case-rule">
+            <p>In a fragmented 5-3 decision (with Justice Kavanaugh not participating), the Court upheld the delegation. However, the dissent and separate opinions signaled potential willingness to revive a stronger nondelegation doctrine.</p>
+        </div>
+        <div class="case-reasoning">
+            <p>Justice Kagan's plurality opinion found that SORNA's delegation was permissible because:</p>
+            <ul>
+                <li>The statute conveyed Congress's policy that the Attorney General should require pre-Act offenders to register as soon as feasible</li>
+                <li>The Attorney General's authority was limited to addressing transitional issues</li>
+            </ul>
+            <p>Justice Gorsuch's dissent argued that the nondelegation doctrine should be reinvigorated, allowing delegation only when:</p>
+            <ul>
+                <li>Congress makes policy decisions and leaves executive to "fill up the details"</li>
+                <li>Congress makes policy decisions and leaves executive to engage in fact-finding</li>
+                <li>There is overlapping congressional and executive authority (e.g., foreign affairs)</li>
+            </ul>
+            <p>Justice Alito's concurrence expressed willingness to reconsider the Court's approach to nondelegation if a majority were ready to do so.</p>
+        </div>
+    </div>
+    
+    <div class="note">
+        <p>Note: The Supreme Court has granted certiorari in <span class="case-name">FCC v. Consumers' Research</span> and <span class="case-name">SHLB Coalition v. Consumers' Research</span>, consolidated cases that may provide an opportunity for the Court to revisit the nondelegation doctrine. These cases challenge the FCC's authority to assess fees and delegate certain functions to private entities.</p>
+    </div>
+    
+    <div class="test-box">
+        <h4>Three Views of Nondelegation</h4>
+        <ol>
+            <li><strong>Strict View</strong>: The vesting of all legislative powers in Congress is a final allocation from which there can be no further delegation. (Justice Thomas's position)</li>
+            <li><strong>Moderate View</strong>: Congress can delegate unless the scope of the grant is too broad, requiring line-drawing. (Current majority approach)</li>
+            <li><strong>Permissive View</strong>: When Congress enacts a statute granting authority to the executive, it exercises its legislative power rather than delegating it. (Justice Stevens's position)</li>
+        </ol>
+    </div>
+</div>
+
+<div class="explanation" id="major-questions">
+    <h3>The Major Questions Doctrine</h3>
+    
+    <p>The Major Questions Doctrine (MQD) is a relatively recent development in administrative law, though its roots can be traced to earlier cases. It holds that courts should not defer to an agency's interpretation of a statute on questions of major economic or political significance unless Congress has clearly authorized the agency to address those questions.</p>
+    
+    <div class="key-point">
+        <h4>Core Principle of MQD</h4>
+        <p>"We expect Congress to speak clearly if it wishes to assign to an executive agency decisions of vast economic and political significance." - <span class="case-name">West Virginia v. EPA</span> (2022)</p>
+    </div>
+    
+    <div class="case-box">
+        <h4 class="case-name">West Virginia v. EPA (2022)</h4>
+        <p class="case-citation">142 S. Ct. 2587</p>
+        <div class="case-facts">
+            <p>The EPA promulgated the Clean Power Plan, which established emission guidelines for power plants and required shifts from coal to natural gas and renewable energy sources. The EPA claimed authority under Section 111 of the Clean Air Act.</p>
+        </div>
+        <div class="case-rule">
+            <p>The Supreme Court invalidated the Clean Power Plan under the major questions doctrine, finding that the EPA's assertion of authority to restructure the nation's electricity production constituted a "transformative expansion" of its regulatory authority without clear congressional authorization.</p>
+        </div>
+        <div class="case-reasoning">
+            <p>Chief Justice Roberts's majority opinion:</p>
+            <ul>
+                <li>Section 111 had never before been used to regulate beyond specific sources</li>
+                <li>The EPA's interpretation would give it unprecedented authority over a significant portion of the American economy</li>
+                <li>Congress had previously considered and rejected similar cap-and-trade programs</li>
+                <li>The statutory language fell "far short of the clear congressional authorization" required</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="case-box">
+        <h4 class="case-name">Biden v. Nebraska (2023)</h4>
+        <p class="case-citation">143 S. Ct. 2355</p>
+        <div class="case-facts">
+            <p>The Secretary of Education sought to forgive federal student loan debt for approximately 43 million borrowers at an estimated cost of $430 billion. The Secretary relied on the HEROES Act, which allows the Secretary to "waive or modify" federal student loan provisions during national emergencies.</p>
+        </div>
+        <div class="case-rule">
+            <p>The Supreme Court invalidated the loan forgiveness program under the major questions doctrine, finding that the Secretary's claimed authority to cancel $430 billion of student loan principal required clear congressional authorization.</p>
+        </div>
+        <div class="case-reasoning">
+            <p>Chief Justice Roberts's majority opinion:</p>
+            <ul>
+                <li>The HEROES Act's authority to "waive or modify" provisions does not naturally encompass the power to cancel debt</li>
+                <li>The Secretary's reading would transform a statute designed for emergencies into the basis for a fundamental change in student loan policy</li>
+                <li>The economic and political significance of the action ($430 billion) required clear congressional authorization</li>
+                <li>Congress had previously authorized more limited loan forgiveness programs in specific circumstances</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="test-box">
+        <h4>When Does the Major Questions Doctrine Apply?</h4>
+        <p>According to Justice Gorsuch's concurrence in <span class="case-name">West Virginia v. EPA</span>, the doctrine is likely to apply when:</p>
+        <ol>
+            <li>An agency claims power to resolve a matter of great political significance or end a profound national debate</li>
+            <li>An agency seeks to regulate a significant portion of the economy or requires significant financial expenditure</li>
+            <li>An agency seeks to intrude into an area traditionally reserved to the states</li>
+        </ol>
+        <p>To identify clear congressional authority, courts should consider:</p>
+        <ol>
+            <li>The statutory provisions in their larger context (their place in the overall legislative scheme)</li>
+            <li>The age and focus of the statute in relation to the problem the agency seeks to address</li>
+            <li>The agency's past interpretations of the relevant statute</li>
+            <li>Whether there's a mismatch between the agency's action and its congressionally assigned mission and expertise</li>
+        </ol>
+    </div>
+</div>
+
+<div class="explanation" id="congressional-control">
+    <h3>Congressional Control of Agencies</h3>
+    
+    <p>Congress exercises control over administrative agencies through various mechanisms, some of which raise constitutional concerns related to separation of powers.</p>
+    
+    <div class="case-box">
+        <h4 class="case-name">INS v. Chadha (1983)</h4>
+        <p class="case-citation">462 U.S. 919</p>
+        <div class="case-facts">
+            <p>The Immigration and Nationality Act allowed either house of Congress to veto the Attorney General's decision to suspend deportation. When the House vetoed the AG's suspension of Chadha's deportation, he challenged the constitutionality of this "legislative veto."</p>
+        </div>
+        <div class="case-rule">
+            <p>The Supreme Court struck down the legislative veto as unconstitutional, holding that congressional actions that are legislative in nature must satisfy the requirements of bicameralism (passage by both houses) and presentment (submission to the President).</p>
+        </div>
+        <div class="case-reasoning">
+            <p>Chief Justice Burger's majority opinion:</p>
+            <ul>
+                <li>The Constitution prescribes specific procedures for lawmaking in Article I</li>
+                <li>The House's action was legislative in character because it altered the legal rights, duties, and relations of persons outside the legislative branch</li>
+                <li>The Constitution carefully constrains the legislative process with bicameralism and presentment requirements</li>
+                <li>These constraints serve important purposes: careful deliberation, representation, and checks and balances</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="key-point">
+        <h4>Constitutional Tools of Congressional Control</h4>
+        <ul>
+            <li><strong>Appropriations</strong>: Congress controls agency funding through appropriations powers</li>
+            <li><strong>Oversight Hearings</strong>: Congress monitors agencies through committee hearings</li>
+            <li><strong>Advice and Consent</strong>: Senate confirms or rejects presidential nominees to key agency positions</li>
+            <li><strong>Statutory Specificity</strong>: Congress can limit agency discretion through detailed legislation</li>
+            <li><strong>Congressional Review Act (CRA)</strong>: Allows Congress to disapprove new agency rules through joint resolutions subject to presidential veto</li>
+        </ul>
+    </div>
+    
+    <div class="example">
+        <h4>The Congressional Review Act</h4>
+        <p>The Congressional Review Act (1996) provides a mechanism for Congress to review and potentially disapprove new federal regulations before they take effect. Key features include:</p>
+        <ul>
+            <li>Agencies must submit all rules to Congress before they can take effect</li>
+            <li>Congress has 60 legislative days to pass a joint resolution of disapproval</li>
+            <li>If the resolution passes and is signed by the President (or Congress overrides a veto), the rule cannot take effect</li>
+            <li>An agency may not reissue a rule in "substantially the same form" unless specifically authorized by a subsequent law</li>
+        </ul>
+        <p>The CRA was rarely used until 2017, when it was employed to overturn 16 rules from the Obama administration. It continues to be used during presidential transitions when control of the White House changes parties.</p>
+    </div>
+</div>
+
+<div class="explanation" id="presidential-control">
+    <h3>Presidential Control of Agencies</h3>
+    
+    <p>The President exercises control over administrative agencies through various mechanisms derived from Article II of the Constitution, which vests executive power in the President and requires that the President "take Care that the Laws be faithfully executed."</p>
+    
+    <div class="key-point">
+        <h4>Competing Views on Presidential Authority</h4>
+        <ul>
+            <li><strong>Unitary Executive Theory</strong>: The President has comprehensive control over the executive branch, including the power to direct agency decisions and remove officials at will</li>
+            <li><strong>Oversight Model</strong>: The President's role is to oversee agencies and ensure faithful execution of the laws, but not to dictate substantive decisions when Congress has delegated authority to agencies</li>
+        </ul>
+    </div>
+    
+    <div class="key-point">
+        <h4>Tools of Presidential Control</h4>
+        <ul>
+            <li><strong>Executive Orders</strong>: Presidential directives that manage operations of the executive branch</li>
+            <li><strong>Appointment Power</strong>: President nominates high-level agency officials (with Senate confirmation)</li>
+            <li><strong>Removal Power</strong>: President can remove certain agency officials</li>
+            <li><strong>Centralized Regulatory Review</strong>: Office of Information and Regulatory Affairs (OIRA) reviews significant agency rules</li>
+            <li><strong>Budget Process</strong>: Presidential influence through OMB budget preparation</li>
+            <li><strong>Directive Authority</strong>: Direct instructions to agencies (scope contested)</li>
+        </ul>
+    </div>
+    
+    <div class="example">
+        <h4>OIRA Review</h4>
+        <p>The Office of Information and Regulatory Affairs (OIRA), located within the Office of Management and Budget (OMB), conducts centralized review of significant regulatory actions. Key features include:</p>
+        <ul>
+            <li>Executive Order 12,866 (1993) requires executive agencies to submit significant regulatory actions to OIRA for review</li>
+            <li>Agencies must conduct cost-benefit analysis for major rules</li>
+            <li>OIRA reviews ensure consistency with presidential priorities</li>
+            <li>Independent agencies are encouraged, but not required, to submit rules for OIRA review</li>
+            <li>OIRA review has been criticized for causing delay and prioritizing economic concerns over health and safety</li>
+        </ul>
+    </div>
+</div>
+
+<div class="explanation" id="appointment-removal">
+    <h3>Appointment and Removal Powers</h3>
+    
+    <p>The Constitution's Appointments Clause (Article II, § 2) governs how officers of the United States are appointed, while the President's power to remove officers has been developed through Supreme Court doctrine.</p>
+    
+    <div class="case-box">
+        <h4 class="case-name">Buckley v. Valeo (1976)</h4>
+        <p class="case-citation">424 U.S. 1</p>
+        <div class="case-facts">
+            <p>The Federal Election Campaign Act created a Federal Election Commission with six voting members: two appointed by the President, two by the President pro tempore of the Senate, and two by the Speaker of the House.</p>
+        </div>
+        <div class="case-rule">
+            <p>The Supreme Court held that this appointment structure violated the Appointments Clause because FEC commissioners exercised "significant authority" and were therefore "Officers of the United States" who must be appointed by the President with Senate consent or, if "inferior officers," as provided by Congress.</p>
+        </div>
+        <div class="case-reasoning">
+            <p>The Court held:</p>
+            <ul>
+                <li>An "Officer of the United States" is "any appointee exercising significant authority pursuant to the laws of the United States"</li>
+                <li>FEC commissioners exercised significant authority through rulemaking, advisory opinions, and enforcement actions</li>
+                <li>The Appointments Clause provides the exclusive means for appointing Officers of the United States</li>
+                <li>Congress cannot appoint Officers of the United States</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="case-box">
+        <h4 class="case-name">Myers v. United States (1926)</h4>
+        <p class="case-citation">272 U.S. 52</p>
+        <div class="case-facts">
+            <p>A statute required Senate consent for the President to remove certain postmasters. President Wilson removed Myers without Senate consent, and Myers sued for back pay.</p>
+        </div>
+        <div class="case-rule">
+            <p>The Supreme Court held that the President has exclusive authority to remove executive officers whom he has appointed with Senate confirmation, and Congress cannot limit this power.</p>
+        </div>
+        <div class="case-reasoning">
+            <p>Chief Justice Taft's opinion reasoned:</p>
+            <ul>
+                <li>The executive power is vested in the President, who must "take Care that the Laws be faithfully executed"</li>
+                <li>These responsibilities require the power to select and remove executive officials</li>
+                <li>Congressional limitation on removal would undermine the separation of powers</li>
+                <li>Historical practice supported the President's removal power</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="case-box">
+        <h4 class="case-name">Humphrey's Executor v. United States (1935)</h4>
+        <p class="case-citation">295 U.S. 602</p>
+        <div class="case-facts">
+            <p>A statute limited the President's power to remove Federal Trade Commission members to specified causes ("inefficiency, neglect of duty, or malfeasance in office"). President Roosevelt removed Humphrey without claiming any of these causes.</p>
+        </div>
+        <div class="case-rule">
+            <p>The Supreme Court limited Myers and upheld the removal restriction, holding that Congress could limit the President's power to remove officials of independent agencies that perform quasi-legislative and quasi-judicial functions.</p>
+        </div>
+        <div class="case-reasoning">
+            <p>The Court distinguished between:</p>
+            <ul>
+                <li>"Purely executive" officers, whom the President may remove at will</li>
+                <li>Officials of independent agencies with quasi-legislative and quasi-judicial functions, for whom Congress may impose removal restrictions</li>
+            </ul>
+            <p>The Court emphasized the FTC's independence from executive control and its need for expertise and continuity.</p>
+        </div>
+    </div>
+    
+    <div class="case-box">
+        <h4 class="case-name">Seila Law LLC v. Consumer Financial Protection Bureau (2020)</h4>
+        <p class="case-citation">140 S. Ct. 2183</p>
+        <div class="case-facts">
+            <p>The Dodd-Frank Act created the CFPB with a single director removable by the President only for "inefficiency, neglect of duty, or malfeasance in office." Seila Law challenged this structure as unconstitutional.</p>
+        </div>
+        <div class="case-rule">
+            <p>The Supreme Court held that the CFPB's single-director structure with removal protection violated the separation of powers. The Court recognized only two exceptions to the President's unrestricted removal power: (1) multimember expert agencies and (2) inferior officers with limited duties.</p>
+        </div>
+        <div class="case-reasoning">
+            <p>Chief Justice Roberts's majority opinion:</p>
+            <ul>
+                <li>The Constitution vests executive power in the President, who must "take Care that the Laws be faithfully executed"</li>
+                <li>The President's ability to remove executive officials is central to this power</li>
+                <li>The CFPB's structure concentrated significant executive power in a single individual who is insulated from presidential control</li>
+                <li>This structure had no historical precedent and was incompatible with the structure of the Constitution</li>
+                <li>The removal restriction was severable from the rest of the statute</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="test-box">
+        <h4>Current Framework for Removal Restrictions</h4>
+        <ol>
+            <li>The President generally has unrestricted power to remove executive officers</li>
+            <li>Exceptions where Congress may impose "for cause" removal restrictions:
+                <ul>
+                    <li>Multimember expert agencies with quasi-legislative or quasi-judicial functions</li>
+                    <li>Inferior officers with limited duties</li>
+                </ul>
+            </li>
+            <li>Impermissible removal restrictions:
+                <ul>
+                    <li>Single-director agencies with significant executive authority</li>
+                    <li>Multiple layers of "for cause" protection</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<div class="back-to-top">
+    <a href="#introduction-constitutionality-section">Back to Top</a>
+</div>
