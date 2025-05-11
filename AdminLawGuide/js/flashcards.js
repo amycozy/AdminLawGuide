@@ -1,6 +1,8 @@
 // flashcards.js - Simplified flashcard functionality for Admin Law Guide
 
 document.addEventListener('DOMContentLoaded', function() {
+    console.log("DOM content loaded - flashcards initializing");
+    
     // Flashcard data
     const allFlashcards = [
         {
@@ -191,14 +193,6 @@ document.addEventListener('DOMContentLoaded', function() {
     let masteredCards = localStorage.getItem('masteredCards') ? 
         JSON.parse(localStorage.getItem('masteredCards')) : [];
 
-    // Function to initialize the flashcard system
-    function initializeFlashcards() {
-        updateProgressIndicator();
-        setupCategoryTabs();
-        loadInitialCards();
-        setupFlashcardControls();
-    }
-
     // Function to create and return a flashcard element
     function createFlashcardElement(cardData) {
         const flashcardElement = document.createElement('div');
@@ -343,13 +337,19 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to load initial cards
     function loadInitialCards() {
         const container = document.getElementById('flashcard-container');
-        if (!container) return;
+        if (!container) {
+            console.error("Flashcard container not found!");
+            return;
+        }
+        
+        console.log("Loading initial flashcards...");
         
         // Clear the container
         container.innerHTML = '';
         
         // Add the first 3 cards as a starting point
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < 3 && i < allFlashcards.length; i++) {
+            console.log("Creating flashcard:", allFlashcards[i].title);
             const cardElement = createFlashcardElement(allFlashcards[i]);
             container.appendChild(cardElement);
         }
@@ -438,6 +438,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Initialize when DOM is loaded
+    // Function to initialize the flashcard system
+    function initializeFlashcards() {
+        updateProgressIndicator();
+        setupCategoryTabs();
+        loadInitialCards();
+        setupFlashcardControls();
+    }
+    
+    // Initialize the flashcard system
     initializeFlashcards();
 });

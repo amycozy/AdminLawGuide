@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcard Test</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/flashcards.css">
+    <script src="js/flashcards.js" defer></script>
+</head>
+<body>
+    <h2>Flashcard Test Page</h2>
+    
+    <div class="explanation">
+        <h3>Spaced Repetition Flashcards</h3>
+        <p>Click on a card to flip it and check your understanding.</p>
+    </div>
+    
+    <!-- Progress tracking bar -->
+    <div class="progress-container">
+        <div class="progress-bar" style="width: 0%"></div>
+    </div>
+    <p class="progress-text">0 of 25 cards mastered (0%)</p>
+    
+    <!-- Category tabs -->
+    <div class="category-tabs">
+        <button class="category-tab active" data-category="all">All Topics</button>
+        <button class="category-tab" data-category="judicial-review">Judicial Review</button>
+        <button class="category-tab" data-category="agency-procedure">Agency Procedure</button>
+        <button class="category-tab" data-category="constitutional">Constitutional Issues</button>
+    </div>
+        
+    <!-- Flashcard controls -->
+    <div class="flashcard-controls">
+        <div class="flashcard-actions">
+            <button id="shuffle-cards" class="control-button">Shuffle Cards</button>
+            <button id="show-different-cards" class="control-button primary">Show Different Cards</button>
+        </div>
+        <span class="flashcard-counter">Showing 3 of 25 total flashcards</span>
+    </div>
+            
+    <!-- Flashcard container -->
+    <div id="flashcard-container"></div>
+</body>
+</html>
