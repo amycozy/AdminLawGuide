@@ -5,6 +5,7 @@
     <a href="#" class="mastery-nav-link" data-target="mastery-scenarios">Practice Scenarios</a>
     <a href="#" class="mastery-nav-link" data-target="mastery-comparisons">Concept Comparisons</a>
     <a href="#" class="mastery-nav-link" data-target="mastery-quizzes">Self-Quizzes</a>
+    <a href="#" class="mastery-nav-link" data-target="mastery-mascot-resources">Mascot Resources</a>
 </div>
 
 <div class="explanation" id="mastery-center-intro">
@@ -23,6 +24,115 @@
             <div class="mastery-tab" data-tab="tab-quizzes">Self-Quizzes</div>
         </div>
         <div class="mastery-content">
+            <!-- Mascot Resources Section -->
+            <div class="mastery-section" id="mastery-mascot-resources">
+                <h4>Learn with Your Admin Law Guides</h4>
+                <p>Explore specialized resources featuring each of your Admin Law Guides to deepen your understanding of key concepts.</p>
+                
+                <div class="mascot-resources-grid">
+                    <div class="mascot-resource-card judicial">
+                        <img src="../assets/cutestchevronchameleon.png" alt="Chevron Chameleon">
+                        <h4>Chevron Chameleon</h4>
+                        <p>The adaptive interpreter of statutes</p>
+                        <a href="#visual-learning-section" data-section="visual-learning" class="resource-link">Visit Visual Learning Center</a>
+                    </div>
+                    
+                    <div class="mascot-resource-card constitutional">
+                        <img src="../assets/mqm.png" alt="Major Questions Mole">
+                        <h4>Major Questions Mole</h4>
+                        <p>The boundary detective of agency authority</p>
+                        <a href="#visual-knowledge-maps-section" data-section="visual-knowledge-maps" class="resource-link">Explore Visual Knowledge Maps</a>
+                    </div>
+                    
+                    <div class="mascot-resource-card procedural">
+                        <img src="../assets/slothsam.png" alt="Standing Sam">
+                        <h4>Standing Sam</h4>
+                        <p>The guardian of court access</p>
+                        <a href="#concept-reinforcement-section" data-section="concept-reinforcement" class="resource-link">Try Concept Reinforcement</a>
+                    </div>
+                    
+                    <div class="mascot-resource-card executive">
+                        <img src="../assets/APAarchitect.png" alt="APA Architect">
+                        <h4>APA Architect</h4>
+                        <p>The builder of proper procedures</p>
+                        <a href="#application-practice-section" data-section="application-practice" class="resource-link">Practice Application</a>
+                    </div>
+                </div>
+                
+                <style>
+                    .mascot-resources-grid {
+                        display: grid;
+                        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                        gap: 20px;
+                        margin-top: 20px;
+                    }
+                    
+                    .mascot-resource-card {
+                        background-color: white;
+                        border-radius: 8px;
+                        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+                        padding: 20px;
+                        text-align: center;
+                        transition: transform 0.3s ease, box-shadow 0.3s ease;
+                    }
+                    
+                    .mascot-resource-card:hover {
+                        transform: translateY(-5px);
+                        box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+                    }
+                    
+                    .mascot-resource-card.judicial {
+                        border-top: 4px solid var(--judicial-primary);
+                    }
+                    
+                    .mascot-resource-card.constitutional {
+                        border-top: 4px solid var(--constitutional-primary);
+                    }
+                    
+                    .mascot-resource-card.procedural {
+                        border-top: 4px solid var(--procedural-primary);
+                    }
+                    
+                    .mascot-resource-card.executive {
+                        border-top: 4px solid var(--executive-primary);
+                    }
+                    
+                    .mascot-resource-card img {
+                        width: 80px;
+                        height: 80px;
+                        border-radius: 50%;
+                        margin: 0 auto 15px auto;
+                        display: block;
+                    }
+                    
+                    .mascot-resource-card h4 {
+                        margin: 10px 0;
+                        color: #2c3e50;
+                    }
+                    
+                    .mascot-resource-card p {
+                        color: #666;
+                        font-style: italic;
+                        margin-bottom: 15px;
+                    }
+                    
+                    .resource-link {
+                        display: inline-block;
+                        padding: 8px 16px;
+                        background-color: #f0f0f0;
+                        border-radius: 4px;
+                        text-decoration: none;
+                        color: #2c3e50;
+                        transition: background-color 0.2s ease;
+                    }
+                    
+                    .resource-link:hover {
+                        background-color: #e0e0e0;
+                        text-decoration: none;
+                    }
+                </style>
+            </div>
+            
             <!-- Flashcards Section -->
             <div class="mastery-section active" id="mastery-flashcards">
                 <h4>Spaced Repetition Flashcards</h4>
@@ -329,6 +439,33 @@
                                 displayFlashcards(newIndices);
                             });
                         }
+                        
+                        // Set up navigation handlers for the top navigation
+                        document.querySelectorAll('.mastery-nav-link').forEach(link => {
+                            link.addEventListener('click', function(e) {
+                                e.preventDefault();
+                                
+                                // Remove active class from all links
+                                document.querySelectorAll('.mastery-nav-link').forEach(item => {
+                                    item.classList.remove('active');
+                                });
+                                
+                                // Add active class to clicked link
+                                this.classList.add('active');
+                                
+                                // Hide all sections
+                                document.querySelectorAll('.mastery-section').forEach(section => {
+                                    section.classList.remove('active');
+                                });
+                                
+                                // Show the target section
+                                const targetId = this.getAttribute('data-target');
+                                const targetSection = document.getElementById(targetId);
+                                if (targetSection) {
+                                    targetSection.classList.add('active');
+                                }
+                            });
+                        });
                     });
                 </script>
             </div>
