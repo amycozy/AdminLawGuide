@@ -1,0 +1,318 @@
+/* shadcn-components.css - Styles for shadcn UI component-inspired elements */
+
+:root {
+  --background: #ffffff;
+  --foreground: #09090b;
+  --card: #ffffff;
+  --card-foreground: #09090b;
+  --popover: #ffffff;
+  --popover-foreground: #09090b;
+  --primary: #6f4bbd;
+  --primary-foreground: #ffffff;
+  --secondary: #f4f4f5;
+  --secondary-foreground: #18181b;
+  --muted: #f4f4f5;
+  --muted-foreground: #71717a;
+  --accent: #f4f4f5;
+  --accent-foreground: #18181b;
+  --destructive: #ef4444;
+  --destructive-foreground: #f8fafc;
+  --border: #e4e4e7;
+  --input: #e4e4e7;
+  --ring: #6f4bbd;
+  --radius: 0.5rem;
+  --judicial-primary: #6f4bbd; /* Chevron Chameleon theme */
+  --constitutional-primary: #d97706; /* Major Questions Mole theme */
+  --procedural-primary: #0ea5e9; /* Standing Sam theme */
+  --executive-primary: #16a34a; /* APA Architect theme */
+}
+
+/* Layout Elements */
+.shadcn-tabs {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.shadcn-tabs-list {
+  display: flex;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+  padding-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.shadcn-tabs-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background-color: transparent;
+  color: var(--muted-foreground);
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.shadcn-tabs-trigger:hover {
+  color: var(--foreground);
+}
+
+.shadcn-tabs-trigger.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+.shadcn-tabs-content {
+  padding: 1rem 0;
+  outline: none;
+}
+
+/* Buttons */
+.shadcn-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius);
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid transparent;
+}
+
+.shadcn-button-sm {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+}
+
+.shadcn-button-lg {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+}
+
+.shadcn-button-default {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  border-color: var(--primary);
+}
+
+.shadcn-button-default:hover {
+  background-color: #5b3da6; /* Darker primary */
+}
+
+.shadcn-button-secondary {
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
+  border-color: var(--secondary);
+}
+
+.shadcn-button-secondary:hover {
+  background-color: #e4e4e7; /* Darker secondary */
+}
+
+.shadcn-button-outline {
+  background-color: transparent;
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.shadcn-button-outline:hover {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.shadcn-button-ghost {
+  background-color: transparent;
+  color: var(--foreground);
+}
+
+.shadcn-button-ghost:hover {
+  background-color: var(--secondary);
+}
+
+.shadcn-button-success {
+  background-color: #10b981;
+  color: #ffffff;
+  border-color: #10b981;
+}
+
+.shadcn-button-success:hover {
+  background-color: #059669;
+}
+
+/* Badge */
+.shadcn-badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: calc(var(--radius) * 1.5);
+  font-size: 0.75rem;
+  padding: 0.125rem 0.5rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.shadcn-badge-secondary {
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
+}
+
+.shadcn-badge-primary {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.shadcn-badge-success {
+  background-color: #10b981;
+  color: #ffffff;
+}
+
+/* Progress */
+.shadcn-progress {
+  position: relative;
+  width: 100%;
+  height: 0.5rem;
+  background-color: var(--secondary);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.shadcn-progress-indicator {
+  height: 100%;
+  background-color: var(--primary);
+  transition: width 0.3s ease;
+}
+
+/* Flashcards */
+.shadcn-flashcard-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  margin: 1.5rem 0;
+}
+
+.shadcn-flashcard {
+  background-color: var(--card);
+  border-radius: var(--radius);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 280px;
+  perspective: 1000px;
+  cursor: pointer;
+  border: 1px solid var(--border);
+}
+
+.shadcn-flashcard-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.shadcn-flashcard-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+.shadcn-flashcard-front,
+.shadcn-flashcard-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.shadcn-flashcard-front {
+  background-color: var(--card);
+  color: var(--card-foreground);
+}
+
+.shadcn-flashcard-back {
+  background-color: var(--card);
+  color: var(--card-foreground);
+  transform: rotateY(180deg);
+  overflow-y: auto;
+}
+
+.shadcn-flashcard-title {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--foreground);
+}
+
+.shadcn-flashcard-content {
+  flex: 1;
+  color: var(--muted-foreground);
+}
+
+.shadcn-flashcard-badge {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  font-size: 0.625rem;
+}
+
+.shadcn-flashcard-mastered {
+  border-left: 4px solid #10b981;
+}
+
+.shadcn-flashcard-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.shadcn-flashcard-meta {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+/* Category badges */
+.shadcn-flashcard[data-category="judicial-review"] .shadcn-flashcard-badge {
+  background-color: var(--judicial-primary);
+  color: white;
+}
+
+.shadcn-flashcard[data-category="constitutional"] .shadcn-flashcard-badge {
+  background-color: var(--constitutional-primary);
+  color: white;
+}
+
+.shadcn-flashcard[data-category="agency-procedure"] .shadcn-flashcard-badge {
+  background-color: var(--executive-primary);
+  color: white;
+}
+
+/* Mobile-responsive adjustments */
+@media (max-width: 768px) {
+  .shadcn-flashcard-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .shadcn-tabs-list {
+    overflow-x: auto;
+    white-space: nowrap;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .shadcn-flashcard-controls {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
