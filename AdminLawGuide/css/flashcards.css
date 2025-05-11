@@ -1,0 +1,259 @@
+/* flashcards.css - Styles for the streamlined flashcard system */
+
+/* Progress tracking */
+.progress-container {
+    width: 100%;
+    height: 8px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #6f4bbd; /* Same purple as in shadcn theme */
+    width: 0%; /* Will be set by JavaScript */
+    transition: width 0.3s ease;
+}
+
+.progress-text {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 0.875rem;
+    color: #71717a;
+}
+
+/* Category tabs */
+.category-tabs {
+    display: flex;
+    border-bottom: 1px solid #e4e4e7;
+    margin-bottom: 1.5rem;
+    padding-top: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.category-tab {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    background-color: transparent;
+    color: #71717a;
+    border: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.category-tab:hover {
+    color: #18181b;
+}
+
+.category-tab.active {
+    color: #6f4bbd;
+    border-bottom-color: #6f4bbd;
+}
+
+/* Flashcard controls */
+.flashcard-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.flashcard-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.flashcard-counter {
+    font-size: 0.875rem;
+    color: #71717a;
+}
+
+/* Flashcard container */
+#flashcard-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+    margin: 1.5rem 0;
+}
+
+/* Individual flashcards */
+.flashcard {
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 280px;
+    perspective: 1000px;
+    cursor: pointer;
+    border: 1px solid #e4e4e7;
+}
+
+.flashcard.mastered {
+    border-left: 4px solid #10b981; /* Green border for mastered cards */
+}
+
+.flashcard-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flashcard-inner.flipped {
+    transform: rotateY(180deg);
+}
+
+.flashcard-front,
+.flashcard-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.flashcard-front {
+    background-color: #ffffff;
+    color: #18181b;
+}
+
+.flashcard-back {
+    background-color: #ffffff;
+    color: #18181b;
+    transform: rotateY(180deg);
+    overflow-y: auto;
+}
+
+.flashcard h4 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    line-height: 1.2;
+}
+
+.flashcard p {
+    margin-bottom: 0;
+    flex-grow: 1;
+}
+
+.flashcard .answer {
+    flex-grow: 1;
+    margin-bottom: 1rem;
+}
+
+/* Category badges */
+.category-badge {
+    display: inline-block;
+    border-radius: 1rem;
+    font-size: 0.625rem;
+    padding: 0.25rem 0.5rem;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+}
+
+.category-badge.judicial-review {
+    background-color: #6f4bbd; /* Purple for Judicial Review */
+    color: white;
+}
+
+.category-badge.constitutional {
+    background-color: #d97706; /* Orange for Constitutional */
+    color: white;
+}
+
+.category-badge.agency-procedure {
+    background-color: #0ea5e9; /* Blue for Agency Procedure */
+    color: white;
+}
+
+/* Mark as Known button */
+.mark-known-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.375rem;
+    font-weight: 500;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    background-color: transparent;
+    color: #6f4bbd;
+    border: 1px solid #6f4bbd;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.mark-known-btn:hover {
+    background-color: #6f4bbd;
+    color: white;
+}
+
+.mark-known-btn.known {
+    background-color: #10b981; /* Green for already known */
+    color: white;
+    border-color: #10b981;
+}
+
+/* Control buttons */
+.control-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.375rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+    background-color: #f4f4f5;
+    color: #18181b;
+    border: 1px solid #e4e4e7;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.control-button:hover {
+    background-color: #e4e4e7;
+}
+
+.control-button.primary {
+    background-color: #6f4bbd;
+    color: white;
+    border-color: #6f4bbd;
+}
+
+.control-button.primary:hover {
+    background-color: #5b3da6;
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+    #flashcard-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .flashcard-controls {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .category-tabs {
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 0.5rem;
+    }
+}

@@ -31,116 +31,33 @@
                 <h4>Spaced Repetition Flashcards</h4>
                 <p>Click on a card to flip it and check your understanding. Come back to these cards regularly to solidify your knowledge through spaced repetition.</p>
                 
-                <!-- Add our shadcn-styled progress tracker -->
-                <div class="shadcn-progress" style="margin-bottom: 1rem;">
-                    <div class="shadcn-progress-indicator" style="width: 0%" data-total-cards="25"></div>
+                <!-- Progress tracking bar -->
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: 0%"></div>
                 </div>
-                <p class="shadcn-flashcard-progress-text" style="text-align: center; margin-bottom: 1.5rem; font-size: 0.875rem; color: var(--muted-foreground);">
-                    0 of 25 cards mastered (0%)
-                </p>
+                <p class="progress-text">0 of 25 cards mastered (0%)</p>
                 
-                <!-- Tabs for categories -->
-                <div class="shadcn-tabs">
-                    <div class="shadcn-tabs-list">
-                        <button class="shadcn-tabs-trigger active" data-content="all-flashcards">All Topics</button>
-                        <button class="shadcn-tabs-trigger" data-content="judicial-review-cards">Judicial Review</button>
-                        <button class="shadcn-tabs-trigger" data-content="procedure-cards">Agency Procedure</button>
-                        <button class="shadcn-tabs-trigger" data-content="constitutional-cards">Constitutional Issues</button>
-                    </div>
+                <!-- Category tabs -->
+                <div class="category-tabs">
+                    <button class="category-tab active" data-category="all">All Topics</button>
+                    <button class="category-tab" data-category="judicial-review">Judicial Review</button>
+                    <button class="category-tab" data-category="agency-procedure">Agency Procedure</button>
+                    <button class="category-tab" data-category="constitutional">Constitutional Issues</button>
+                </div>
                     
-                    <!-- All Cards Tab Content -->
-                    <div id="all-flashcards" class="shadcn-tabs-content">
-                        <div class="shadcn-flashcard-controls">
-                            <div>
-                                <button id="shuffle-flashcards" class="shadcn-button shadcn-button-secondary shadcn-button-sm">
-                                    Shuffle Cards
-                                </button>
-                                <button id="show-different-cards" class="shadcn-button shadcn-button-default shadcn-button-sm">
-                                    Show Different Cards
-                                </button>
-                            </div>
-                            <span class="shadcn-flashcard-meta">Showing 3 of 25 total flashcards</span>
-                        </div>
+                <!-- Flashcard controls -->
+                <div class="flashcard-controls">
+                    <div class="flashcard-actions">
+                        <button id="shuffle-cards" class="control-button">Shuffle Cards</button>
+                        <button id="show-different-cards" class="control-button primary">Show Different Cards</button>
+                    </div>
+                    <span class="flashcard-counter">Showing 3 of 25 total flashcards</span>
+                </div>
                         
-                        <div id="flashcard-container" class="shadcn-flashcard-container">
-                            <!-- Initial static flashcards with shadcn styling -->
-                            <div class="shadcn-flashcard" data-category="judicial-review" data-card-id="chevron">
-                                <div class="shadcn-flashcard-inner">
-                                    <div class="shadcn-flashcard-front">
-                                        <span class="shadcn-badge shadcn-badge-secondary shadcn-flashcard-badge">Judicial Review</span>
-                                        <h4 class="shadcn-flashcard-title">Chevron Doctrine</h4>
-                                        <p class="shadcn-flashcard-content">What was the two-step framework for judicial review of agency statutory interpretations?</p>
-                                    </div>
-                                    <div class="shadcn-flashcard-back">
-                                        <h4 class="shadcn-flashcard-title">Chevron Doctrine</h4>
-                                        <div class="shadcn-flashcard-content">
-                                            <p><strong>Step 1:</strong> Has Congress directly spoken to the precise question at issue? If yes, that's the end of the matter.</p>
-                                            <p><strong>Step 2:</strong> If the statute is silent or ambiguous, is the agency's interpretation reasonable?</p>
-                                            <p><em>Note: Loper Bright (2024) overturned this framework.</em></p>
-                                        </div>
-                                        <button class="shadcn-button shadcn-button-outline shadcn-button-sm mark-known-button" data-card-id="chevron" style="margin-top: 1rem;">Mark as Known</button>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="shadcn-flashcard" data-category="constitutional" data-card-id="mqd">
-                                <div class="shadcn-flashcard-inner">
-                                    <div class="shadcn-flashcard-front">
-                                        <span class="shadcn-badge shadcn-badge-secondary shadcn-flashcard-badge">Constitutional</span>
-                                        <h4 class="shadcn-flashcard-title">Major Questions Doctrine</h4>
-                                        <p class="shadcn-flashcard-content">When does the Major Questions Doctrine apply, and what does it require?</p>
-                                    </div>
-                                    <div class="shadcn-flashcard-back">
-                                        <h4 class="shadcn-flashcard-title">Major Questions Doctrine</h4>
-                                        <div class="shadcn-flashcard-content">
-                                            <p>Applies when an agency claims authority over a question of vast economic and political significance.</p>
-                                            <p>Requires: Clear congressional authorization for the agency's action.</p>
-                                            <p>Key cases: West Virginia v. EPA, NFIB v. OSHA</p>
-                                        </div>
-                                        <button class="shadcn-button shadcn-button-outline shadcn-button-sm mark-known-button" data-card-id="mqd" style="margin-top: 1rem;">Mark as Known</button>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="shadcn-flashcard" data-category="judicial-review" data-card-id="standing">
-                                <div class="shadcn-flashcard-inner">
-                                    <div class="shadcn-flashcard-front">
-                                        <span class="shadcn-badge shadcn-badge-secondary shadcn-flashcard-badge">Judicial Review</span>
-                                        <h4 class="shadcn-flashcard-title">Article III Standing</h4>
-                                        <p class="shadcn-flashcard-content">What are the three requirements for Article III standing?</p>
-                                    </div>
-                                    <div class="shadcn-flashcard-back">
-                                        <h4 class="shadcn-flashcard-title">Article III Standing</h4>
-                                        <div class="shadcn-flashcard-content">
-                                            <p><strong>1. Injury in fact:</strong> Concrete, particularized, actual or imminent</p>
-                                            <p><strong>2. Causation:</strong> Fairly traceable to the challenged action</p>
-                                            <p><strong>3. Redressability:</strong> Likely to be redressed by a favorable decision</p>
-                                            <p>Zone of interests is a separate prudential requirement.</p>
-                                        </div>
-                                        <button class="shadcn-button shadcn-button-outline shadcn-button-sm mark-known-button" data-card-id="standing" style="margin-top: 1rem;">Mark as Known</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <!-- Flashcard container - will be populated by JavaScript -->
+                <div id="flashcard-container"></div>
                     </div>
                     
-                    <!-- Judicial Review Tab Content -->
-                    <div id="judicial-review-cards" class="shadcn-tabs-content" style="display: none;">
-                        <p>Cards focused on judicial review standards, standing, finality, ripeness, and related concepts.</p>
-                        <!-- This will be populated by JavaScript -->
-                    </div>
-                    
-                    <!-- Agency Procedure Tab Content -->
-                    <div id="procedure-cards" class="shadcn-tabs-content" style="display: none;">
-                        <p>Cards about rulemaking, adjudication, and APA procedural requirements.</p>
-                        <!-- This will be populated by JavaScript -->
-                    </div>
-                    
-                    <!-- Constitutional Issues Tab Content -->
-                    <div id="constitutional-cards" class="shadcn-tabs-content" style="display: none;">
-                        <p>Cards on nondelegation, removal power, due process, and separation of powers issues.</p>
-                        <!-- This will be populated by JavaScript -->
-                    </div>
                 </div>
             </div>
             
