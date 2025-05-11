@@ -18,6 +18,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Set up visual knowledge maps interactions
     setupVisualKnowledgeMaps();
+
+    // Set up subsection navigation (smooth scrolling)
+    setupSubsectionNavigation();
 });
 
 // Initialize Mermaid diagrams
@@ -117,6 +120,9 @@ function setupNavigation() {
                 // Initialize toggle answer buttons
                 setupInteractiveElements();
                 
+                // Set up subsection navigation for the new content
+                setupSubsectionNavigation();
+
                 // Scroll to top
                 window.scrollTo(0, 0);
             })
@@ -133,12 +139,38 @@ function setupNavigation() {
     
     // Load the initial section when page loads
     loadInitialSection();
-    
+
     // Handle browser back/forward buttons
     window.addEventListener('popstate', function() {
         loadInitialSection();
     });
 }
+
+// Set up subsection navigation (smooth scrolling)
+function setupSubsectionNavigation() {
+    // Select links within section-navigation divs that are anchor links
+    const subsectionLinks = document.querySelectorAll('.section-navigation a[href^="#"]');
+
+    subsectionLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            // Prevent default anchor link behavior
+            e.preventDefault();
+
+            // Get the target element ID from the href
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+
+            if (targetElement) {
+                // Scroll smoothly to the target element
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+
+                // Update the URL hash without triggering popstate
+                history.pushState(null, '', this.href);
+            }
+        });
+    });
+}
+
 
 // Set up control buttons functionality
 function setupControlButtons() {
