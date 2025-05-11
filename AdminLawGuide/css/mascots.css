@@ -267,3 +267,76 @@
         transform: translateX(-50%);
     }
 }
+
+/* Styles for Mascot Gallery Navigation Cards (from meet-the-mascots.html) */
+.navigation-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.nav-card {
+    flex: 1 1 200px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    text-align: center;
+    background-color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nav-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.nav-card.judicial {
+    border-top: 4px solid var(--judicial-primary);
+}
+
+.nav-card.constitutional {
+    border-top: 4px solid var(--constitutional-primary);
+}
+
+.nav-card.procedural {
+    border-top: 4px solid var(--procedural-primary);
+}
+
+.nav-card.executive {
+    border-top: 4px solid var(--executive-primary);
+}
+
+.nav-card img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin: 10px auto;
+    display: block;
+}
+
+.nav-card h4 {
+    margin: 10px 0;
+    color: #2c3e50;
+}
+
+.nav-card p {
+    color: #666;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.nav-link { /* This class was used inside nav-card, ensure it's styled appropriately or distinct from other .nav-link if any */
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #2c3e50;
+    transition: background-color 0.2s ease;
+}
+
+.nav-link:hover {
+    background-color: #e0e0e0;
+    text-decoration: none;
+}

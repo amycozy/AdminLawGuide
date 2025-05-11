@@ -6,7 +6,13 @@
     <title>Flashcard Test</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/flashcards.css">
+    <script src="js/components/tabs.js" defer></script>
+    <script src="js/components/toggleContent.js" defer></script>
+    <script src="js/uiEnhancements.js" defer></script> <!-- Added uiEnhancements.js -->
+    <script src="js/data/flashcardData.js" defer></script>
+    <script src="js/navigation.js" defer></script>
     <script src="js/flashcards.js" defer></script>
+    <!-- main.js is not typically needed for standalone test pages unless it provides utilities flashcards.js depends on -->
 </head>
 <body>
     <h2>Flashcard Test Page</h2>
@@ -24,10 +30,10 @@
     
     <!-- Category tabs -->
     <div class="category-tabs">
-        <button class="category-tab active" data-category="all">All Topics</button>
-        <button class="category-tab" data-category="judicial-review">Judicial Review</button>
-        <button class="category-tab" data-category="agency-procedure">Agency Procedure</button>
-        <button class="category-tab" data-category="constitutional">Constitutional Issues</button>
+        <button class="category-tab active" data-category="all" data-tab-target="flashcard-container">All Topics</button>
+        <button class="category-tab" data-category="judicial-review" data-tab-target="flashcard-container">Judicial Review</button>
+        <button class="category-tab" data-category="agency-procedure" data-tab-target="flashcard-container">Agency Procedure</button>
+        <button class="category-tab" data-category="constitutional" data-tab-target="flashcard-container">Constitutional Issues</button>
     </div>
         
     <!-- Flashcard controls -->

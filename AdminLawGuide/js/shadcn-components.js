@@ -1,5 +1,10 @@
 // shadcn-components.js - Support for shadcn-ui styled components
+// Most flashcard logic here is being commented out as js/flashcards.js is the primary system.
+// This file might be deprecated or significantly reduced if its UI components are not used elsewhere
+// or if its styles are merged.
+
 document.addEventListener('DOMContentLoaded', function() {
+    /*
     // Handle flashcard flipping
     document.querySelectorAll('.shadcn-flashcard').forEach(card => {
         card.addEventListener('click', function() {
@@ -89,8 +94,11 @@ document.addEventListener('DOMContentLoaded', function() {
             updateProgressIndicator();
         });
     });
+    */
     
-    // Handle tabs
+    /*
+    // Handle tabs - This logic is being consolidated into js/components/tabs.js
+    // and specific calling scripts like flashcards.js or main.js.
     document.querySelectorAll('.shadcn-tabs-trigger').forEach(tab => {
         tab.addEventListener('click', function() {
             // Remove active class from all tabs
@@ -114,8 +122,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+    */
     
     // Handle shuffle button
+    /*
     const shuffleButton = document.getElementById('shuffle-flashcards');
     if (shuffleButton) {
         shuffleButton.addEventListener('click', function() {
@@ -135,8 +145,12 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+    */
     
     // Handle category filtering in the flashcards
+    // This function might be specific to shadcn-flashcards if their structure differs.
+    // If js/flashcards.js handles all flashcard display, this might be redundant.
+    /*
     function filterCardsByCategory(category) {
         const allCards = document.querySelectorAll('.shadcn-flashcard');
         
@@ -155,8 +169,11 @@ document.addEventListener('DOMContentLoaded', function() {
             counterText.textContent = `Showing ${visibleCards.length} of 25 total flashcards`;
         }
     }
+    */
     
     // Set up category filter tabs
+    // This is also being consolidated. js/flashcards.js now uses initializeTabSystem with a callback.
+    /*
     document.querySelectorAll('.shadcn-tabs-trigger').forEach(trigger => {
         trigger.addEventListener('click', function() {
             const contentId = this.getAttribute('data-content');
@@ -172,8 +189,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+    */
     
     // Helper function to create dynamic flashcards
+    /*
     function createFlashcard(cardData) {
         const card = document.createElement('div');
         card.className = 'shadcn-flashcard';
@@ -247,8 +266,10 @@ document.addEventListener('DOMContentLoaded', function() {
         
         return card;
     }
+    */
     
     // Handle "Show Different Cards" button
+    /*
     const showDifferentButton = document.getElementById('show-different-cards');
     if (showDifferentButton) {
         showDifferentButton.addEventListener('click', function() {
@@ -293,4 +314,5 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+    */
 });

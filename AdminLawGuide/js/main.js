@@ -4,102 +4,102 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize Mermaid for flowcharts
     initializeMermaid();
     
-    // Set up navigation functionality
-    setupNavigation();
+    // Set up navigation functionality (now from navigation.js)
+    if (typeof setupNavigation === 'function') {
+        setupNavigation(); // Sets up main nav links. loadInitialSection is called within setupNavigation if it's moved there, or called separately.
+    } else {
+        console.error('setupNavigation function not found. Ensure js/navigation.js is loaded.');
+    }
     
     // Set up control buttons
     setupControlButtons();
     
-    // Apply visual enhancements
-    applyVisualEnhancements();
+    // Apply visual enhancements (function is now in js/uiEnhancements.js)
+    if (typeof applyVisualEnhancements === 'function') {
+        applyVisualEnhancements();
+    } else {
+        console.error('applyVisualEnhancements function not found. Ensure js/uiEnhancements.js is loaded.');
+    }
     
-    // Set up interactive elements
+    // Set up interactive elements (including tabs and toggles via components)
     setupInteractiveElements();
     
     // Set up visual knowledge maps interactions
     setupVisualKnowledgeMaps();
 
-    // Set up subsection navigation (smooth scrolling)
-    setupSubsectionNavigation();
+    // Set up subsection navigation (now from navigation.js)
+    // This will apply to initially present subsection links.
+    // loadSection will call it again for newly loaded content.
+    if (typeof setupSubsectionNavigation === 'function') {
+        setupSubsectionNavigation();
+    } else {
+        console.error('setupSubsectionNavigation function not found. Ensure js/navigation.js is loaded.');
+    }
 });
 
-// Initialize Mermaid diagrams
-function initializeMermaid() {
-    mermaid.initialize({
-        startOnLoad: true,
-        theme: 'default',
-        fontFamily: 'Georgia, Times New Roman, serif',
-        fontSize: 14,
-        flowchart: {
-            htmlLabels: true,
-            useMaxWidth: true,
-            curve: 'basis'
-        }
-    });
-    
-    // Make sure diagrams are rendered after a short delay to ensure DOM is ready
-    setTimeout(function() {
-        mermaid.init(undefined, document.querySelectorAll('.mermaid'));
-    }, 1000);
+// Initialize Mermaid diagrams (function is now in js/mermaidHandler.js)
+// The call initializeMermaid() remains in the DOMContentLoaded listener at the top of this file.
+// The mermaid.init() call within loadSection also remains to re-render new diagrams.
+
+// --- Navigation Core Logic (loadSection, loadInitialSection) remains in main.js for now ---
+// setupNavigation (event listeners for main nav) is now in navigation.js
+// setupSubsectionNavigation is now in navigation.js
+
+// Function to load a section content (called by setupNavigation in navigation.js)
+// and to load the initial section.
+let navLinksForLoadSection; // To be populated by setupNavigation in navigation.js if needed, or re-queried.
+let contentContainerForLoadSection; // To be populated
+
+function initializeLoadSectionDependencies() {
+    contentContainerForLoadSection = document.getElementById('content-container');
+    navLinksForLoadSection = document.querySelectorAll('a[data-section]'); // Re-query or ensure it's passed
 }
 
-// Set up navigation and content loading
-function setupNavigation() {
-    const contentContainer = document.getElementById('content-container');
-    if (!contentContainer) return;
-    
-    // Get all navigation links with data-section attribute
-    const navLinks = document.querySelectorAll('a[data-section]');
-    
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            // Get the section to load
-            const sectionName = this.getAttribute('data-section');
-            loadSection(sectionName);
-            
-            // Update URL hash
-            window.location.hash = this.getAttribute('href');
-            
-            // Highlight active link
-            navLinks.forEach(l => l.classList.remove('active'));
-            this.classList.add('active');
-        });
-    });
-    
-    // Load section from hash or default to overview
-    function loadInitialSection() {
-        let sectionToLoad = 'overview'; // Default section
+function loadInitialSection() {
+    if (!contentContainerForLoadSection) initializeLoadSectionDependencies();
+    if (!contentContainerForLoadSection) {
+        console.error("Content container not found for initial load.");
+        return;
+    }
+
+    let sectionToLoad = 'overview'; // Default section
+    let activeLinkForInitialLoad = null;
+
+    if (window.location.hash) {
+        const hash = window.location.hash.substring(1);
+        const hashSectionLink = document.querySelector(`a[data-section][href="#${hash}"]`);
         
-        // Check if URL has a hash
-        if (window.location.hash) {
-            const hash = window.location.hash.substring(1);
-            const hashSection = document.querySelector(`a[href="#${hash}"]`);
-            
-            if (hashSection && hashSection.getAttribute('data-section')) {
-                sectionToLoad = hashSection.getAttribute('data-section');
-                
-                // Highlight the active link
-                navLinks.forEach(l => l.classList.remove('active'));
-                hashSection.classList.add('active');
-            }
-        } else {
-            // Highlight the overview link by default
-            const overviewLink = document.querySelector('a[data-section="overview"]');
-            if (overviewLink) {
-                overviewLink.classList.add('active');
-            }
+        if (hashSectionLink && hashSectionLink.getAttribute('data-section')) {
+            sectionToLoad = hashSectionLink.getAttribute('data-section');
+            activeLinkForInitialLoad = hashSectionLink;
         }
-        
-        loadSection(sectionToLoad);
+    } else {
+        activeLinkForInitialLoad = document.querySelector('a[data-section="overview"]');
     }
     
-    // Function to load a section content
-    function loadSection(sectionName) {
-        contentContainer.innerHTML = '<div class="loading">Loading content...</div>';
-        
-        fetch(`sections/${sectionName}.html`)
+    if (activeLinkForInitialLoad) {
+        navLinksForLoadSection.forEach(l => l.classList.remove('active'));
+        activeLinkForInitialLoad.classList.add('active');
+    }
+    
+    loadSection(sectionToLoad);
+}
+
+function loadSection(sectionName) {
+    if (!contentContainerForLoadSection) {
+        // This might happen if called before DOMContentLoaded fully resolves dependencies
+        // or if setupNavigation in navigation.js calls this before main.js initializes it.
+        // Fallback to re-initializing.
+        initializeLoadSectionDependencies();
+        if (!contentContainerForLoadSection) {
+            console.error("Content container still not found in loadSection.");
+            return;
+        }
+    }
+
+    contentContainerForLoadSection.innerHTML = '<div class="loading">Loading content...</div>';
+    
+    fetch(`sections/${sectionName}.html`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Section not found');
@@ -107,69 +107,66 @@ function setupNavigation() {
                 return response.text();
             })
             .then(html => {
-                contentContainer.innerHTML = html;
+                contentContainerForLoadSection.innerHTML = html;
                 
                 // Initialize mermaid diagrams in the new content
-                mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+                if (typeof initializeMermaid === 'function') { // Could be in mermaidHandler.js
+                    mermaid.init(undefined, document.querySelectorAll('.mermaid')); // mermaid global might still be used
+                } else if (typeof mermaid !== 'undefined' && typeof mermaid.init === 'function') {
+                     mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+                }
                 
                 // Set up visual knowledge maps if this is the visual-knowledge-maps section
-                if (sectionName === 'visual-knowledge-maps') {
+                if (sectionName === 'visual-knowledge-maps' && typeof setupVisualKnowledgeMaps === 'function') {
                     setupVisualKnowledgeMaps();
                 }
                 
-                // Initialize toggle answer buttons
-                setupInteractiveElements();
+                // Initialize interactive elements for the new content
+                if (typeof setupInteractiveElements === 'function') {
+                    setupInteractiveElements();
+                }
                 
-                // Set up subsection navigation for the new content
-                setupSubsectionNavigation();
+                // Set up subsection navigation for the new content (from navigation.js)
+                if (typeof setupSubsectionNavigation === 'function') {
+                    setupSubsectionNavigation();
+                } else {
+                     console.error('setupSubsectionNavigation function not found after loadSection. Ensure js/navigation.js is loaded.');
+                }
 
                 // Scroll to top
                 window.scrollTo(0, 0);
             })
             .catch(error => {
                 console.error('Error loading section:', error);
-                contentContainer.innerHTML = `
-                    <div class="warning">
-                        <h3>Error Loading Content</h3>
-                        <p>Sorry, we couldn't load the ${sectionName} section. Please try again later.</p>
-                    </div>
-                `;
+                if (contentContainerForLoadSection) {
+                    contentContainerForLoadSection.innerHTML = `
+                        <div class="warning">
+                            <h3>Error Loading Content</h3>
+                            <p>Sorry, we couldn't load the ${sectionName} section. Please try again later.</p>
+                        </div>
+                    `;
+                }
             });
+}
+
+// Call loadInitialSection after setupNavigation has had a chance to run and populate navLinks
+document.addEventListener('DOMContentLoaded', function() {
+    // Ensure dependencies for loadInitialSection are ready
+    initializeLoadSectionDependencies(); 
+    // Call loadInitialSection after other initial setups like main nav listeners
+    // This assumes setupNavigation in navigation.js has run and navLinksForLoadSection is populated,
+    // or loadInitialSection re-queries them.
+    if (typeof setupNavigation === 'function') { // Check if navigation.js's setupNavigation is present
+        // setupNavigation(); // This is called at the top of DOMContentLoaded
+        loadInitialSection(); // Now call this to load the content
     }
-    
-    // Load the initial section when page loads
-    loadInitialSection();
+
 
     // Handle browser back/forward buttons
     window.addEventListener('popstate', function() {
         loadInitialSection();
     });
-}
-
-// Set up subsection navigation (smooth scrolling)
-function setupSubsectionNavigation() {
-    // Select links within section-navigation divs that are anchor links
-    const subsectionLinks = document.querySelectorAll('.section-navigation a[href^="#"]');
-
-    subsectionLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            // Prevent default anchor link behavior
-            e.preventDefault();
-
-            // Get the target element ID from the href
-            const targetId = this.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
-
-            if (targetElement) {
-                // Scroll smoothly to the target element
-                targetElement.scrollIntoView({ behavior: 'smooth' });
-
-                // Update the URL hash without triggering popstate
-                history.pushState(null, '', this.href);
-            }
-        });
-    });
-}
+});
 
 
 // Set up control buttons functionality
@@ -200,47 +197,7 @@ function setupControlButtons() {
     }
 }
 
-// Apply visual enhancements to headings and elements
-function applyVisualEnhancements() {
-    // Add icons to headings based on their content
-    document.querySelectorAll('h2, h3, h4').forEach(heading => {
-        const headingText = heading.textContent.toLowerCase();
-        
-        // Add appropriate classes based on heading content
-        if (headingText.includes('legislat') || headingText.includes('congress') || headingText.includes('statute')) {
-            heading.classList.add('icon-legislative');
-        } else if (headingText.includes('executive') || headingText.includes('president') || headingText.includes('agency')) {
-            heading.classList.add('icon-executive');
-        } else if (headingText.includes('judici') || headingText.includes('court') || headingText.includes('review')) {
-            heading.classList.add('icon-judicial');
-        } else if (headingText.includes('procedure') || headingText.includes('process')) {
-            heading.classList.add('icon-procedural');
-        } else if (headingText.includes('constitution')) {
-            heading.classList.add('icon-constitutional');
-        }
-    });
-    
-    // Add visual hover effects to case boxes
-    document.querySelectorAll('.case-box').forEach(box => {
-        box.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-5px)';
-            this.style.boxShadow = '0 8px 16px rgba(0,0,0,0.1)';
-            this.style.transition = 'transform 0.3s, box-shadow 0.3s';
-        });
-        
-        box.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-            this.style.boxShadow = '0 3px 6px rgba(0,0,0,0.1)';
-        });
-    });
-    
-    // Enhance mermaid diagrams with better visibility
-    document.querySelectorAll('.mermaid').forEach(diagram => {
-        diagram.style.backgroundColor = '#fcfcff';
-        diagram.style.padding = '15px';
-        diagram.style.borderRadius = '8px';
-    });
-}
+// Apply visual enhancements function is now in js/uiEnhancements.js
 
 // Set up interactive elements for mastery center
 function setupInteractiveElements() {
@@ -271,60 +228,34 @@ function setupInteractiveElements() {
         });
     });
 
-    // Set up flashcard functionality
-    document.querySelectorAll('.flashcard').forEach(card => {
-        card.addEventListener('click', function() {
-            this.classList.toggle('flipped');
-        });
-    });
+    // Set up flashcard functionality (This is now primarily handled by js/flashcards.js if those are the cards in use)
+    // If there are generic '.flashcard' elements not managed by js/flashcards.js, this might be needed.
+    // For now, assuming js/flashcards.js handles its specific flashcards, including flip logic.
+    // document.querySelectorAll('.flashcard').forEach(card => {
+    //     card.addEventListener('click', function() {
+    //         this.classList.toggle('flipped');
+    //     });
+    // });
     
-    // Set up mastery center tabs
-    document.querySelectorAll('.mastery-tab').forEach(tab => {
-        tab.addEventListener('click', function() {
-            // Remove active class from all tabs
-            document.querySelectorAll('.mastery-tab').forEach(t => {
-                t.classList.remove('active');
-            });
-            
-            // Add active class to clicked tab
-            this.classList.add('active');
-            
-            // Hide all sections
-            document.querySelectorAll('.mastery-section').forEach(section => {
-                section.classList.remove('active');
-            });
-            
-            // Show the corresponding section - modified to work with mastery-* IDs
-            const tabId = this.getAttribute('data-tab');
-            if (tabId.startsWith('tab-')) {
-                // For tab-based navigation, allow both old and new ID formats
-                const newId = 'mastery-' + tabId.substring(4); // convert tab-flashcards to mastery-flashcards
-                const section = document.getElementById(tabId) || document.getElementById(newId);
-                if (section) {
-                    section.classList.add('active');
-                }
-            } else {
-                // For other tabs
-                document.getElementById(tabId).classList.add('active');
-            }
-        });
-    });
+    // Set up mastery center tabs using the new component
+    // Assumes .mastery-tab buttons have 'data-tab-target' pointing to the ID of a .mastery-section
+    // and that the initially active tab has a .active class if specific default is needed.
+    if (typeof initializeTabSystem === 'function') {
+        // Note: HTML for mastery tabs might need adjustment:
+        // - Ensure .mastery-tab buttons have a 'data-tab-target' attribute.
+        // - Example: <button class="mastery-tab active" data-tab-target="mastery-flashcards-content">Flashcards</button>
+        // - Content panels should be .mastery-section and have corresponding IDs.
+        initializeTabSystem('.mastery-tab', '.mastery-section', '.mastery-tab.active');
+    } else {
+        console.error('initializeTabSystem function not found. Ensure js/components/tabs.js is loaded.');
+    }
     
-    // Set up toggle answer buttons
-    document.querySelectorAll('.toggle-answer').forEach(button => {
-        button.addEventListener('click', function() {
-            const targetId = this.getAttribute('data-target');
-            const targetElement = document.getElementById(targetId);
-            
-            if (targetElement.style.display === 'none' || !targetElement.style.display) {
-                targetElement.style.display = 'block';
-                this.textContent = 'Hide Analysis';
-            } else {
-                targetElement.style.display = 'none';
-                this.textContent = 'Show Analysis';
-            }
-        });
-    });
+    // Set up toggle answer buttons using the new component
+    if (typeof initializeToggleButtons === 'function') {
+        initializeToggleButtons('.toggle-answer');
+    } else {
+        console.error('initializeToggleButtons function not found. Ensure js/components/toggleContent.js is loaded.');
+    }
     
     // Set up quiz functionality
     const checkAnswersButton = document.getElementById('check-answers');
@@ -343,19 +274,20 @@ function setupInteractiveElements() {
     }
     
     // Add hover effects to doctrine boxes and other containers
-    const enhanceableContainers = document.querySelectorAll('.doctrine-box, .legislative-box, .executive-box, .judicial-box, .case-box');
-    enhanceableContainers.forEach(container => {
-        container.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-3px)';
-            this.style.boxShadow = '0 6px 12px rgba(0,0,0,0.1)';
-            this.style.transition = 'transform 0.3s, box-shadow 0.3s';
-        });
+    // This logic is now part of applyVisualEnhancements in uiEnhancements.js
+    // const enhanceableContainers = document.querySelectorAll('.doctrine-box, .legislative-box, .executive-box, .judicial-box, .case-box');
+    // enhanceableContainers.forEach(container => {
+    //     container.addEventListener('mouseenter', function() {
+    //         this.style.transform = 'translateY(-3px)';
+    //         this.style.boxShadow = '0 6px 12px rgba(0,0,0,0.1)';
+    //         this.style.transition = 'transform 0.3s, box-shadow 0.3s';
+    //     });
         
-        container.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-            this.style.boxShadow = '2px 2px 5px rgba(0,0,0,0.05)';
-        });
-    });
+    //     container.addEventListener('mouseleave', function() {
+    //         this.style.transform = 'translateY(0)';
+    //         this.style.boxShadow = '2px 2px 5px rgba(0,0,0,0.05)';
+    //     });
+    // });
 }
 
 // Set up visual knowledge maps interactions
