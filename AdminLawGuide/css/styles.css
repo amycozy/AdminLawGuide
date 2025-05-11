@@ -181,6 +181,10 @@ a:hover {
 /* Content containers */
 .explanation {
     margin-bottom: 25px;
+    display: block !important; /* Ensure it's block, overriding other rules */
+    width: 100% !important;   /* Ensure it takes full width */
+    clear: both !important;   /* Ensure it clears preceding elements */
+    box-sizing: border-box !important; /* Consistent box model */
 }
 
 .key-point {
