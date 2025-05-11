@@ -153,6 +153,12 @@ a:hover {
     text-decoration: none;
 }
 
+.main-navigation a.active {
+    background-color: #2980b9; /* A distinct background color */
+    color: white;             /* Ensure text is readable */
+    font-weight: bold;
+}
+
 .section-navigation {
     background-color: #e3f2fd;
     padding: 10px;
