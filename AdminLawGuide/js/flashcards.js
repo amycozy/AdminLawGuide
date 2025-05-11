@@ -3,6 +3,19 @@
 document.addEventListener('DOMContentLoaded', function() {
     console.log("DOM content loaded - flashcards initializing");
     
+    // Check if we're on a page with flashcards
+    // Wait a short time for main.js to load the content
+    setTimeout(function() {
+        // Only initialize if we can find the container
+        const container = document.getElementById('flashcard-container');
+        if (container) {
+            console.log("Flashcard container found, initializing...");
+            initializeFlashcards();
+        } else {
+            console.log("No flashcard container found on this page");
+        }
+    }, 500);
+    
     // Flashcard data
     const allFlashcards = [
         {
@@ -212,8 +225,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="category-badge ${cardData.category}">${formatCategoryName(cardData.category)}</div>
                     <h4>${cardData.title}</h4>
                     <p>${cardData.question}</p>
+                    <div class="flip-hint">Click to flip</div>
                 </div>
                 <div class="flashcard-back">
+                    <div class="flip-back-container">
+                        <button class="flip-back-btn" aria-label="Flip card back">↺</button>
+                    </div>
                     <h4>${cardData.title}</h4>
                     <div class="answer">
                         ${cardData.answer}
@@ -227,11 +244,21 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Add click event to flip the card
         flashcardElement.addEventListener('click', function(e) {
-            // Don't flip if clicking on the Mark as Known button
-            if (e.target.classList.contains('mark-known-btn')) return;
+            // Don't flip if clicking on the Mark as Known button or flip back button
+            if (e.target.classList.contains('mark-known-btn') || 
+                e.target.classList.contains('flip-back-btn')) return;
             
             this.querySelector('.flashcard-inner').classList.toggle('flipped');
         });
+        
+        // Add specific click event for the flip back button
+        const flipBackBtn = flashcardElement.querySelector('.flip-back-btn');
+        if (flipBackBtn) {
+            flipBackBtn.addEventListener('click', function(e) {
+                e.stopPropagation(); // Prevent card flip from main event
+                flashcardElement.querySelector('.flashcard-inner').classList.remove('flipped');
+            });
+        }
         
         // Add event for the Mark as Known button
         const markKnownBtn = flashcardElement.querySelector('.mark-known-btn');
@@ -444,8 +471,87 @@ document.addEventListener('DOMContentLoaded', function() {
         setupCategoryTabs();
         loadInitialCards();
         setupFlashcardControls();
+        
+        // Set up exam guide tabs and sections if they exist
+        setupExamGuideInteractions();
     }
     
-    // Initialize the flashcard system
-    initializeFlashcards();
+    // Function to handle exam guide specific interactions
+    function setupExamGuideInteractions() {
+        // Set up exam guide navigation
+        const examGuideLinks = document.querySelectorAll('.exam-guide-nav-link');
+        examGuideLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all links
+                examGuideLinks.forEach(l => l.classList.remove('active'));
+                
+                // Add active class to clicked link
+                this.classList.add('active');
+                
+                // Hide all sections
+                document.querySelectorAll('.exam-guide-section').forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                // Show the target section
+                const targetId = this.getAttribute('data-target');
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.classList.add('active');
+                }
+            });
+        });
+        
+        // Set up mastery tabs
+        const masteryTabs = document.querySelectorAll('.mastery-tab');
+        masteryTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Remove active class from all tabs
+                masteryTabs.forEach(t => t.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                this.classList.add('active');
+                
+                // Hide all sections
+                document.querySelectorAll('.mastery-section').forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                // Show the corresponding section
+                const tabId = this.getAttribute('data-tab');
+                const targetSection = document.getElementById(tabId);
+                if (targetSection) {
+                    targetSection.classList.add('active');
+                }
+            });
+        });
+        
+        // Set up toggle answer buttons
+        document.querySelectorAll('.toggle-answer').forEach(button => {
+            button.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-target');
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement.style.display === 'none' || !targetElement.style.display) {
+                    targetElement.style.display = 'block';
+                    this.textContent = 'Hide Analysis';
+                } else {
+                    targetElement.style.display = 'none';
+                    this.textContent = 'Show Analysis';
+                }
+            });
+        });
+        
+        // Set up quiz buttons
+        const checkQuizBtn = document.getElementById('check-quiz');
+        if (checkQuizBtn) {
+            checkQuizBtn.addEventListener('click', function() {
+                document.querySelectorAll('.quiz-feedback').forEach(feedback => {
+                    feedback.style.display = 'block';
+                });
+            });
+        }
+    }
 });
