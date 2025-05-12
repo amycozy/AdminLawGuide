@@ -12,7 +12,7 @@
 
 .progress-bar {
     height: 100%;
-    background-color: #6f4bbd; /* Same purple as in shadcn theme */
+    background-color: var(--interactive-primary); /* NEW_BLUE */
     width: 0%; /* Will be set by JavaScript */
     transition: width 0.3s ease;
 }
@@ -54,8 +54,8 @@
 }
 
 .category-tab.active {
-    color: #6f4bbd;
-    border-bottom-color: #6f4bbd;
+    color: var(--interactive-primary); /* NEW_BLUE */
+    border-bottom-color: var(--interactive-primary); /* NEW_BLUE */
 }
 
 /* Flashcard controls */
@@ -170,7 +170,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    color: #6f4bbd;
+    color: var(--interactive-primary); /* NEW_BLUE */
     font-size: 1rem;
     font-weight: bold;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
@@ -212,12 +212,12 @@
 }
 
 .category-badge.judicial-review {
-    background-color: #6f4bbd; /* Purple for Judicial Review */
+    background-color: var(--judicial-primary); /* NEW_TEAL from styles.css */
     color: white;
 }
 
 .category-badge.constitutional {
-    background-color: #d97706; /* Orange for Constitutional */
+    background-color: var(--substantive-primary); /* NEW_PINK */
     color: white;
 }
 
@@ -236,14 +236,14 @@
     font-size: 0.75rem;
     padding: 0.25rem 0.75rem;
     background-color: transparent;
-    color: #6f4bbd;
-    border: 1px solid #6f4bbd;
+    color: var(--interactive-primary); /* NEW_BLUE */
+    border: 1px solid var(--interactive-primary); /* NEW_BLUE */
     cursor: pointer;
     transition: all 0.2s ease;
 }
 
 .mark-known-btn:hover {
-    background-color: #6f4bbd;
+    background-color: var(--interactive-primary); /* NEW_BLUE */
     color: white;
 }
 
@@ -274,13 +274,13 @@
 }
 
 .control-button.primary {
-    background-color: #6f4bbd;
+    background-color: var(--interactive-primary); /* NEW_BLUE */
     color: white;
-    border-color: #6f4bbd;
+    border-color: var(--interactive-primary); /* NEW_BLUE */
 }
 
 .control-button.primary:hover {
-    background-color: #5b3da6;
+    background-color: var(--interactive-hover); /* Lighter NEW_BLUE */
 }
 
 /* Mobile optimization */

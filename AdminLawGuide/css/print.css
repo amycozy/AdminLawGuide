@@ -105,7 +105,7 @@
     .case-illustration,
     .case-illustration-flex {
         page-break-inside: avoid; /* Try to keep illustrations on one page */
-        margin: 15px 0;
+        margin: 10px 0; /* Reduced margin */
         padding: 0;
         background-color: #ffffff !important;
         border: none !important;
@@ -113,10 +113,11 @@
     }
     .case-illustration-flex .case-image img,
     .case-illustration img {
-        max-width: 80% !important; /* Allow images to be reasonably sized */
-        max-height: 300px !important; /* Limit height */
+        max-width: 120px !important; /* Significantly reduced width */
+        max-height: 100px !important; /* Significantly reduced height */
+        width: auto !important; /* Maintain aspect ratio */
         border: 1px solid #dddddd;
-        margin: 0 auto; /* Center images */
+        margin: 5px auto; /* Reduced margin */
         display: block;
     }
     .case-illustration-flex {
@@ -183,12 +184,14 @@
 
     /* Mascot specific elements if they are too large or decorative */
     .mascot-container .mascot-image {
-        max-width: 150px !important; /* Smaller mascot images */
-        max-height: 150px !important;
+        max-width: 50px !important; /* Significantly reduced mascot images */
+        max-height: 50px !important;
+        width: auto !important; /* Maintain aspect ratio */
     }
     .guide-panel-image img {
-        max-width: 80px !important;
-        max-height: 80px !important;
+        max-width: 40px !important; /* Significantly reduced panel images */
+        max-height: 40px !important;
+        width: auto !important; /* Maintain aspect ratio */
     }
     .mascot-concept-icon {
         display: none !important; /* Hide small icons if they don't add much */

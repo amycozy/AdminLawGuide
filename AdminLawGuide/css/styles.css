@@ -3,51 +3,51 @@
 /* CSS Variables for consistent color usage */
 :root {
     /* Branch-specific colors */
-    --legislative-primary: #4bbd4b;
-    --legislative-background: #f2f9f2;
-    --legislative-accent: #2d7d2d;
+    --legislative-primary: #70C1B3; /* NEW_TEAL */
+    --legislative-background: #B2DBBF; /* NEW_MINT */
+    --legislative-accent: #508A80; /* darker NEW_TEAL */
     
-    --executive-primary: #4b7bbd;
-    --executive-background: #f2f7fd;
-    --executive-accent: #2c5899;
+    --executive-primary: #247BA0; /* NEW_BLUE */
+    --executive-background: #F3FFBD; /* NEW_YELLOW */
+    --executive-accent: #1A5A7D; /* darker NEW_BLUE */
     
-    --judicial-primary: #6f4bbd;
-    --judicial-background: #f9f5ff;
-    --judicial-accent: #523890;
+    --judicial-primary: #70C1B3; /* NEW_TEAL */
+    --judicial-background: #B2DBBF; /* NEW_MINT */
+    --judicial-accent: #508A80; /* darker NEW_TEAL */
     
     /* Conceptual area colors */
-    --procedural-primary: #03a9f4;
-    --procedural-background: #e1f5fe;
+    --procedural-primary: #247BA0; /* NEW_BLUE */
+    --procedural-background: #F3FFBD; /* NEW_YELLOW */
     
-    --substantive-primary: #bd4b7a;
-    --substantive-background: #fef2f7;
+    --substantive-primary: #FF1654; /* NEW_PINK */
+    --substantive-background: #FFD9E2; /* lighter NEW_PINK */
     
-    --constitutional-primary: #f57c00;
-    --constitutional-background: #fff3e0;
+    --constitutional-primary: #247BA0; /* NEW_BLUE */
+    --constitutional-background: #F3FFBD; /* NEW_YELLOW */
     
     /* Interactive element colors */
-    --interactive-primary: #2980b9;
-    --interactive-hover: #3498db;
+    --interactive-primary: #247BA0; /* NEW_BLUE */
+    --interactive-hover: #3E92C6; /* lighter NEW_BLUE */
     
     /* Quiz and practice colors */
-    --quiz-primary: #8e44ad;
-    --quiz-background: #f5eefa;
+    --quiz-primary: #FF1654; /* NEW_PINK */
+    --quiz-background: #FFD9E2; /* lighter NEW_PINK */
     
     /* Case illustration colors */
-    --case-primary: #d4a76a;
-    --case-secondary: #c68642;
+    --case-primary: #B2DBBF; /* NEW_MINT */
+    --case-secondary: #70C1B3; /* NEW_TEAL */
 }
 
 body {
     font-family: 'Noto Serif', 'Times New Roman', serif;
     line-height: 1.6;
-    color: #333;
+    color: #000000; /* Black */
     margin: 0;
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
-    background-color: #f9f9f9;
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e0e0e0' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-color: #FAFFEE; /* Paler Yellow */
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e0e0e0' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); /* SVG pattern fill very light gray #e0e0e0 */
     transition: background-color 0.3s ease;
 }
 
@@ -72,10 +72,10 @@ h2::before, h3::before, h4::before {
 h1 {
     font-size: 2.2em;
     text-align: center;
-    border-bottom: 2px solid #2980b9;
+    border-bottom: 2px solid var(--interactive-primary);
     padding-bottom: 0.3em;
     margin-bottom: 0;
-    color: #1a365d;
+    color: var(--executive-accent); /* Using a darker version of NEW_BLUE */
     text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
     position: relative;
 }
@@ -88,7 +88,7 @@ h1::after {
     transform: translateX(-50%);
     width: 150px;
     height: 10px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 25'%3E%3Cpath fill='%232980b9' d='M0,0 L500,0 L500,10 C400,35 100,35 0,10 L0,0 Z'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 25'%3E%3Cpath fill='%23247BA0' d='M0,0 L500,0 L500,10 C400,35 100,35 0,10 L0,0 Z'/%3E%3C/svg%3E"); /* Updated fill to NEW_BLUE */
     background-size: cover;
 }
 
@@ -96,16 +96,16 @@ h2 {
     font-size: 1.8em;
     border-bottom: 1px solid #ddd;
     padding-bottom: 0.2em;
-    background: linear-gradient(90deg, rgba(41, 128, 185, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(90deg, rgba(36, 123, 160, 0.1) 0%, rgba(255, 255, 255, 0) 100%); /* rgba of NEW_BLUE */
     padding-left: 10px;
     border-radius: 4px 4px 0 0;
 }
 
 h3 {
     font-size: 1.5em;
-    color: #2980b9;
+    color: var(--interactive-primary);
     padding-left: 5px;
-    border-left: 3px solid #2980b9;
+    border-left: 3px solid var(--interactive-primary);
 }
 
 h4 {
@@ -117,7 +117,7 @@ p {
 }
 
 a {
-    color: #2980b9;
+    color: var(--interactive-primary);
     text-decoration: none;
 }
 
@@ -127,7 +127,7 @@ a:hover {
 
 /* Navigation styles */
 .main-navigation {
-    background-color: #ffffff;
+    background-color: #E9F2F7; /* Pale Blue */
     padding: 20px;
     border-radius: 5px;
     margin-bottom: 30px;
@@ -149,18 +149,18 @@ a:hover {
 }
 
 .main-navigation a:hover {
-    background-color: #e9ecef;
+    background-color: #e9ecef; /* Keeping a neutral hover for now, can be themed later */
     text-decoration: none;
 }
 
 .main-navigation a.active {
-    background-color: #2980b9; /* A distinct background color */
-    color: white;             /* Ensure text is readable */
+    background-color: var(--interactive-primary);
+    color: white;
     font-weight: bold;
 }
 
 .section-navigation {
-    background-color: #e3f2fd;
+    background-color: var(--substantive-background); /* Lighter NEW_PINK */
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 20px;
@@ -174,7 +174,7 @@ a:hover {
 }
 
 .section-navigation a:hover {
-    background-color: #bbdefb;
+    background-color: var(--executive-background); /* A slightly different yellow, or could be a tint of NEW_BLUE */
     text-decoration: none;
 }
 
@@ -188,32 +188,32 @@ a:hover {
 }
 
 .key-point {
-    background-color: #e1f5fe;
-    border-left: 5px solid #03a9f4;
+    background-color: var(--procedural-background); /* NEW_YELLOW */
+    border-left: 5px solid var(--substantive-primary); /* NEW_PINK */
     padding: 15px;
     margin: 20px 0;
     border-radius: 3px;
 }
 
 .example {
-    background-color: #f1f8e9;
-    border-left: 5px solid #7cb342;
+    background-color: var(--legislative-background); /* NEW_MINT */
+    border-left: 5px solid var(--legislative-primary); /* NEW_TEAL */
     padding: 15px;
     margin: 20px 0;
     border-radius: 3px;
 }
 
 .warning {
-    background-color: #fff3e0;
-    border-left: 5px solid #ff9800;
+    background-color: var(--substantive-background); /* lighter NEW_PINK */
+    border-left: 5px solid var(--substantive-primary); /* NEW_PINK */
     padding: 15px;
     margin: 20px 0;
     border-radius: 3px;
 }
 
 .note {
-    background-color: #ffffff;
-    border: 1px solid #e0e0e0;
+    background-color: #E3F3F0; /* Pale Teal */
+    border: 1px solid #d0e0db; /* Slightly darker teal border */
     padding: 15px;
     margin: 20px 0;
     border-radius: 4px;
@@ -227,8 +227,8 @@ a:hover {
 
 /* Universal Disclaimer */
 .universal-disclaimer {
-    background-color: #eaf2f8;
-    border-bottom: 2px solid #2980b9;
+    background-color: var(--executive-background); /* NEW_YELLOW */
+    border-bottom: 2px solid var(--interactive-primary); /* NEW_BLUE */
     padding: 12px;
     margin: 0 auto 25px auto;
     text-align: center;
@@ -238,19 +238,19 @@ a:hover {
 
 .universal-disclaimer p {
     margin: 0;
-    color: #34495e;
+    color: #34495e; /* Keeping this dark grey for readability on yellow */
     font-style: italic;
 }
 
 .universal-disclaimer strong {
-    color: #2980b9;
+    color: var(--interactive-primary); /* NEW_BLUE */
     font-style: normal;
 }
 
 /* Case box styling */
 .case-box {
-    background-color: #ffffff;
-    border: 1px solid #ddd;
+    background-color: var(--substantive-background); /* lighter NEW_PINK */
+    border: 1px solid var(--substantive-primary); /* NEW_PINK */
     padding: 15px;
     margin: 20px 0;
     border-radius: 5px;
@@ -284,14 +284,14 @@ a:hover {
     right: 0;
     width: 40px;
     height: 40px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Cpath fill='%23f0f0f0' d='M0 0 L80 0 L80 80 L0 80 Z'/%3E%3Cpath fill='%232c3e50' d='M80 0 L80 40 L40 40 Z'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Cpath fill='%23f0f0f0' d='M0 0 L80 0 L80 80 L0 80 Z'/%3E%3Cpath fill='var(--executive-accent)' d='M80 0 L80 40 L40 40 Z'/%3E%3C/svg%3E"); /* Updated fill to darker NEW_BLUE */
     background-size: cover;
     opacity: 0.5;
 }
 
 .case-name {
     font-weight: bold;
-    color: #2c3e50;
+    color: var(--executive-accent); /* darker NEW_BLUE */
     display: inline-block;
     position: relative;
     padding-left: 22px;
@@ -307,7 +307,7 @@ a:hover {
 
 .case-citation {
     font-style: italic;
-    color: #7f8c8d;
+    color: var(--legislative-accent); /* darker NEW_TEAL for a subtle thematic color */
 }
 
 .case-rule {
@@ -337,12 +337,12 @@ th, td {
 }
 
 th {
-    background-color: #f2f2f2;
+    background-color: var(--judicial-background); /* NEW_MINT #B2DBBF */
     font-weight: bold;
 }
 
 tr:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: #F5F5F5; /* Very light neutral gray */
 }
 
 /* Mermaid diagrams */
@@ -360,7 +360,7 @@ tr:nth-child(even) {
 /* Control buttons */
 .control-button {
     padding: 10px 15px;
-    background-color: #2980b9;
+    background-color: var(--interactive-primary); /* NEW_BLUE */
     color: white;
     border: none;
     border-radius: 4px;
@@ -370,7 +370,7 @@ tr:nth-child(even) {
 }
 
 .control-button:hover {
-    background-color: #3498db;
+    background-color: var(--interactive-hover); /* lighter NEW_BLUE */
 }
 
 .print-instructions {
@@ -412,7 +412,8 @@ tr:nth-child(even) {
     align-items: flex-start; /* Align items to the top */
     gap: 25px; /* Keep the gap between image and content containers */
     margin: 30px 0;
-    background-color: #ffffff;
+    background-color: var(--substantive-background); /* lighter NEW_PINK */
+    border: 1px solid var(--substantive-primary); /* NEW_PINK */
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.08);

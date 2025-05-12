@@ -22,6 +22,7 @@
             <div class="mastery-tab active" data-tab-target="tab-flashcards">Flashcards</div>
             <div class="mastery-tab" data-tab-target="tab-comparisons">Concept Comparisons</div>
             <div class="mastery-tab" data-tab-target="tab-quizzes">Self-Quizzes</div>
+            <div class="mastery-tab" data-tab-target="tab-visual-maps">Visual Knowledge Maps</div>
             <div class="mastery-tab" data-tab-target="tab-mascots">Mascot Resources</div>
         </div>
         
@@ -203,24 +204,281 @@
                         <img src="../assets/mqm.png" alt="Major Questions Mole">
                         <h4>Major Questions Mole</h4>
                         <p>The boundary detective of agency authority</p>
-                        <a href="#visual-knowledge-maps-section" data-section="visual-knowledge-maps" class="resource-link">Explore Visual Knowledge Maps</a>
+                        <a href="#introduction-constitutionality-section" data-section="introduction-constitutionality" class="resource-link">Explore Constitutionality</a>
                     </div>
                     
                     <div class="mascot-resource-card procedural">
                         <img src="../assets/slothsam.png" alt="Standing Sam">
                         <h4>Standing Sam</h4>
                         <p>The guardian of court access</p>
-                        <a href="#concept-reinforcement-section" data-section="concept-reinforcement" class="resource-link">Try Concept Reinforcement</a>
+                        <a href="#access-judicial-review-section" data-section="access-judicial-review" class="resource-link">Understand Access to Review</a>
                     </div>
                     
                     <div class="mascot-resource-card executive">
-                        <img src="../assets/APAarchitect.png" alt="APA Architect">
-                        <h4>APA Architect</h4>
+                        <img src="../assets/APAlligator.png" alt="APAlligator">
+                        <h4>APAlligator</h4>
                         <p>The builder of proper procedures</p>
-                        <a href="#application-practice-section" data-section="application-practice" class="resource-link">Practice Application</a>
+                        <a href="#inside-agency-section" data-section="inside-agency" class="resource-link">Discover Agency Procedures</a>
                     </div>
                 </div>
             </div>
+
+            <!-- Visual Knowledge Maps Section -->
+            <div class="mastery-section" id="tab-visual-maps">
+                <h4 id="visual-knowledge-maps-heading">Visual Knowledge Maps</h4>
+
+                <div class="section-navigation">
+                    <a href="#decision-trees">Decision Trees</a>
+                    <a href="#concept-webs">Concept Webs</a>
+                    <a href="#doctrinal-timelines">Doctrinal Timelines</a>
+                    <a href="#process-maps">Process Maps</a>
+                </div>
+
+                <div class="explanation" id="decision-trees">
+                    <h5 class="icon-judicial">Decision Trees</h5> 
+                    <p>Decision trees provide a structured approach to administrative law analysis. They guide you through a series of questions to help determine the appropriate legal outcome for complex situations.</p>
+                    
+                    <h6>Judicial Review Accessibility Decision Tree</h6>
+                    <div class="mermaid">
+                    graph TD
+                        A["Is it 'agency action'?"] -->|No| B((Not Reviewable));
+                        A -->|Yes| C["Is it 'final' agency action?"];
+                        C -->|No| D((Not Reviewable));
+                        C -->|Yes| E["Is review precluded by statute?"];
+                        E -->|Yes| F((Not Reviewable));
+                        E -->|No| G["Committed to agency discretion?"];
+                        G -->|Yes| H((Not Reviewable));
+                        G -->|No| I["Does plaintiff have standing?"];
+                        I -->|No| J((Not Reviewable));
+                        I -->|Yes| K["Is the claim ripe?"];
+                        K -->|No| L((Not Reviewable));
+                        K -->|Yes| M(((Reviewable)));
+
+                        classDef default fill:#E6F0ED,stroke:#247BA0,stroke-width:2px,color:#000000;
+                        classDef positive fill:#B2DBBF,stroke:#508A80,stroke-width:2px,color:#000000;
+                        classDef negative fill:#FFD9E2,stroke:#FF1654,stroke-width:2px,color:#000000;
+                        
+                        class A,C,E,G,I,K default;
+                        class M positive;
+                        class B,D,F,H,J,L negative;
+                    </div>
+                    <div class="key-tests">
+                        <h6>Key Tests:</h6>
+                        <ul>
+                            <li><strong>Final Agency Action:</strong> Bennett v. Spear (1997)</li>
+                            <li><strong>Standing:</strong> Lujan v. Defenders of Wildlife (1992)</li>
+                            <li><strong>Ripeness:</strong> Abbott Laboratories v. Gardner (1967)</li>
+                            <li><strong>Agency Discretion:</strong> 5 U.S.C. § 701(a)(2); Heckler v. Chaney (1985)</li>
+                        </ul>
+                    </div>
+                    <p>This decision tree walks through the prerequisite questions for judicial review of agency action. It reflects the gatekeeping doctrines that determine whether a plaintiff can access the courts to challenge agency action.</p>
+                    
+                    <h6>Statutory Authority Analysis Decision Tree</h6>
+                    <div class="mermaid">
+                    graph TD
+                        AA["Is this a major economic/political question?"] -->|No| BB["Does statute clearly address the question?"];
+                        BB -->|Yes| CC((Follow statutory text));
+                        BB -->|No| DD["Is the rule reasonable?"];
+                        DD -->|No| EE((Rule Invalid));
+                        DD -->|Yes| FF(((Rule Valid)));
+                        
+                        AA -->|Yes| GG["Is there clear congressional authorization?"];
+                        GG -->|No| HH((Rule Invalid));
+                        GG -->|Yes| II["Is the rule reasonable?"];
+                        II -->|No| JJ((Rule Invalid));
+                        II -->|Yes| KK(((Rule Valid)));
+
+                        classDef default fill:#E6F0ED,stroke:#247BA0,stroke-width:2px,color:#000000;
+                        classDef positive fill:#B2DBBF,stroke:#508A80,stroke-width:2px,color:#000000;
+                        classDef negative fill:#FFD9E2,stroke:#FF1654,stroke-width:2px,color:#000000;
+                        
+                        class AA,BB,DD,GG,II default;
+                        class CC,FF,KK positive;
+                        class EE,HH,JJ negative;
+                    </div>
+                    <div class="key-tests">
+                        <h6>Key Doctrines:</h6>
+                        <ul>
+                            <li><strong>Major Questions Doctrine:</strong> West Virginia v. EPA (2022)</li>
+                            <li><strong>Traditional Statutory Interpretation:</strong> Loper Bright v. Raimondo (2024)</li>
+                            <li><strong>Reasonableness Standard:</strong> State Farm (1983)</li>
+                        </ul>
+                        <p class="note">Note: This decision tree accounts for the end of Chevron deference after Loper Bright, focusing on the "best reading" of statutes using traditional tools of interpretation.</p>
+                    </div>
+                </div>
+
+                <div class="explanation" id="concept-webs">
+                    <h5 class="icon-executive">Concept Webs</h5>
+                    <p>Concept webs illustrate the connections between related administrative law principles, helping you understand how different doctrines interact and influence each other.</p>
+                    
+                    <h6>Rulemaking Concept Web</h6>
+                    <div class="mermaid">
+                    graph TD
+                        A_cw1((Rulemaking)):::centralNode;
+                        B_cw1["Notice & Comment<br/>- NPRM Requirements<br/>- Comment Consideration<br/>- Statement of Basis & Purpose"]:::relatedNode;
+                        C_cw1["Arbitrary & Capricious Review<br/>- State Farm Factors<br/>- Hard Look Review<br/>- Reasoned Analysis"]:::relatedNode;
+                        D_cw1["Statutory Authority<br/>- Major Questions Doctrine<br/>- Ultra Vires Actions<br/>- Legislative Intent"]:::relatedNode;
+                        E_cw1["Exceptions<br/>- Interpretive Rules<br/>- Policy Statements<br/>- Procedural Rules<br/>- Good Cause Exception"]:::relatedNode;
+
+                        A_cw1 --- B_cw1;
+                        A_cw1 --- C_cw1;
+                        A_cw1 --- D_cw1;
+                        A_cw1 --- E_cw1;
+
+                        classDef centralNode fill:#247BA0,stroke:#1A5A7D,stroke-width:2px,color:#ffffff,font-weight:bold;
+                        classDef relatedNode fill:#E6F0ED,stroke:#70C1B3,stroke-width:2px,color:#000000;
+                    </div>
+                    <p>This concept web illustrates the central role of rulemaking in administrative law and its connections to other key doctrines and procedures. It shows how procedural requirements, judicial review standards, and exceptions are all related to the core rulemaking function of agencies.</p>
+                    
+                    <h6>Separation of Powers Concept Web</h6>
+                    <div class="mermaid">
+                    graph TD
+                        A_cw2((Separation of Powers)):::centralNode;
+                        B_cw2["Legislative Branch<br/>- Nondelegation Doctrine<br/>- Legislative Veto (INS v. Chadha)<br/>- Appropriations Power"]:::relatedNode;
+                        C_cw2["Executive Branch<br/>- Removal Power<br/>- Take Care Clause<br/>- Unitary Executive Theory"]:::relatedNode;
+                        D_cw2["Judicial Branch<br/>- Judicial Review<br/>- Case or Controversy<br/>- Deference Doctrines"]:::relatedNode;
+                        E_cw2["Administrative Agencies<br/>- Independent Agencies<br/>- Executive Agencies<br/>- Hybrid Functions"]:::relatedNode;
+
+                        A_cw2 --- B_cw2;
+                        A_cw2 --- C_cw2;
+                        A_cw2 --- D_cw2;
+                        A_cw2 --- E_cw2;
+
+                        classDef centralNode fill:#247BA0,stroke:#1A5A7D,stroke-width:2px,color:#ffffff,font-weight:bold;
+                        classDef relatedNode fill:#E6F0ED,stroke:#70C1B3,stroke-width:2px,color:#000000;
+                    </div>
+                    <p>This concept web illustrates how administrative agencies exist within the constitutional separation of powers framework. It shows the relationships and tensions between the three branches of government and their interactions with administrative agencies.</p>
+                </div>
+
+                <div class="explanation" id="doctrinal-timelines">
+                    <h5 class="icon-legislative">Doctrinal Timelines</h5>
+                    <p>These timelines trace the evolution of key administrative law doctrines through important Supreme Court cases, helping you understand how the field has developed over time.</p>
+                    
+                    <h6>Presidential Control Timeline</h6>
+                    <div class="timeline">
+                        <!-- Timeline content remains HTML -->
+                        <div class="timeline-container left">
+                            <div class="timeline-content">
+                                <h4>Myers v. United States (1926)</h4>
+                                <p>President has unrestricted power to remove executive officers he has appointed with Senate confirmation.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-container right">
+                            <div class="timeline-content">
+                                <h4>Humphrey's Executor v. United States (1935)</h4>
+                                <p>Congress can limit President's removal power over commissioners of independent agencies who perform quasi-legislative or quasi-judicial functions.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-container left">
+                            <div class="timeline-content">
+                                <h4>Wiener v. United States (1958)</h4>
+                                <p>President could not remove a member of the War Claims Commission despite no explicit removal restrictions in statute.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-container right">
+                            <div class="timeline-content">
+                                <h4>Morrison v. Olson (1988)</h4>
+                                <p>Upheld independent counsel statute with "good cause" removal restriction, focusing on whether restriction impermissibly interferes with President's duties.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-container left">
+                            <div class="timeline-content">
+                                <h4>Free Enterprise Fund v. PCAOB (2010)</h4>
+                                <p>Struck down dual for-cause removal restrictions as unconstitutionally limiting presidential control.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-container right">
+                            <div class="timeline-content">
+                                <h4>Seila Law v. CFPB (2020)</h4>
+                                <p>Struck down single-director structure with removal protection, distinguishing Humphrey's as applying only to multi-member commissions.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p>This timeline shows the evolution of presidential removal power doctrine, illustrating the pendulum swings between greater presidential control and agency independence throughout the Court's history.</p>
+                    
+                    <h6>Administrative Rulemaking Timeline</h6>
+                    <div class="timeline">
+                        <!-- Timeline content remains HTML -->
+                        <div class="timeline-container left">
+                            <div class="timeline-content">
+                                <h4>Administrative Procedure Act (1946)</h4>
+                                <p>Established the basic framework for agency rulemaking, including notice-and-comment procedures in § 553.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-container right">
+                            <div class="timeline-content">
+                                <h4>United States v. Florida East Coast Railway (1973)</h4>
+                                <p>Limited formal rulemaking requirements, holding that "hearing" language alone does not trigger §§ 556-557 procedures.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-container left">
+                            <div class="timeline-content">
+                                <h4>Vermont Yankee v. NRDC (1978)</h4>
+                                <p>Courts cannot impose procedural requirements beyond those in the APA.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-container right">
+                            <div class="timeline-content">
+                                <h4>Motor Vehicle Mfrs. Assn. v. State Farm (1983)</h4>
+                                <p>Established "hard look" review of agency rulemaking under the arbitrary and capricious standard.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-container left">
+                            <div class="timeline-content">
+                                <h4>Long Island Care at Home v. Coke (2007)</h4>
+                                <p>Recognized the "logical outgrowth" doctrine, requiring final rules to be logically connected to proposed rules.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-container right">
+                            <div class="timeline-content">
+                                <h4>Perez v. Mortgage Bankers Association (2015)</h4>
+                                <p>Agencies can change interpretive rules without notice and comment, overturning the Paralyzed Veterans doctrine.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p>This timeline traces key developments in administrative rulemaking procedure, showing the evolution from the APA's enactment through significant judicial interpretations that have shaped modern rulemaking practices.</p>
+                </div>
+
+                <div class="explanation" id="process-maps">
+                    <h5 class="icon-procedural">Process Maps</h5>
+                    <p>Process maps visualize the sequence of steps in administrative procedures, helping you understand how administrative law operates in practice.</p>
+                    
+                    <h6>Notice-and-Comment Rulemaking Process</h6>
+                    <div class="mermaid">
+                    graph LR
+                        A_pm1["Develop Proposed Rule<br/>Agency identifies problem and develops draft regulation"]:::step --> B_pm1["Publish NPRM<br/>Notice of Proposed Rulemaking published in Federal Register (APA § 553(b))<br/><i>Must include: legal authority, issues involved, proposed rule text</i>"]:::step;
+                        B_pm1 --> C_pm1["Public Comment Period<br/>Agency provides meaningful opportunity to comment (APA § 553(c))<br/><i>Typically 30-60 days; must consider significant comments</i>"]:::step;
+                        C_pm1 --> D_pm1["Analyze Comments<br/>Agency reviews and responds to significant comments<br/><i>Must respond to material comments; may modify rule based on input</i>"]:::step;
+                        D_pm1 --> E_pm1["Publish Final Rule<br/>Final rule published in Federal Register (APA § 553(c)-(d))<br/><i>Must include 'concise general statement of basis and purpose'</i>"]:::step;
+                        E_pm1 --> F_pm1{"Judicial Review<br/>Court reviews for procedural compliance and reasoned decision-making"}:::branch;
+
+                        classDef step fill:#E6F0ED,stroke:#247BA0,stroke-width:2px,color:#000000,padding:10px;
+                        classDef branch fill:#FFD9E2,stroke:#FF1654,stroke-width:2px,color:#000000,padding:10px;
+                    </div>
+                    <p>This process map illustrates the standard notice-and-comment rulemaking procedure under APA § 553. It shows the sequence of steps agencies must follow to promulgate valid legislative rules, along with the key legal requirements at each stage.</p>
+                    
+                    <h6>Judicial Review Standards Process Map</h6>
+                    <div class="mermaid">
+                    graph TD
+                        A_pm2{"Type of Agency Action?"}:::decision;
+                        A_pm2 --> B_pm2["Factual Finding<br/><i>Substantial Evidence or<br/>Arbitrary & Capricious</i><br/>(Apply State Farm factors)"]:::option;
+                        A_pm2 --> C_pm2["Legal Interpretation<br/><i>De Novo with<br/>Traditional Tools</i><br/>(Post-Loper Bright approach)"]:::option;
+
+                        subgraph Note
+                            direction LR
+                            NoteText["Substantial evidence for formal proceedings.<br/>Arbitrary & Capricious for informal.<br/>Major Questions Doctrine for significant issues."];
+                        end
+                        
+                        classDef decision fill:#FFD9E2,stroke:#FF1654,stroke-width:2px,color:#000000,padding:10px;
+                        classDef option fill:#E6F0ED,stroke:#247BA0,stroke-width:2px,color:#000000,padding:10px;
+                        classDef noteText fill:#FAFFEE,stroke:#B2DBBF,color:#000000;
+                        
+                        style NoteText fill:#FAFFEE,stroke:#B2DBBF,color:#000000,font-style:italic;
+
+                    </div>
+                    <p>This process map outlines the standards courts apply when reviewing different types of agency action. It highlights the distinction between factual and legal determinations and the applicable review standards for each.</p>
+                </div>
+            </div> <!-- End of tab-visual-maps -->
         </div>
     </div>
     

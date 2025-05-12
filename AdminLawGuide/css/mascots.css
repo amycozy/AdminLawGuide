@@ -125,7 +125,7 @@
     background-color: var(--procedural-background);
 }
 
-.apa-architect .mascot-speech {
+.apalligator .mascot-speech { /* Renamed from apa-architect */
     border-left-color: var(--executive-primary);
     background-color: var(--executive-background);
 }
@@ -204,8 +204,8 @@
     background-image: url('../assets/slothsam.png');
 }
 
-.mascot-checkpoint.apa::before {
-    background-image: url('../assets/APAarchitect.png');
+.mascot-checkpoint.apa::before { /* Assuming this class might still be used or should be apalligator */
+    background-image: url('../assets/APAlligator.png'); /* Updated image path */
 }
 
 /* Interactive character elements */
@@ -292,19 +292,19 @@
 }
 
 .nav-card.judicial {
-    border-top: 4px solid var(--judicial-primary);
+    border-top: 4px solid var(--interactive-primary); /* NEW_BLUE for better visibility */
 }
 
 .nav-card.constitutional {
-    border-top: 4px solid var(--constitutional-primary);
+    border-top: 4px solid var(--substantive-primary); /* NEW_PINK */
 }
 
 .nav-card.procedural {
-    border-top: 4px solid var(--procedural-primary);
+    border-top: 4px solid var(--procedural-primary); /* NEW_BLUE */
 }
 
 .nav-card.executive {
-    border-top: 4px solid var(--executive-primary);
+    border-top: 4px solid var(--executive-primary); /* NEW_BLUE (as per styles.css) */
 }
 
 .nav-card img {
@@ -329,14 +329,15 @@
 .nav-link { /* This class was used inside nav-card, ensure it's styled appropriately or distinct from other .nav-link if any */
     display: inline-block;
     padding: 8px 12px;
-    background-color: #f0f0f0;
+    background-color: var(--legislative-background); /* NEW_MINT */
     border-radius: 4px;
     text-decoration: none;
-    color: #2c3e50;
-    transition: background-color 0.2s ease;
+    color: #000000; /* Black text for readability on mint */
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .nav-link:hover {
-    background-color: #e0e0e0;
+    background-color: var(--substantive-primary); /* NEW_PINK */
+    color: white; /* White text on pink hover */
     text-decoration: none;
 }

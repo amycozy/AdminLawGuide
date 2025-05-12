@@ -7,7 +7,7 @@
   --card-foreground: #09090b;
   --popover: #ffffff;
   --popover-foreground: #09090b;
-  --primary: #6f4bbd;
+  --primary: var(--interactive-primary); /* NEW_BLUE */
   --primary-foreground: #ffffff;
   --secondary: #f4f4f5;
   --secondary-foreground: #18181b;
@@ -19,12 +19,12 @@
   --destructive-foreground: #f8fafc;
   --border: #e4e4e7;
   --input: #e4e4e7;
-  --ring: #6f4bbd;
+  --ring: var(--interactive-primary); /* NEW_BLUE */
   --radius: 0.5rem;
-  --judicial-primary: #6f4bbd; /* Chevron Chameleon theme */
-  --constitutional-primary: #d97706; /* Major Questions Mole theme */
+  --judicial-primary: var(--judicial-primary); /* NEW_TEAL from styles.css */
+  --constitutional-primary: var(--substantive-primary); /* NEW_PINK */
   --procedural-primary: #0ea5e9; /* Standing Sam theme */
-  --executive-primary: #16a34a; /* APA Architect theme */
+  --executive-primary: #16a34a; /* APAlligator theme */
 }
 
 /* Layout Elements */
@@ -104,7 +104,7 @@
 }
 
 .shadcn-button-default:hover {
-  background-color: #5b3da6; /* Darker primary */
+  background-color: var(--interactive-hover); /* Lighter NEW_BLUE */
 }
 
 .shadcn-button-secondary {
