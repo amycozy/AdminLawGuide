@@ -215,11 +215,22 @@ img {
 }
 
 .key-point {
-    background-color: var(--procedural-background); /* NEW_YELLOW */
-    border-left: 5px solid var(--substantive-primary); /* NEW_PINK */
-    padding: 15px;
-    margin: 20px 0;
-    border-radius: 3px;
+    background-color: var(--accent, #f4f4f5); /* Shadcn accent background */
+    border: 1px solid var(--border, #e4e4e7); /* Shadcn border color */
+    border-left-width: 4px; /* Keep a thicker left border for emphasis */
+    border-left-color: var(--primary, #247BA0); /* Shadcn primary color (interactive blue) */
+    padding: 1rem; /* Consistent padding */
+    margin: 1.5rem 0; /* Consistent margin */
+    border-radius: var(--radius, 0.5rem); /* Shadcn border radius */
+    color: var(--card-foreground, #09090b); /* Ensure good text contrast */
+}
+
+.key-point h5 { /* Style the "Significance" title within key-point */
+    color: var(--primary, #247BA0);
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1em; /* Adjust as needed */
+    font-weight: 600;
 }
 
 .example {
@@ -304,37 +315,30 @@ img {
     box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 
-.case-box::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 40px;
-    height: 40px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Cpath fill='%23f0f0f0' d='M0 0 L80 0 L80 80 L0 80 Z'/%3E%3Cpath fill='var(--executive-accent)' d='M80 0 L80 40 L40 40 Z'/%3E%3C/svg%3E"); /* Updated fill to darker NEW_BLUE */
-    background-size: cover;
-    opacity: 0.5;
+/* Styles for case name and citation within the header */
+.case-header .case-name { /* Scoped to .case-header */
+    font-weight: 600; /* Slightly bolder for emphasis */
+    color: var(--card-foreground, #09090b); /* Shadcn card foreground */
+    display: block; /* Take full width in header */
+    margin-bottom: 0.25rem; /* Space between name and citation */
+    padding-left: 0; /* Remove old padding */
+    font-size: 1.15em; /* Adjust size as needed */
 }
 
-.case-name {
-    font-weight: bold;
-    color: var(--executive-accent); /* darker NEW_BLUE */
-    display: inline-block;
-    position: relative;
-    padding-left: 22px;
+.case-header .case-name::before {
+    content: "⚖️ "; /* Add space after icon */
+    /* position, left, top, font-size can be kept or adjusted if needed */
+    /* If display:block, absolute positioning might need review or icon becomes part of flow */
+    position: static; /* Make icon part of the flow */
+    margin-right: 0.25em;
+    font-size: 1em; /* Match font size of case name */
 }
 
-.case-name::before {
-    content: "⚖️";
-    position: absolute;
-    left: 0;
-    top: 2px;
-    font-size: 16px;
-}
-
-.case-citation {
-    font-style: italic;
-    color: var(--legislative-accent); /* darker NEW_TEAL for a subtle thematic color */
+.case-header .case-citation { /* Scoped to .case-header */
+    font-style: normal; /* Remove italic if desired, or keep */
+    color: var(--muted-foreground, #71717a); /* Shadcn muted text color */
+    font-size: 0.85em; /* Slightly smaller */
+    display: block; /* Take full width */
 }
 
 .case-rule {
@@ -436,31 +440,51 @@ tr:nth-child(even) {
 /* Case illustration with side-by-side layout */
 .case-illustration-flex {
     display: flex; /* Use flexbox for overall container layout */
-    align-items: flex-start; /* Align items to the top */
-    gap: 25px; /* Keep the gap between image and content containers */
+    align-items: stretch; /* Align items to stretch to fill the card height if desired, or flex-start */
+    gap: 0; /* Gap will be handled by padding in header/content */
     margin: 30px 0;
-    background-color: var(--substantive-background); /* lighter NEW_PINK */
-    border: 1px solid var(--substantive-primary); /* NEW_PINK */
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+    background-color: var(--card, #ffffff); /* Fallback to white */
+    border: 1px solid var(--border, #e4e4e7); /* Fallback to light gray */
+    border-radius: var(--radius, 0.5rem); /* Fallback to 0.5rem */
+    padding: 0; /* Header and content will have their own padding */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.07);
     width: 100%; /* Ensure it takes full width of its parent */
     box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    overflow: hidden; /* To contain rounded corners of children if needed */
 }
 
 .case-illustration-flex .case-image {
     flex: 0 0 35%; /* Keep flex properties for the image container */
     text-align: center;
+    padding: 1.5rem; /* Add padding around the image if it's inside the card body */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .case-illustration-flex .case-image img {
     max-width: 100%; /* Ensure image doesn't exceed its container */
     max-height: 300px;
     width: auto;
-    border-radius: 5px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    border-radius: calc(var(--radius, 0.5rem) - 2px); /* Slightly less than card */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    border: 1px solid var(--border, #e4e4e7); /* Optional: adds a subtle border to image */
+}
+
+/* New Case Header Styles */
+.case-header {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border, #e4e4e7);
+    background-color: var(--secondary, #f4f4f5); /* Light gray background from shadcn */
 }
 
 .case-illustration-flex .case-content {
     flex: 1; /* Keep flex: 1 for the content container */
+    display: flex; /* Allow header and main content to stack */
+    flex-direction: column;
+}
+
+/* New class for the main body of text content within a case card */
+.case-body-content {
+    padding: 1.5rem; /* Standard padding for content area */
 }
