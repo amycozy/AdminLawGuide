@@ -51,12 +51,10 @@ let masteredCards = [];
                     <span class="shadcn-badge shadcn-flashcard-badge">${formatCategoryName(cardData.category)}</span>
                     <h4 class="shadcn-flashcard-title">${cardData.title}</h4>
                     <p class="shadcn-flashcard-content">${cardData.question}</p>
-                    {-- <div class="flip-hint">Click to flip</div> --} {/* Flip hint can be added if desired, styled appropriately */}
+                    
                 </div>
                 <div class="shadcn-flashcard-back">
-                    {-- <div class="flip-back-container">
-                        <button class="flip-back-btn" aria-label="Flip card back">↺</button>
-                    </div> --} {/* Flip back button can be added if desired */}
+                    
                     <h4 class="shadcn-flashcard-title">${cardData.title}</h4>
                     <div class="shadcn-flashcard-content">
                         ${cardData.answer}
@@ -124,7 +122,7 @@ let masteredCards = [];
         const progressPercentage = (masteredCount / totalCards) * 100;
         
         // Update the progress bar
-        const progressBar = document.querySelector('.progress-bar');
+        const progressBar = document.querySelector('.shadcn-progress-indicator');
         if (progressBar) {
             progressBar.style.width = `${progressPercentage}%`;
         }
@@ -177,7 +175,7 @@ let masteredCards = [];
         });
         
         // Update the counter
-        const counter = document.querySelector('.flashcard-counter');
+        const counter = document.querySelector('.shadcn-flashcard-meta');
         if (counter) {
             counter.textContent = `Showing ${visibleCount} of ${allFlashcards.length} total flashcards`;
         }
@@ -204,7 +202,7 @@ let masteredCards = [];
         }
         
         // Update the counter
-        const counter = document.querySelector('.flashcard-counter');
+        const counter = document.querySelector('.shadcn-flashcard-meta');
         if (counter) {
             counter.textContent = `Showing 3 of ${allFlashcards.length} total flashcards`;
         }
@@ -272,7 +270,7 @@ let masteredCards = [];
         });
         
         // Update the counter
-        const counter = document.querySelector('.flashcard-counter');
+        const counter = document.querySelector('.shadcn-flashcard-meta');
         if (counter) {
             counter.textContent = `Showing 3 of ${allFlashcards.length} total flashcards`;
         }

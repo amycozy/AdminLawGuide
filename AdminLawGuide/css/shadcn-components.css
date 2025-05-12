@@ -193,9 +193,10 @@
 .shadcn-flashcard-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.5rem;
+  gap: 2rem; /* Increased gap */
   width: 100%;
   margin: 1.5rem 0;
+  padding: 1rem; /* Added padding */
 }
 
 .shadcn-flashcard {
@@ -207,6 +208,8 @@
   perspective: 1000px;
   cursor: pointer;
   border: 1px solid var(--border);
+  overflow: visible; /* Allow transformed content to be visible */
+  box-sizing: border-box; /* Added box-sizing */
 }
 
 .shadcn-flashcard-inner {
@@ -216,6 +219,7 @@
   text-align: left;
   transition: transform 0.6s;
   transform-style: preserve-3d;
+  overflow: visible; /* Allow transformed children to be visible */
 }
 
 .shadcn-flashcard-inner.flipped {
@@ -231,11 +235,13 @@
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box; /* Added box-sizing */
 }
 
 .shadcn-flashcard-front {
   background-color: var(--card);
   color: var(--card-foreground);
+  box-sizing: border-box; /* Added box-sizing */
 }
 
 .shadcn-flashcard-back {
@@ -246,6 +252,7 @@
   display: flex; /* Ensure flex is applied */
   flex-direction: column; /* Stack items vertically */
   justify-content: space-between; /* Push button to bottom */
+  box-sizing: border-box; /* Added box-sizing */
 }
 
 .shadcn-flashcard-title {

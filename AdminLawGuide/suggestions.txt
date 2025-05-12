@@ -1,0 +1,113 @@
+Based on the provided sources and our conversation history, here is a potential outline for this administrative law course:
+
+**I. Introduction and Constitutionality**
+
+*   **Admin Law Basics**
+    *   What Agencies Do: **Rulemaking** & **Adjudication**
+    *   When/Why Agencies Act (Theories): Market failure, Redistribution/Equality, Collective values, Paternalism (nudges for safety)
+    *   Overview of Admin Law: Starting point is typically a social problem and a statute addressing it, delegating authority to an agency
+*   **Structure of Government and Agency Placement**
+    *   Three Branches: Legislative, Executive, Judiciary
+    *   Administrative State primarily within the Executive Branch
+    *   Types of Agencies: **Executive Agencies** (President has ultimate authority, head removable at will) vs. **Independent Agencies** (More protection, not purely controlled by executive)
+    *   Relationship Between Branches: Core controversies revolve around this relationship
+*   **Nondelegation Doctrine**
+    *   Concern: Has Congress delegated too much of its legislative responsibility to agencies?
+    *   Vesting Clauses (Art I, § 1 - Congress; Art II, § 1 - President; Art III, § 1 - Courts)
+    *   Problematic aspects: Agencies are not elected/accountable officials
+    *   Approaches/Spectrum:
+        *   No further delegation (Justice Thomas's view)
+        *   Line drawing/Intelligible Principle (Congress can delegate unless scope is too broad, requiring direction)
+        *   Permissive (Congress can delegate almost anything with instructions)
+    *   Key Concepts: Intelligible Principle, Statutory construction as "holistic endeavor"
+    *   Case Example: **Gundy v. United States** (Sex offender registration)
+*   **Major Questions Doctrine (MQD)**
+    *   Principle: Expect Congress to speak clearly if assigning agencies decisions of **vast economic and political significance**
+    *   Function: A clear-statement rule creating a presumption that agencies lack authority over major questions unless authorization is clear
+    *   Relation to Nondelegation: Arguably serves a similar function as a "nondelegation canon"
+    *   Identifying Clear Congressional Authority (J. Gorsuch's factors): View of legislative provisions in larger context, Age and focus of statute relative to problem, Agency's past interpretations, Skepticism for mismatch with agency's mission/expertise
+    *   Identifying a "Major Question": Matters of great political significance, Profound national debate, Regulating a significant portion of the economy, Intruding into areas of state law
+    *   Cases: **Alabama Ass'n of Realtors v. HHS** (Eviction moratorium), **Nat'l Fed. of Indep. Business v. OSHA** (Vaccine/testing mandate), **West Virginia v. EPA**, **Biden v. Nebraska** (Student loan forgiveness)
+    *   J. Barrett's View: MQD as a tool for discerning the text's most natural interpretation based on context, including the Constitution's structure
+*   **Political Control of Agencies: Legislative, Executive, Appointment & Removal Powers**
+    *   Congressional Tools: Statutory precision, Oversight hearings, Appropriations, Advice and Consent (on appointments), Casework/constituent service, Congressional Review Act (CRA), Legislative veto
+        *   **Legislative Veto**: Held unconstitutional (INS v. Chadha)
+        *   **Congressional Review Act**: Allows Congress to disapprove agency rules
+    *   Executive Tools: Executive Orders (EOs), Office of Information and Regulatory Affairs (OIRA), Appointment & Removal Powers
+        *   **Executive Orders and OIRA**: Centralized review of **significant regulatory actions** (> $100m expected cost); Require cost-benefit analysis; Limit outside substantive communication; Do not create enforceable rights (E.O. 12866)
+        *   **Appointment Powers**: Requires President + Senate approval for Principal Officers; Congress can delegate appointment of Inferior Officers
+            *   "Officer": Any appointee exercising **significant authority** (Buckley v. Valeo)
+            *   Inferior Officer Factors: Subject to removal by higher officer, Limited duties/jurisdiction, May have limited tenure, Work directed/supervised by principal officer (Morrison v. Olson, Edmond v. United States, Free Enterprise Fund v. PCAOB)
+            *   Case: **Lucia v. SEC** (ALJs are Officers)
+        *   **Removal Powers**: Not explicitly in Constitution; Belongs to the President; Distinguishes independent vs. executive agencies; Congress can restrict removal power ("for cause") for certain officers/agencies
+            *   Cases: **Humphrey's Executor** (FTC), **Morrison v. Olson** (Independent Counsel), **Free Enterprise Fund v. PCAOB** (Multiple layers of for-cause removal), **Seila v. CFPB** (Single director for-cause removal)
+
+**II. Inside the Agency (Rulemaking and Adjudication)**
+
+*   **Procedural Requirements in Agency Decisionmaking**: Sources include statute forming the agency, agency's own rules, APA, federal common law, Constitutional Due Process
+*   **Rulemaking**: Agencies make rules (regulations) that have the force of law
+    *   Formal Rulemaking (On-the-Record): Governed by APA §§ 556, 557; Triggered when statute requires rule "on the record after opportunity for an agency hearing"; Adversarial-type proceedings
+    *   Informal Rulemaking (Notice-and-Comment): Governed by APA § 553
+        *   Process: Publication of General Notice of Proposed Rulemaking in Federal Register, Opportunity for written comments (hearings discretionary), Agency consideration of comments, Publication of Final Rule with Concise General Statement of Basis and Purpose
+        *   Adequacy of the Record: Agency must disclose data relied on; Record inadequate if vital questions raised by comment not addressed (U.S. v. Nova Scotia Food)
+        *   Exceptions to N&C (§ 553(b)):
+            *   Non-legislative/Non-substantive Rules: **Interpretive rules** (explain statutory ambiguity, non-binding), **General statements of policy** (announce tentative intentions, non-binding), **Rules of agency procedure/organization/practice** (Test for procedural rules: Do they encode a substantive value judgment or substantially alter rights/interests?)
+            *   Good Cause Exception (§ 553(b)(B)): When notice and comment is impracticable, unnecessary, or contrary to the public interest
+*   **Adjudication**: Agencies adjudicate matters other than rulemaking (e.g., enforcement actions, licensing)
+    *   Formal Adjudication: Governed by APA §§ 554, 556, 557; Triggered when statute requires a determination "on the record after opportunity for an agency hearing"; Resembles a judicial trial with presentation of evidence, cross-examination; ALJ prepares decision with findings and conclusions; Agency issues final decision
+    *   Informal Adjudication: Almost no APA procedures specified
+    *   Legislative vs. Adjudicative Facts: Distinction based on whether facts concern immediate parties (adjudicative) or general context/policy (legislative)
+*   **Agency Choice Between Rulemaking and Adjudication**: Agencies can choose whether to make policy via rulemaking or case-by-case adjudication, within statutory limits (NLRB v. Wyman-Gordon, NLRB v. Bell Aerospace)
+*   **Due Process and Agencies**: Required when life, liberty, or property is at stake and agency engages in adjudication (not rulemaking)
+    *   Entitlements as "Property": Statutory entitlements can be considered property interests requiring due process (Goldberg v. Kelly)
+    *   Identifying Protected Interests: Requires a deprivation of something that qualifies as "life, liberty, or property" (Board of Regents v. Roth, Perry v. Sinderman) Look to the nature of the interest, not its weight; Must exist from an independent source.
+    *   What Process is Due: Determined by balancing test (Mathews v. Eldridge) considering:
+        1.  Private interest affected
+        2.  Risk of erroneous deprivation through current procedures and probable value of additional/substitute safeguards
+        3.  Government's interest, including fiscal and administrative burdens
+    *   Examples: Evidentiary hearing required before terminating welfare benefits (Goldberg), not required before terminating disability benefits (Mathews). Liberty interest may be implicated by damage to reputation plus suspension/removal (Winegar, Goss v. Lopez).
+
+**III. Judicial Review**
+
+*   **Scope of Review** (APA § 706): Reviewing court decides relevant questions of law, interprets statutes, sets aside agency action found unlawful
+*   **Standards of Review**
+    *   Arbitrary and Capricious / Hard Look Review (APA § 706(2)(A)): Applies broadly to agency action; Requires reasoned decision-making and explanation (FCC v. Fox); Agency must consider important aspects of the problem (State Farm, Michigan v. EPA)
+    *   Substantial Evidence Review (APA § 706(2)(E)): Applies to formal rulemaking/adjudication or where required by statute; Requires review of the record **considered as a whole**; Agency findings must be supported by "more than a mere scintilla" of evidence (NLRB v. Universal Camera Corp., Allentown Mack v. NLRB)
+    *   Comparison: Both Substantial Evidence and Arbitrary & Capricious standards result in courts deferring around 70% of the time; Live debate among scholars about their difference
+    *   De Novo Review: Court reviews without deference
+*   **Judicial Review of Agency Statutory Interpretation**:
+    *   Pre-Chevron Standards:
+        *   **NLRB v. Hearst Publications** (1944): Deference to agency's judgment based on expertise and the task assigned by Congress
+        *   **Skidmore v. Swift & Co.** (1944): Agency interpretations have persuasive authority based on factors like thoroughness, validity, consistency, expertise, etc.
+    *   **Chevron U.S.A. Inc. v. NRDC** (1984): Two-step framework
+        *   Step Zero: Does Chevron apply? (e.g., agency interpretation of its own statute, not a "major question")
+        *   Step One: Has Congress directly spoken on the precise issue? Is intent clear using traditional tools of statutory construction? If yes, Congress's intent controls.
+        *   Step Two: If statute is ambiguous/silent, is the agency's interpretation a permissible/reasonable construction? If yes, court defers to the agency's interpretation.
+    *   **Loper Bright Enterprises v. Raimondo**: Overruled Chevron deference doctrine; Standard of review for agency statutory interpretation likely reverts to **Skidmore** persuasion.
+    *   Relationship between Hard Look and Chevron Step Two: Some argue Arbitrary & Capricious review is being incorporated into Chevron Step Two or that they are very similar.
+
+**IV. Access to Judicial Review**
+
+*   **Reviewability**: Whether a court can review an agency action at all
+    *   Presumption of Reviewability
+    *   Actions Committed to Agency Discretion by Law (Generally not reviewable, e.g., agency's refusal to initiate enforcement action per Heckler v. Chaney)
+*   **Standing**: Whether a party can bring a case before a court
+    *   Constitutional Requirements (Article III - "Case or Controversy")
+        *   **Injury in Fact**: Concrete and particularized, actual or imminent ("Interest" can include aesthetic, conservational, recreational values)
+        *   **Causation**: Fairly traceable to the challenged action
+        *   **Redressability**: Likely to be redressed by a favorable court decision
+        *   Nexus: Causation + Redressability
+    *   Prudential Requirements (Judge-made)
+        *   **Zone of Interests**: Plaintiff's interest must be arguably within the zone of interests protected or regulated by the statute (Clarke v. Securities Industry Association) Focus on the interest, not the plaintiff.
+        *   No Generalized Grievances
+        *   Not Asserting Someone Else's Rights
+    *   Statutory Standing Creations: Informational Standing, Procedural Standing/Citizen Suits
+    *   Case Examples: Massachusetts v. EPA, Biden v. Texas
+*   **Timing of Review**: Ripeness, Finality, and Exhaustion
+
+**Other Relevant Concepts**
+
+*   What Do We Want from an Agency?: Consistency with Congressional intent, Furtherance of Public Interest, Efficiency
+*   Essay Structure: Questions may cut across different sections of the course (e.g., appointments + rulemaking + standing)
+
+This outline draws directly from the structure and content presented in the provided sources. Each major section and key concept is supported by citations to the specific source documents.

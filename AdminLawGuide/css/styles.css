@@ -125,6 +125,14 @@ a:hover {
     text-decoration: underline;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Helps prevent extra space below images */
+    margin-left: auto; /* Center block images if their container is wider */
+    margin-right: auto; /* Center block images if their container is wider */
+}
+
 /* Navigation styles */
 .main-navigation {
     background-color: #E9F2F7; /* Pale Blue */
