@@ -243,6 +243,9 @@
   color: var(--card-foreground);
   transform: rotateY(180deg);
   overflow-y: auto;
+  display: flex; /* Ensure flex is applied */
+  flex-direction: column; /* Stack items vertically */
+  justify-content: space-between; /* Push button to bottom */
 }
 
 .shadcn-flashcard-title {
@@ -254,8 +257,10 @@
 }
 
 .shadcn-flashcard-content {
-  flex: 1;
+  flex-grow: 1; /* Allow content to take available space */
+  margin-bottom: 1rem; /* Add space above the button if button is outside this div */
   color: var(--muted-foreground);
+  /* If button is inside this, ensure this div itself doesn't cause overflow issues */
 }
 
 .shadcn-flashcard-badge {
@@ -281,7 +286,29 @@
   color: var(--muted-foreground);
 }
 
+/* Styles moved/adapted from flashcards.css */
+.progress-text { /* For flashcard progress */
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+  color: var(--muted-foreground); /* Using shadcn muted foreground */
+}
+
+.shadcn-flashcard-controls { /* Replaces .flashcard-controls */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.shadcn-flashcard-actions { /* Replaces .flashcard-actions */
+  display: flex;
+  gap: 0.5rem;
+}
+/* .shadcn-flashcard-meta is already defined and used for the counter */
+
 /* Category badges */
+/* Ensure all categories used in flashcardData.js have a style here */
 .shadcn-flashcard[data-category="judicial-review"] .shadcn-flashcard-badge {
   background-color: var(--judicial-primary);
   color: white;
@@ -293,9 +320,17 @@
 }
 
 .shadcn-flashcard[data-category="agency-procedure"] .shadcn-flashcard-badge {
-  background-color: var(--executive-primary);
+  background-color: var(--executive-primary); /* This is green, from APAlligator theme */
   color: white;
 }
+
+/* Add other categories if they exist in flashcardData.js and need specific colors */
+/* Example:
+.shadcn-flashcard[data-category="rulemaking"] .shadcn-flashcard-badge {
+  background-color: var(--procedural-primary); // Or another theme color
+  color: white;
+}
+*/
 
 /* Mobile-responsive adjustments */
 @media (max-width: 768px) {

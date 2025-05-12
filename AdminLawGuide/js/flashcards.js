@@ -1,62 +1,67 @@
 // flashcards.js - Simplified flashcard functionality for Admin Law Guide
 
-document.addEventListener('DOMContentLoaded', function() {
-    console.log("DOM content loaded - flashcards initializing");
-    
-    // Check if we're on a page with flashcards
-    // Wait a short time for main.js to load the content
-    setTimeout(function() {
-        // Only initialize if we can find the container
-        const container = document.getElementById('flashcard-container');
-        if (container) {
-            console.log("Flashcard container found, initializing...");
-            // Ensure allFlashcards is available (loaded from js/data/flashcardData.js)
-            if (typeof allFlashcards !== 'undefined' && allFlashcards.length > 0) {
-                initializeFlashcards();
-            } else {
-                console.error("allFlashcards data not found or empty. Ensure js/data/flashcardData.js is loaded correctly before flashcards.js.");
-            }
+// Global or accessible function to initialize flashcards
+// This will be called by main.js after the relevant section is loaded.
+function initializeFlashcardsGlobal() {
+    console.log("initializeFlashcardsGlobal called");
+    const container = document.getElementById('flashcard-container');
+    if (container) {
+        console.log("Flashcard container found, initializing flashcards system...");
+        if (typeof allFlashcards !== 'undefined' && allFlashcards.length > 0) {
+            // Initialize or re-initialize masteredCards here as it's outside the DOMContentLoaded now
+            masteredCards = localStorage.getItem('masteredCards') ? 
+                JSON.parse(localStorage.getItem('masteredCards')) : [];
+            
+            updateProgressIndicator(); // Ensure progress is updated on init
+            setupCategoryTabs();     // Sets up category filtering
+            loadInitialCards();      // Loads the first few cards
+            setupFlashcardControls(); // Sets up shuffle/show different buttons
+            
+            // Note: setupExamGuideInteractions() is removed from here. 
+            // General tab/toggle setups should be handled by main.js or uiEnhancements.js
         } else {
-            console.log("No flashcard container found on this page");
+            console.error("allFlashcards data not found or empty. Ensure js/data/flashcardData.js is loaded correctly before flashcards.js.");
         }
-    }, 500);
+    } else {
+        console.log("No flashcard container found when initializeFlashcardsGlobal was called.");
+    }
+}
 
-    // Track mastered cards
-    // Note: allFlashcards array is now defined in js/data/flashcardData.js
-    // and should be loaded before this script.
-    let masteredCards = localStorage.getItem('masteredCards') ? 
-        JSON.parse(localStorage.getItem('masteredCards')) : [];
+// Track mastered cards - this needs to be accessible by functions below
+let masteredCards = []; 
 
-    // Function to create and return a flashcard element
+// Function to create and return a flashcard element
     function createFlashcardElement(cardData) {
         const flashcardElement = document.createElement('div');
-        flashcardElement.className = 'flashcard';
+        // Use shadcn-flashcard class for consistency with shadcn-components.css
+        flashcardElement.className = 'shadcn-flashcard'; 
         flashcardElement.setAttribute('data-category', cardData.category);
         flashcardElement.setAttribute('data-id', cardData.id);
         
         // Add mastered class if in localStorage
         if (masteredCards.includes(cardData.id)) {
-            flashcardElement.classList.add('mastered');
+            // Use the shadcn specific mastered class if defined, or a generic one
+            flashcardElement.classList.add('shadcn-flashcard-mastered'); 
         }
         
-        // Create the HTML structure
+        // Create the HTML structure using shadcn classes where appropriate
         flashcardElement.innerHTML = `
-            <div class="flashcard-inner">
-                <div class="flashcard-front">
-                    <div class="category-badge ${cardData.category}">${formatCategoryName(cardData.category)}</div>
-                    <h4>${cardData.title}</h4>
-                    <p>${cardData.question}</p>
-                    <div class="flip-hint">Click to flip</div>
+            <div class="shadcn-flashcard-inner">
+                <div class="shadcn-flashcard-front">
+                    <span class="shadcn-badge shadcn-flashcard-badge">${formatCategoryName(cardData.category)}</span>
+                    <h4 class="shadcn-flashcard-title">${cardData.title}</h4>
+                    <p class="shadcn-flashcard-content">${cardData.question}</p>
+                    {-- <div class="flip-hint">Click to flip</div> --} {/* Flip hint can be added if desired, styled appropriately */}
                 </div>
-                <div class="flashcard-back">
-                    <div class="flip-back-container">
+                <div class="shadcn-flashcard-back">
+                    {-- <div class="flip-back-container">
                         <button class="flip-back-btn" aria-label="Flip card back">↺</button>
-                    </div>
-                    <h4>${cardData.title}</h4>
-                    <div class="answer">
+                    </div> --} {/* Flip back button can be added if desired */}
+                    <h4 class="shadcn-flashcard-title">${cardData.title}</h4>
+                    <div class="shadcn-flashcard-content">
                         ${cardData.answer}
                     </div>
-                    <button class="mark-known-btn ${masteredCards.includes(cardData.id) ? 'known' : ''}" data-id="${cardData.id}">
+                    <button class="shadcn-button shadcn-button-outline shadcn-button-sm mark-known-btn ${masteredCards.includes(cardData.id) ? 'known' : ''}" data-id="${cardData.id}" style="margin-top: 1rem;">
                         ${masteredCards.includes(cardData.id) ? 'Marked as Known' : 'Mark as Known'}
                     </button>
                 </div>
@@ -65,21 +70,11 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Add click event to flip the card
         flashcardElement.addEventListener('click', function(e) {
-            // Don't flip if clicking on the Mark as Known button or flip back button
-            if (e.target.classList.contains('mark-known-btn') || 
-                e.target.classList.contains('flip-back-btn')) return;
+            // Don't flip if clicking on the Mark as Known button
+            if (e.target.classList.contains('mark-known-btn')) return;
             
-            this.querySelector('.flashcard-inner').classList.toggle('flipped');
+            this.querySelector('.shadcn-flashcard-inner').classList.toggle('flipped');
         });
-        
-        // Add specific click event for the flip back button
-        const flipBackBtn = flashcardElement.querySelector('.flip-back-btn');
-        if (flipBackBtn) {
-            flipBackBtn.addEventListener('click', function(e) {
-                e.stopPropagation(); // Prevent card flip from main event
-                flashcardElement.querySelector('.flashcard-inner').classList.remove('flipped');
-            });
-        }
         
         // Add event for the Mark as Known button
         const markKnownBtn = flashcardElement.querySelector('.mark-known-btn');
@@ -94,8 +89,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Update button and card
                 this.textContent = 'Marked as Known';
-                this.classList.add('known');
-                flashcardElement.classList.add('mastered');
+                this.classList.remove('shadcn-button-outline');
+                this.classList.add('shadcn-button-success'); // Use existing success style
+                flashcardElement.classList.add('shadcn-flashcard-mastered');
             } else {
                 // Remove from known
                 masteredCards = masteredCards.filter(id => id !== cardId);
@@ -103,8 +99,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Update button and card
                 this.textContent = 'Mark as Known';
-                this.classList.remove('known');
-                flashcardElement.classList.remove('mastered');
+                this.classList.remove('shadcn-button-success');
+                this.classList.add('shadcn-button-outline');
+                flashcardElement.classList.remove('shadcn-flashcard-mastered');
             }
             
             updateProgressIndicator();
@@ -290,61 +287,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Function to initialize the flashcard system
-    function initializeFlashcards() {
-        updateProgressIndicator();
-        setupCategoryTabs();
-        loadInitialCards();
-        setupFlashcardControls();
-        
-        // Set up exam guide tabs and sections if they exist
-        setupExamGuideInteractions();
-    }
-    
-    // Function to handle exam guide specific interactions
-    function setupExamGuideInteractions() {
-        // Set up exam guide navigation (if these act as tabs)
-        // Assumes .exam-guide-nav-link elements have 'data-tab-target' pointing to IDs of .exam-guide-section elements.
-        if (typeof initializeTabSystem === 'function') {
-            initializeTabSystem(
-                '.exam-guide-nav-link',    // Selector for tab buttons
-                '.exam-guide-section',     // Selector for content panels
-                '.exam-guide-nav-link.active' // Selector for the initially active tab (optional)
-            );
-        } else {
-            console.error('initializeTabSystem function not found in flashcards.js for exam guide nav. Ensure js/components/tabs.js is loaded.');
-        }
-        
-        // Set up mastery tabs (if any are specifically within an exam guide context and controlled by flashcards.js)
-        // Assumes these .mastery-tab instances have 'data-tab-target' pointing to IDs of .mastery-section elements.
-        // These selectors might need to be more specific if they are nested, e.g., '.exam-guide-content .mastery-tab'
-        if (typeof initializeTabSystem === 'function') {
-            initializeTabSystem(
-                '.mastery-tab',  // This might be too generic if main.js also handles .mastery-tab globally.
-                                 // Consider a more specific selector if these are different from global mastery tabs,
-                                 // e.g., '.exam-guide-mastery-tab' or ensure HTML uses data-tab-target correctly.
-                '.mastery-section',
-                '.mastery-tab.active'
-            );
-        } else {
-            console.error('initializeTabSystem function not found in flashcards.js for mastery tabs. Ensure js/components/tabs.js is loaded.');
-        }
-        
-        // Set up toggle answer buttons using the new component
-        if (typeof initializeToggleButtons === 'function') {
-            initializeToggleButtons('.toggle-answer');
-        } else {
-            console.error('initializeToggleButtons function not found in flashcards.js. Ensure js/components/toggleContent.js is loaded.');
-        }
-        
-        // Set up quiz buttons
-        const checkQuizBtn = document.getElementById('check-quiz');
-        if (checkQuizBtn) {
-            checkQuizBtn.addEventListener('click', function() {
-                document.querySelectorAll('.quiz-feedback').forEach(feedback => {
-                    feedback.style.display = 'block';
-                });
-            });
-        }
-    }
-});
+    // Function to initialize the flashcard system (internal parts, called by initializeFlashcardsGlobal)
+    // setupExamGuideInteractions was removed as its functionality should be handled by main.js or uiEnhancements.js
+    // for general site structure tabs and toggles.
+    // flashcards.js will now only focus on its own category tabs.
+
+// Note: The original DOMContentLoaded listener and setTimeout are removed.
+// initializeFlashcardsGlobal() should be called from main.js when the flashcard section is loaded.
