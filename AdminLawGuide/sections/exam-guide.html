@@ -23,6 +23,7 @@
             <div class="mastery-tab" data-tab-target="tab-comparisons">Concept Comparisons</div>
             <div class="mastery-tab" data-tab-target="tab-quizzes">Self-Quizzes</div>
             <div class="mastery-tab" data-tab-target="tab-visual-maps">Visual Knowledge Maps</div>
+            <div class="mastery-tab" data-tab-target="tab-concept-reinforcement">Concept Reinforcement</div>
             <div class="mastery-tab" data-tab-target="tab-mascots">Mascot Resources</div>
         </div>
         
@@ -32,31 +33,31 @@
                 <h4>Spaced Repetition Flashcards</h4>
                 <p>Click on a card to flip it and check your understanding. Come back to these cards regularly to solidify your knowledge through spaced repetition.</p>
                 
-                <!-- Progress tracking bar -->
-                <div class="progress-container">
-                    <div class="progress-bar" style="width: 0%"></div>
+                <!-- Progress tracking bar - Using shadcn styles -->
+                <div class="shadcn-progress" style="margin-bottom: 0.5rem;">
+                    <div class="shadcn-progress-indicator" style="width: 0%;"></div>
                 </div>
-                <p class="progress-text">0 of 25 cards mastered (0%)</p>
+                <p class="progress-text" style="text-align: center; margin-bottom: 1.5rem; font-size: 0.875rem; color: var(--muted-foreground);">0 of 25 cards mastered (0%)</p> {/* progress-text class will need to be added to shadcn-components.css or use existing shadcn text style */}
                 
-                <!-- Category tabs -->
-                <div class="category-tabs">
-                    <button class="category-tab active" data-category="all" data-tab-target="flashcard-container">All Topics</button>
-                    <button class="category-tab" data-category="judicial-review" data-tab-target="flashcard-container">Judicial Review</button>
-                    <button class="category-tab" data-category="agency-procedure" data-tab-target="flashcard-container">Agency Procedure</button>
-                    <button class="category-tab" data-category="constitutional" data-tab-target="flashcard-container">Constitutional Issues</button>
+                <!-- Category tabs - Using shadcn styles -->
+                <div class="shadcn-tabs-list category-tabs"> {/* Added category-tabs for JS hook if still needed, or JS can target .shadcn-tabs-trigger within a specific parent */}
+                    <button class="shadcn-tabs-trigger category-tab active" data-category="all" data-tab-target="flashcard-container">All Topics</button>
+                    <button class="shadcn-tabs-trigger category-tab" data-category="judicial-review" data-tab-target="flashcard-container">Judicial Review</button>
+                    <button class="shadcn-tabs-trigger category-tab" data-category="agency-procedure" data-tab-target="flashcard-container">Agency Procedure</button>
+                    <button class="shadcn-tabs-trigger category-tab" data-category="constitutional" data-tab-target="flashcard-container">Constitutional Issues</button>
                 </div>
                     
-                <!-- Flashcard controls -->
-                <div class="flashcard-controls">
-                    <div class="flashcard-actions">
-                        <button id="shuffle-cards" class="control-button">Shuffle Cards</button>
-                        <button id="show-different-cards" class="control-button primary">Show Different Cards</button>
+                <!-- Flashcard controls - Using shadcn styles for buttons -->
+                <div class="shadcn-flashcard-controls"> {/* This class will need to be added to shadcn-components.css */}
+                    <div class="shadcn-flashcard-actions"> {/* This class will need to be added to shadcn-components.css */}
+                        <button id="shuffle-cards" class="shadcn-button shadcn-button-secondary shadcn-button-sm">Shuffle Cards</button>
+                        <button id="show-different-cards" class="shadcn-button shadcn-button-default shadcn-button-sm">Show Different Cards</button>
                     </div>
-                    <span class="flashcard-counter">Showing 3 of 25 total flashcards</span>
+                    <span class="shadcn-flashcard-meta">Showing 3 of 25 total flashcards</span> {/* Using existing .shadcn-flashcard-meta */}
                 </div>
                         
                 <!-- Flashcard container - will be populated by JavaScript -->
-                <div id="flashcard-container"></div>
+                <div id="flashcard-container" class="shadcn-flashcard-container"></div>
                 
             </div>
             
@@ -190,6 +191,170 @@
             <!-- Mascot Resources Section -->
             <div class="mastery-section" id="tab-mascots">
                 <h4>Learn with Your Admin Law Guides</h4>
+                
+                <div id="doctrine-mascots-content">
+                    <h5>Doctrine Mascots: Visual Memory Aids</h5>
+                    <p>Administrative law contains complex doctrines that can be difficult to remember and apply. These visual mascots represent key doctrines in a memorable way, helping you build mental models for understanding and recalling important principles.</p>
+                    
+                    <!-- Meet Your Guide Panel for Chevron Chameleon -->
+                    <div class="guide-panel judicial">
+                        <div class="guide-panel-image">
+                            <img src="../assets/cutestchevronchameleon.png" alt="Chevron Chameleon">
+                        </div>
+                        <div class="guide-panel-content">
+                            <h6>Meet Chevron Chameleon</h6>
+                            <p>Your guide to understanding judicial deference to agency interpretations. Just as chameleons adapt to their environment, courts under the Chevron doctrine would adapt their approach based on whether a statute is clear or ambiguous.</p>
+                            <p>This friendly chameleon will help you navigate the complex world of statutory interpretation and agency deference!</p>
+                        </div>
+                    </div>
+                    
+                    <h6>Doctrine Mascot Gallery</h6>
+                    <p>Each mascot embodies the core principles of its doctrine. Use these visual representations to help you remember the key aspects of each legal test or principle.</p>
+                    
+                    <!-- Chevron Chameleon -->
+                    <div class="doctrine-mascot">
+                        <div class="mascot-header">
+                            <img src="../assets/cutestchevronchameleon.png" alt="Chevron Chameleon Icon">
+                            <h6>The Chevron Chameleon</h6>
+                        </div>
+                        
+                        <div class="mascot-container chevron-chameleon">
+                            <div class="mascot-speech">
+                                <p>Hello! I'm Chevron Chameleon. When there's ambiguity in a statute, I used to help judges determine when to defer to an agency's reasonable interpretation. However, after the <em>Loper Bright</em> decision in 2024, the Supreme Court rejected the Chevron framework!</p>
+                            </div>
+                            <img class="mascot-image" src="../assets/studycutechevron.png" alt="Chevron Chameleon studying the law">
+                        </div>
+                        
+                        <div class="mascot-concept">
+                            <img class="mascot-concept-icon" src="../assets/confusedchevronchameleon.png" alt="Confused Chevron Chameleon">
+                            <p>When confronted with an agency's interpretation of a statute, I would help courts apply a two-step analysis:</p>
+                            <ol>
+                                <li><strong>Step One:</strong> Has Congress directly spoken to the precise question at issue? If the intent of Congress is clear, that is the end of the matter.</li>
+                                <li><strong>Step Two:</strong> If the statute is ambiguous, is the agency's interpretation reasonable?</li>
+                            </ol>
+                            <p>But remember, after <em>Loper Bright Fisheries v. Raimondo</em> (2024), courts no longer follow this framework and instead determine the best interpretation of the statute using traditional tools of statutory construction.</p>
+                        </div>
+                        
+                        <div class="mascot-checkpoint">
+                            <h6>Chevron Checkpoint</h6>
+                            <p>When analyzing an agency's interpretation of a statute, ask yourself:</p>
+                            <ul>
+                                <li>What does the statutory text actually say?</li>
+                                <li>What are the traditional tools of statutory interpretation telling us?</li>
+                                <li>How has the historical understanding of this provision evolved?</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Major Questions Mole -->
+                    <div class="doctrine-mascot">
+                        <div class="mascot-header">
+                            <img src="../assets/mqm.png" alt="Major Questions Mole Icon">
+                            <h6>The Major Questions Mole</h6>
+                        </div>
+                        
+                        <div class="mascot-container major-questions-mole">
+                            <div class="mascot-speech">
+                                <p>Hello! I'm Major Questions Mole. I help courts dig deep into statutory interpretation when agencies claim authority over questions of vast economic and political significance. I demand clear congressional authorization for major agency actions!</p>
+                            </div>
+                            <img class="mascot-image" src="../assets/mqmtough.png" alt="Major Questions Mole examining statutes">
+                        </div>
+                        
+                        <div class="mascot-concept">
+                            <img class="mascot-concept-icon" src="../assets/mqmcourt.png" alt="Major Questions Mole in court">
+                            <p>When examining agency authority over major questions, I look for:</p>
+                            <ul>
+                                <li><strong>Clear Statement Rule</strong>: For questions of major economic and political significance, agencies must point to clear congressional authorization.</li>
+                                <li><strong>Extraordinary Cases</strong>: Courts are skeptical when agencies claim to discover in long-extant statutes an unheralded power to regulate a significant portion of the economy.</li>
+                                <li><strong>Key Factor</strong>: Has Congress considered and rejected similar proposals?</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mascot-checkpoint">
+                            <h6>Major Questions Checkpoint</h6>
+                            <p>When analyzing an agency's claim of authority, ask:</p>
+                            <ul>
+                                <li>Is this a question of vast economic or political significance?</li>
+                                <li>Has Congress provided clear authorization for the agency's action?</li>
+                                <li>Is the agency attempting to resolve a major policy question of great societal importance?</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- APAlligator -->
+                    <div class="doctrine-mascot">
+                        <div class="mascot-header">
+                            <img src="../assets/APAlligator.png" alt="APAlligator Icon">
+                            <h6>The APAlligator</h6>
+                        </div>
+                        
+                        <div class="mascot-container apalligator"> {/* Updated class name */}
+                            <div class="mascot-speech">
+                                <p>Hello! I'm the APAlligator. I help navigate the complex procedural waters of administrative rulemaking. I ensure agencies follow proper procedures when creating, amending, or repealing rules under the Administrative Procedure Act!</p>
+                            </div>
+                            <img class="mascot-image" src="../assets/apalligatorrulemaking.png" alt="APAlligator examining regulations">
+                        </div>
+                        
+                        <div class="mascot-concept">
+                            <img class="mascot-concept-icon" src="../assets/apalligatorcourt.png" alt="APAlligator in court">
+                            <p>When examining agency rulemaking procedures, I focus on these key requirements:</p>
+                            <ul>
+                                <li><strong>Notice of Proposed Rulemaking</strong>: Agencies must publish proposed rules in the Federal Register</li>
+                                <li><strong>Comment Period</strong>: The public must have an opportunity to submit comments</li>
+                                <li><strong>Statement of Basis and Purpose</strong>: Final rules must include a concise general statement of their basis and purpose</li>
+                                <li><strong>30-Day Delayed Effective Date</strong>: Substantive rules require at least 30 days before becoming effective</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mascot-checkpoint">
+                            <h6>APA Checkpoint</h6>
+                            <p>When analyzing an agency's rulemaking process, ask:</p>
+                            <ul>
+                                <li>Did the agency provide adequate notice of the proposed rule?</li>
+                                <li>Did the agency consider and respond to significant comments?</li>
+                                <li>Is the final rule a logical outgrowth of the proposed rule?</li>
+                                <li>Does the rule fall under any APA exceptions (interpretive rules, policy statements, etc.)?</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Standing Sam -->
+                    <div class="doctrine-mascot">
+                        <div class="mascot-header">
+                            <img src="../assets/slothsam.png" alt="Standing Sam Icon">
+                            <h6>Standing Sam</h6>
+                        </div>
+                        
+                        <div class="mascot-container standing-sam">
+                            <div class="mascot-speech">
+                                <p>Hello! I'm Standing Sam. I help courts determine who has the right to bring a case to federal court. My job is to ensure that only plaintiffs with a real stake in the outcome can challenge agency actions!</p>
+                            </div>
+                            <img class="mascot-image" src="../assets/zoneofinterestsam.png" alt="Standing Sam examining court access">
+                        </div>
+                        
+                        <div class="mascot-concept">
+                            <img class="mascot-concept-icon" src="../assets/noentrysam.png" alt="Standing Sam concept icon">
+                            <p>I help you remember the requirements for Article III standing, which determines who can bring cases to federal court:</p>
+                            <ul>
+                                <li><strong>Injury in Fact</strong>: Concrete, particularized, and actual or imminent harm</li>
+                                <li><strong>Causation</strong>: The injury must be fairly traceable to the challenged action</li>
+                                <li><strong>Redressability</strong>: It must be likely that a favorable decision will remedy the injury</li>
+                                <li><strong>Zone of Interests</strong>: The plaintiff must fall within the zone of interests protected by the statute</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mascot-checkpoint">
+                            <h6>Standing Checkpoint</h6>
+                            <p>When analyzing whether a plaintiff has standing, ask:</p>
+                            <ul>
+                                <li>Has the plaintiff suffered a concrete, particularized injury?</li>
+                                <li>Is the injury fairly traceable to the defendant's conduct?</li>
+                                <li>Will a favorable court decision likely redress the injury?</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <hr>
                 <p>Explore specialized resources featuring each of your Admin Law Guides to deepen your understanding of key concepts.</p>
                 
                 <div class="mascot-resources-grid">
@@ -478,7 +643,371 @@
                     </div>
                     <p>This process map outlines the standards courts apply when reviewing different types of agency action. It highlights the distinction between factual and legal determinations and the applicable review standards for each.</p>
                 </div>
+
+                <div class="explanation" id="concept-illustrations-moved">
+                    <h5 class="icon-executive">Concept Illustrations</h5>
+                    <p>Administrative law involves many abstract concepts and processes. These illustrations help make these ideas more concrete and memorable.</p>
+                    
+                    <h6>Procedural Due Process Balance</h6>
+                    <div class="concept-illustration">
+                        <div class="mermaid">
+                        graph TD
+                            Title["Mathews v. Eldridge Balancing Test"]
+                            Balance((Balance)):::decision
+                            Individual["Individual Interest"]:::option
+                            Government["Government Interest"]:::option
+                            Factor1["1. Private interest"]:::noteText
+                            Factor2["2. Risk of erroneous deprivation"]:::noteText
+                            Factor3["3. Government burden"]:::noteText
+                            
+                            Balance --- Individual
+                            Balance --- Government
+                            Individual -.-> Factor1
+                            Balance -.-> Factor2
+                            Government -.-> Factor3
+                            
+                            classDef decision fill:#FFD9E2,stroke:#FF1654,stroke-width:2px,color:#000000;
+                            classDef option fill:#E6F0ED,stroke:#247BA0,stroke-width:2px,color:#000000;
+                            classDef noteText fill:#FAFFEE,stroke:#B2DBBF,color:#000000,font-style:italic;
+                        </div>
+                    </div>
+                    
+                    <h6>Rulemaking Process Visualization</h6>
+                    <div class="concept-illustration">
+                        <div class="mermaid">
+                        graph LR
+                            subgraph "Notice and Comment Rulemaking"
+                            NPRM["Notice of Proposed Rulemaking"] --> Comment["Comment Period"]
+                            Comment --> Final["Final Rule"]
+                            Final --> Review["Judicial Review"]
+                            end
+                            
+                            caption["APA § 553"]
+                            
+                            classDef default fill:#E6F0ED,stroke:#247BA0,stroke-width:2px,color:#000000;
+                            classDef caption fill:none,stroke:none,color:#000000,font-style:italic;
+                            
+                            class caption caption;
+                        </div>
+                    </div>
+                </div>
+
+                <div class="explanation" id="case-visualizations-moved">
+                    <h5 class="icon-judicial">Case Visualizations</h5>
+                    <p>Key cases in administrative law often involve complex fact patterns and reasoning. These visual representations help you remember the essential facts and holdings of major cases.</p>
+                    
+                    <h6>West Virginia v. EPA (2022)</h6>
+                    <div class="concept-illustration">
+                        <div class="mermaid">
+                        graph LR
+                            subgraph "West Virginia v. EPA (2022)"
+                            EPA["EPA<br>Clean Power Plan"]:::epaNode
+                            PowerPlant["Power Plant"]:::plantNode
+                            SupremeCourt["Supreme Court"]:::courtNode
+                            
+                            MajorQuestions["Major Questions Doctrine"]:::doctrineNode
+                            
+                            EPA --- PowerPlant
+                            EPA --- SupremeCourt
+                            MajorQuestions -.- EPA
+                            MajorQuestions -.- SupremeCourt
+                            end
+                            
+                            classDef epaNode fill:#B2DBBF,stroke:#508A80,stroke-width:2px,color:#000000; /* Mint/Teal */
+                            classDef courtNode fill:#E6F0ED,stroke:#247BA0,stroke-width:2px,color:#000000; /* Lighter Mint/Blue */
+                            classDef plantNode fill:#FAFFEE,stroke:#70C1B3,stroke-width:1px,color:#000000; /* Paler Yellow/Teal */
+                            classDef doctrineNode fill:none,stroke:none,color:#FF1654,font-weight:bold; /* Pink */
+                        </div>
+                    </div>
+                    <p class="case-explanation">
+                        In <strong>West Virginia v. EPA</strong>, the Supreme Court invoked the Major Questions Doctrine to strike down the EPA's Clean Power Plan. The Court held that when an agency claims to discover in a long-extant statute an unheralded power to regulate a significant portion of the economy, it must point to clear congressional authorization.
+                    </p>
+                </div>
             </div> <!-- End of tab-visual-maps -->
+
+            <!-- Concept Reinforcement Section -->
+            <div class="mastery-section" id="tab-concept-reinforcement">
+                <h4 id="concept-reinforcement-heading-moved">Concept Reinforcement</h4>
+
+                <div class="section-navigation">
+                    <a href="#memory-aids-moved-cr">Memory Aids</a>
+                    <a href="#concept-maps-moved-cr">Concept Maps</a>
+                    <a href="#doctrine-relationships-moved-cr">Doctrine Relationships</a>
+                    <a href="#quick-reference-moved-cr">Quick Reference</a>
+                </div>
+
+                <div class="explanation" id="memory-aids-moved-cr">
+                    <h5 class="icon-judicial">Memory Aids for Key Doctrines</h5>
+                    <p>Administrative law contains many complex doctrines with multi-factor tests. These memory aids will help you recall the essential elements of each doctrine quickly.</p>
+                    
+                    <div class="doctrine-box">
+                        <h6>MARS: Major Questions Analysis</h6>
+                        <p>Remember the key factors in Major Questions Doctrine analysis with the acronym "MARS":</p>
+                        <ul>
+                            <li><strong>M</strong>ajor economic or political significance</li>
+                            <li><strong>A</strong>uthorization clarity from Congress</li>
+                            <li><strong>R</strong>egulatory history of the agency</li>
+                            <li><strong>S</strong>tatutory context and purpose</li>
+                        </ul>
+                        <p class="example-text">Example: In West Virginia v. EPA, the Court examined whether the Clean Air Act's general provision to regulate air pollutants clearly authorized the EPA's sweeping regulations of power plant emissions. The Court found the economic and political significance too great for such general statutory language.</p>
+                    </div>
+                    
+                    <div class="doctrine-box">
+                        <h6>PAPER: Arbitrary & Capricious Review</h6>
+                        <p>Remember the State Farm factors for "hard look" review with the acronym "PAPER":</p>
+                        <ul>
+                            <li><strong>P</strong>ertinent data examination</li>
+                            <li><strong>A</strong>rticulated explanation</li>
+                            <li><strong>P</strong>roblem aspects consideration</li>
+                            <li><strong>E</strong>valuating alternatives</li>
+                            <li><strong>R</strong>easoned change justification</li>
+                        </ul>
+                        <p class="example-text">Example: In Department of Homeland Security v. Regents of the University of California, the Court invalidated the rescission of DACA because DHS failed to consider important aspects of the problem, including reliance interests of DACA recipients.</p>
+                    </div>
+                    
+                    <div class="doctrine-box">
+                        <h6>CRISP: Standing Requirements</h6>
+                        <p>Remember the elements of standing with the acronym "CRISP":</p>
+                        <ul>
+                            <li><strong>C</strong>oncrete injury</li>
+                            <li><strong>R</strong>eal and particularized harm</li>
+                            <li><strong>I</strong>mminent or actual</li>
+                            <li><strong>S</strong>ourced from defendant (causation)</li>
+                            <li><strong>P</strong>ossible to redress</li>
+                        </ul>
+                        <p class="example-text">Example: In Lujan v. Defenders of Wildlife, the Court rejected standing because plaintiffs' possible future visits to areas affected by challenged actions were too speculative to constitute an "imminent" injury.</p>
+                    </div>
+                    
+                    <div class="doctrine-box">
+                        <h6>FINAL: Finality Doctrine</h6>
+                        <p>Remember Bennett v. Spear's two-part test for final agency action with "FINAL":</p>
+                        <ul>
+                            <li><strong>F</strong>ull conclusion of decision-making</li>
+                            <li><strong>I</strong>mpact that is direct</li>
+                            <li><strong>N</strong>ow affecting rights or obligations</li>
+                            <li><strong>A</strong>uthority exercised with force of law</li>
+                            <li><strong>L</strong>egal consequences flowing from action</li>
+                        </ul>
+                        <p class="example-text">Example: In U.S. Army Corps of Engineers v. Hawkes Co., the Court found that a jurisdictional determination under the Clean Water Act was final agency action because it marked the consummation of the agency's decision-making process and had legal consequences.</p>
+                    </div>
+                </div>
+
+                <div class="explanation" id="concept-maps-moved-cr">
+                    <h5 class="icon-executive">Visual Concept Maps</h5>
+                    <p>These visual concept maps help you understand the relationships between different administrative law principles and how they fit together in the larger framework.</p>
+                    
+                    <h6>Agency Authority Framework</h6>
+                    <div class="concept-illustration">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300">
+                            <rect width="600" height="300" fill="#f2f7fd" rx="10" ry="10"/>
+                            <circle cx="300" cy="150" r="60" fill="#ffffff" stroke="#4b7bbd" stroke-width="2"/>
+                            <text x="300" y="155" font-family="Georgia, serif" font-size="14" text-anchor="middle" fill="#2c3e50" font-weight="bold">Agency Authority</text>
+                            <circle cx="150" cy="80" r="50" fill="#ffffff" stroke="#f57c00" stroke-width="2"/>
+                            <text x="150" y="75" font-family="Georgia, serif" font-size="12" text-anchor="middle" fill="#2c3e50">Constitutional</text>
+                            <text x="150" y="90" font-family="Georgia, serif" font-size="12" text-anchor="middle" fill="#2c3e50">Limitations</text>
+                            <line x1="200" y1="80" x2="245" y2="120" stroke="#f57c00" stroke-width="2"/>
+                            <circle cx="150" cy="220" r="50" fill="#ffffff" stroke="#4bbd4b" stroke-width="2"/>
+                            <text x="150" y="215" font-family="Georgia, serif" font-size="12" text-anchor="middle" fill="#2c3e50">Enabling</text>
+                            <text x="150" y="230" font-family="Georgia, serif" font-size="12" text-anchor="middle" fill="#2c3e50">Statute</text>
+                            <line x1="200" y1="220" x2="245" y2="180" stroke="#4bbd4b" stroke-width="2"/>
+                            <circle cx="450" cy="80" r="50" fill="#ffffff" stroke="#03a9f4" stroke-width="2"/>
+                            <text x="450" y="75" font-family="Georgia, serif" font-size="12" text-anchor="middle" fill="#2c3e50">Procedural</text>
+                            <text x="450" y="90" font-family="Georgia, serif" font-size="12" text-anchor="middle" fill="#2c3e50">Requirements</text>
+                            <line x1="400" y1="80" x2="355" y2="120" stroke="#03a9f4" stroke-width="2"/>
+                            <circle cx="450" cy="220" r="50" fill="#ffffff" stroke="#6f4bbd" stroke-width="2"/>
+                            <text x="450" y="215" font-family="Georgia, serif" font-size="12" text-anchor="middle" fill="#2c3e50">Judicial</text>
+                            <text x="450" y="230" font-family="Georgia, serif" font-size="12" text-anchor="middle" fill="#2c3e50">Review</text>
+                            <line x1="400" y1="220" x2="355" y2="180" stroke="#6f4bbd" stroke-width="2"/>
+                            <text x="225" y="90" font-family="Georgia, serif" font-size="10" text-anchor="middle" fill="#f57c00" transform="rotate(-30 225 90)">limits</text>
+                            <text x="225" y="210" font-family="Georgia, serif" font-size="10" text-anchor="middle" fill="#4bbd4b" transform="rotate(30 225 210)">grants</text>
+                            <text x="375" y="90" font-family="Georgia, serif" font-size="10" text-anchor="middle" fill="#03a9f4" transform="rotate(30 375 90)">shapes</text>
+                            <text x="375" y="210" font-family="Georgia, serif" font-size="10" text-anchor="middle" fill="#6f4bbd" transform="rotate(-30 375 210)">checks</text>
+                        </svg>
+                    </div>
+                    <p>This concept map illustrates how agency authority is derived from enabling statutes, constrained by constitutional limitations, shaped by procedural requirements, and checked by judicial review.</p>
+                    
+                    <h6>Administrative Procedure Flowchart</h6>
+                    <div class="concept-illustration">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 350">
+                            <rect width="600" height="350" fill="#f2f9f2" rx="10" ry="10"/>
+                            <rect x="250" y="30" width="100" height="40" rx="20" ry="20" fill="#4bbd4b" stroke="#2c3e50" stroke-width="1"/>
+                            <text x="300" y="55" font-family="Georgia, serif" font-size="12" text-anchor="middle" fill="white">Agency Action</text>
+                            <line x1="300" y1="70" x2="300" y2="100" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrow)"/>
+                            <rect x="200" y="100" width="200" height="40" fill="white" stroke="#2c3e50" stroke-width="1" rx="5" ry="5"/>
+                            <text x="300" y="125" font-family="Georgia, serif" font-size="12" text-anchor="middle" fill="#2c3e50">Rulemaking or Adjudication?</text>
+                            <line x1="300" y1="140" x2="200" y2="170" stroke="#2c3e50" stroke-width="2"/>
+                            <line x1="300" y1="140" x2="400" y2="170" stroke="#2c3e50" stroke-width="2"/>
+                            <text x="230" y="165" font-family="Georgia, serif" font-size="10" text-anchor="middle" fill="#2c3e50">Rulemaking</text>
+                            <text x="370" y="165" font-family="Georgia, serif" font-size="10" text-anchor="middle" fill="#2c3e50">Adjudication</text>
+                            <rect x="150" y="170" width="100" height="40" fill="#e1f5fe" stroke="#03a9f4" stroke-width="2" rx="5" ry="5"/>
+                            <text x="200" y="195" font-family="Georgia, serif" font-size="12" text-anchor="middle" fill="#2c3e50">APA § 553</text>
+                            <rect x="350" y="170" width="100" height="40" fill="#fef2f7" stroke="#bd4b7a" stroke-width="2" rx="5" ry="5"/>
+                            <text x="400" y="195" font-family="Georgia, serif" font-size="12" text-anchor="middle" fill="#2c3e50">APA §§ 554-557</text>
+                            <line x1="200" y1="210" x2="200" y2="240" stroke="#2c3e50" stroke-width="2"/>
+                            <line x1="200" y1="240" x2="120" y2="270" stroke="#2c3e50" stroke-width="2"/>
+                            <line x1="200" y1="240" x2="280" y2="270" stroke="#2c3e50" stroke-width="2"/>
+                            <line x1="400" y1="210" x2="400" y2="240" stroke="#2c3e50" stroke-width="2"/>
+                            <line x1="400" y1="240" x2="320" y2="270" stroke="#2c3e50" stroke-width="2"/>
+                            <line x1="400" y1="240" x2="480" y2="270" stroke="#2c3e50" stroke-width="2"/>
+                            <text x="120" y="250" font-family="Georgia, serif" font-size="10" text-anchor="middle" fill="#2c3e50">Informal</text>
+                            <text x="280" y="250" font-family="Georgia, serif" font-size="10" text-anchor="middle" fill="#2c3e50">Formal</text>
+                            <text x="320" y="250" font-family="Georgia, serif" font-size="10" text-anchor="middle" fill="#2c3e50">Informal</text>
+                            <text x="480" y="250" font-family="Georgia, serif" font-size="10" text-anchor="middle" fill="#2c3e50">Formal</text>
+                            <rect x="70" y="270" width="100" height="35" fill="white" stroke="#03a9f4" stroke-width="1" rx="5" ry="5"/>
+                            <text x="120" y="290" font-family="Georgia, serif" font-size="10" text-anchor="middle" fill="#2c3e50">Notice & Comment</text>
+                            <rect x="230" y="270" width="100" height="35" fill="white" stroke="#03a9f4" stroke-width="1" rx="5" ry="5"/>
+                            <text x="280" y="290" font-family="Georgia, serif" font-size="10" text-anchor="middle" fill="#2c3e50">Hearing Procedure</text>
+                            <rect x="270" y="270" width="100" height="35" fill="white" stroke="#bd4b7a" stroke-width="1" rx="5" ry="5"/>
+                            <text x="320" y="290" font-family="Georgia, serif" font-size="10" text-anchor="middle" fill="#2c3e50">Less Formal Process</text>
+                            <rect x="430" y="270" width="100" height="35" fill="white" stroke="#bd4b7a" stroke-width="1" rx="5" ry="5"/>
+                            <text x="480" y="290" font-family="Georgia, serif" font-size="10" text-anchor="middle" fill="#2c3e50">Trial-like Procedure</text>
+                            <defs>
+                                <marker id="arrow" markerWidth="10" markerHeight="7" refX="7" refY="3.5" orient="auto">
+                                    <polygon points="0 0, 10 3.5, 0 7" fill="#2c3e50"/>
+                                </marker>
+                            </defs>
+                        </svg>
+                    </div>
+                    <p>This flowchart visualizes the primary procedural pathways in administrative law, showing the bifurcation between rulemaking and adjudication with their formal and informal variants under the APA.</p>
+                </div>
+
+                <div class="explanation" id="doctrine-relationships-moved-cr">
+                    <h5 class="icon-constitutional">Doctrine Relationships</h5>
+                    <p>Understanding how different administrative law doctrines relate to each other is crucial for comprehensive analysis. These visualizations show the historical development and conceptual relationships of major doctrines.</p>
+                    
+                    <h6>Deference Doctrine Evolution</h6>
+                    <div class="timeline">
+                        <div class="timeline-container left">
+                            <div class="timeline-content">
+                                <h6>Skidmore v. Swift (1944)</h6>
+                                <p>Established respect for agency interpretations based on their "power to persuade" - thoroughness, validity, consistency, expertise</p>
+                            </div>
+                        </div>
+                        <div class="timeline-container right">
+                            <div class="timeline-content">
+                                <h6>Chevron v. NRDC (1984)</h6>
+                                <p>Two-step framework: (1) Is statute clear? (2) If ambiguous, is agency interpretation reasonable?</p>
+                            </div>
+                        </div>
+                        <div class="timeline-container left">
+                            <div class="timeline-content">
+                                <h6>Auer/Seminole Rock (1997)</h6>
+                                <p>Deference to agency interpretations of their own regulations</p>
+                            </div>
+                        </div>
+                        <div class="timeline-container right">
+                            <div class="timeline-content">
+                                <h6>Mead Corp. (2001)</h6>
+                                <p>Limited Chevron to cases where Congress delegated authority to act with force of law</p>
+                            </div>
+                        </div>
+                        <div class="timeline-container left">
+                            <div class="timeline-content">
+                                <h6>Kisor v. Wilkie (2019)</h6>
+                                <p>Narrowed Auer deference with new limitations and prerequisites</p>
+                            </div>
+                        </div>
+                        <div class="timeline-container right">
+                            <div class="timeline-content">
+                                <h6>Loper Bright (2024)</h6>
+                                <p>Overturned Chevron, returning to traditional tools of statutory interpretation</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h6>Authority Limitation Doctrines</h6>
+                    <div class="concept-illustration">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 250">
+                            <rect width="500" height="250" fill="#fff3e0" rx="10" ry="10"/>
+                            <circle cx="175" cy="125" r="100" fill="rgba(245, 124, 0, 0.2)" stroke="#f57c00" stroke-width="1"/>
+                            <circle cx="325" cy="125" r="100" fill="rgba(75, 189, 75, 0.2)" stroke="#4bbd4b" stroke-width="1"/>
+                            <text x="175" y="60" font-family="Georgia, serif" font-size="14" text-anchor="middle" fill="#f57c00" font-weight="bold">Constitutional Limitations</text>
+                            <text x="325" y="60" font-family="Georgia, serif" font-size="14" text-anchor="middle" fill="#4bbd4b" font-weight="bold">Statutory Limitations</text>
+                            <text x="115" y="110" font-family="Georgia, serif" font-size="12" text-anchor="middle" fill="#2c3e50">Nondelegation</text>
+                            <text x="115" y="140" font-family="Georgia, serif" font-size="12" text-anchor="middle" fill="#2c3e50">Doctrine</text>
+                            <text x="155" y="180" font-family="Georgia, serif" font-size="12" text-anchor="middle" fill="#2c3e50">Appointment/</text>
+                            <text x="155" y="195" font-family="Georgia, serif" font-size="12" text-anchor="middle" fill="#2c3e50">Removal Powers</text>
+                            <text x="390" y="110" font-family="Georgia, serif" font-size="12" text-anchor="middle" fill="#2c3e50">Ultra Vires</text>
+                            <text x="390" y="140" font-family="Georgia, serif" font-size="12" text-anchor="middle" fill="#2c3e50">Actions</text>
+                            <text x="345" y="180" font-family="Georgia, serif" font-size="12" text-anchor="middle" fill="#2c3e50">APA</text>
+                            <text x="345" y="195" font-family="Georgia, serif" font-size="12" text-anchor="middle" fill="#2c3e50">Constraints</text>
+                            <text x="250" y="125" font-family="Georgia, serif" font-size="14" text-anchor="middle" fill="#bd4b7a" font-weight="bold">Major Questions</text>
+                            <text x="250" y="142" font-family="Georgia, serif" font-size="14" text-anchor="middle" fill="#bd4b7a" font-weight="bold">Doctrine</text>
+                        </svg>
+                    </div>
+                    <p>This diagram illustrates how the Major Questions Doctrine sits at the intersection of constitutional and statutory limitations on agency authority, sharing characteristics with both the Nondelegation Doctrine and statutory interpretation principles.</p>
+                </div>
+
+                <div class="explanation" id="quick-reference-moved-cr">
+                    <h5 class="icon-legislative">Quick Reference Guides</h5>
+                    <p>These quick reference guides provide concise summaries of key administrative law principles for rapid review.</p>
+                    
+                    <h6>Rulemaking Exceptions Comparison</h6>
+                    <div class="comparison-table">
+                        <table>
+                            <tr>
+                                <th>Exception Type</th>
+                                <th>Defining Characteristics</th>
+                                <th>Key Test</th>
+                                <th>Example</th>
+                            </tr>
+                            <tr>
+                                <td>Interpretive Rules</td>
+                                <td>Explain existing obligations</td>
+                                <td>No new rights/duties created</td>
+                                <td>IRS guidance explaining a tax regulation</td>
+                            </tr>
+                            <tr>
+                                <td>Policy Statements</td>
+                                <td>Announce future policy intentions</td>
+                                <td>Genuine agency discretion retained</td>
+                                <td>Enforcement priorities memo</td>
+                            </tr>
+                            <tr>
+                                <td>Procedural Rules</td>
+                                <td>Address agency's organization, procedure or practice</td>
+                                <td>No substantial impact on rights</td>
+                                <td>Filing requirements for applications</td>
+                            </tr>
+                            <tr>
+                                <td>Good Cause Exception</td>
+                                <td>Temporary emergency measures</td>
+                                <td>Notice and comment "impracticable, unnecessary, or contrary to public interest"</td>
+                                <td>Emergency health regulations</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <h6>Arbitrary & Capricious Review Factors</h6>
+                    <div class="key-point">
+                        <p>Under Motor Vehicle Manufacturers Association v. State Farm, a court will find agency action arbitrary and capricious if the agency:</p>
+                        <ol>
+                            <li>Failed to examine relevant data</li>
+                            <li>Failed to articulate a satisfactory explanation</li>
+                            <li>Failed to consider an important aspect of the problem</li>
+                            <li>Offered an explanation that runs counter to the evidence</li>
+                            <li>Offered an explanation so implausible it can't be attributed to expertise</li>
+                            <li>Relied on factors Congress did not intend the agency to consider</li>
+                            <li>Changed course without acknowledging the change or giving good reasons (including reliance interests)</li>
+                        </ol>
+                    </div>
+                    
+                    <h6>Judicial Review Prerequisites</h6>
+                    <div class="doctrine-box">
+                        <h6>A.C.T.I.O.N. Framework for Judicial Review</h6>
+                        <p>Remember all the prerequisites for judicial review with this acronym:</p>
+                        <ul>
+                            <li><strong>A</strong>gency action (identifiable)</li>
+                            <li><strong>C</strong>ause of action (APA or other)</li>
+                            <li><strong>T</strong>imely (statute of limitations, ripeness)</li>
+                            <li><strong>I</strong>nterests injured (standing)</li>
+                            <li><strong>O</strong>ther remedies exhausted</li>
+                            <li><strong>N</strong>ot precluded (by statute or committed to agency discretion)</li>
+                        </ul>
+                        <p>If any element is missing, the court cannot proceed to the merits of the case.</p>
+                    </div>
+                </div>
+            </div> <!-- End of tab-concept-reinforcement -->
         </div>
     </div>
     
@@ -548,6 +1077,799 @@
             </ol>
         </div>
     </div>
+
+    <!-- Content from application-practice.html will be inserted here -->
+    <div id="application-practice-content-moved">
+        <h4 id="application-practice-heading">Application Practice</h4>
+
+        <div class="section-navigation">
+            <a href="#step-by-step-moved">Step-by-Step Analysis</a>
+            <a href="#issue-spotting-moved">Issue Spotting Exercises</a>
+            <a href="#doctrine-application-moved">Doctrine Application</a>
+            <a href="#progressive-difficulty-moved">Progressive Difficulty Problems</a>
+        </div>
+
+        <div class="explanation" id="step-by-step-moved">
+            <h5 class="icon-judicial">Step-by-Step Analysis Models</h5>
+            <p>These step-by-step analyses demonstrate the methodical approach necessary for administrative law problems. Each example walks through a structured analysis to help you develop this critical skill.</p>
+            
+            <div class="interactive-element">
+                <h6>Judicial Review Analysis Model</h6>
+                <p>The Administrative Rulemaking Authority (ARA) issues a rule requiring all online retailers to implement enhanced cybersecurity protocols. The rule will cost e-commerce companies approximately $2 billion annually to implement. The ARA cites its authority to "protect consumer information" under its enabling statute. An association of small online businesses challenges the rule.</p>
+                
+                <div class="doctrine-box">
+                    <h6>Step 1: Threshold Issues (Access to Judicial Review)</h6>
+                    <ol>
+                        <li><strong>Reviewability:</strong> 
+                            <ul>
+                                <li>Is judicial review precluded by statute? No explicit preclusion in the hypothetical.</li>
+                                <li>Is the action committed to agency discretion by law? Likely not, as this is a substantive rule with clear standards.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Final Agency Action:</strong>
+                            <ul>
+                                <li>Bennett v. Spear test: (1) Consummation of decision-making process? Yes, the rule is final. (2) Legal consequences flow? Yes, it imposes compliance obligations.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Standing:</strong>
+                            <ul>
+                                <li>Injury in fact: Economic cost of compliance ($2 billion industry-wide) is concrete and particularized.</li>
+                                <li>Causation: The injury is directly caused by the ARA's rule.</li>
+                                <li>Redressability: A favorable court decision invalidating the rule would remedy the injury.</li>
+                                <li>Zone of interests: Small businesses are regulated entities within the zone of interests of the statute.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Ripeness:</strong> The rule is final, so the issue is fit for review, and withholding review would cause hardship (compliance costs).</li>
+                    </ol>
+                    <p><em>Conclusion:</em> Threshold requirements are satisfied. A court would likely proceed to the merits.</p>
+                </div>
+                
+                <div class="doctrine-box">
+                    <h6>Step 2: Statutory Authority Analysis</h6>
+                    <ol>
+                        <li><strong>Major Questions Doctrine:</strong>
+                            <ul>
+                                <li>Question of vast economic significance? Yes, $2 billion annual cost is significant.</li>
+                                <li>Clear congressional authorization? The general authority to "protect consumer information" may be too vague for such a costly and expansive regulation.</li>
+                                <li>After West Virginia v. EPA, a court would likely require clearer authorization for this major regulatory action.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Traditional Statutory Interpretation:</strong>
+                            <ul>
+                                <li>Text: What does "protect consumer information" encompass? Does it clearly include mandating specific cybersecurity protocols?</li>
+                                <li>Purpose: Is the rule consistent with the consumer protection purpose of the statute?</li>
+                                <li>Post-Loper Bright analysis: Without Chevron deference, is this the best reading of the statute?</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <p><em>Conclusion:</em> The rule likely exceeds the agency's statutory authority under the Major Questions Doctrine, as "protect consumer information" is too general to authorize a $2 billion regulatory scheme.</p>
+                </div>
+                
+                <div class="doctrine-box">
+                    <h6>Step 3: Arbitrary and Capricious Review</h6>
+                    <ol>
+                        <li><strong>State Farm Analysis:</strong> (If we reached this step)
+                            <ul>
+                                <li>Did the agency examine relevant data about costs and benefits of the cybersecurity protocols?</li>
+                                <li>Did it articulate a connection between the facts found and the requirements imposed?</li>
+                                <li>Did it consider important aspects of the problem, like the disproportionate impact on small businesses?</li>
+                                <li>Did it consider reasonable alternatives, such as tiered requirements based on business size?</li>
+                            </ul>
+                        </li>
+                        <li><strong>Procedural Requirements:</strong>
+                            <ul>
+                                <li>Did the agency follow proper notice and comment procedures under APA § 553?</li>
+                                <li>Did it respond to significant comments received during the comment period?</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <p><em>Conclusion:</em> Without more facts, we cannot fully assess the arbitrary and capricious claim, but the court would likely invalidate the rule on Major Questions grounds first.</p>
+                </div>
+            </div>
+            
+            <div class="interactive-element">
+                <h6>Rulemaking Procedure Analysis Model</h6>
+                <p>The Department of Transportation (DOT) issues a document titled "New Guidance on Vehicle Safety Standards." The document states that the DOT "expects" all automobile manufacturers to include new anti-collision technology in vehicles by next year, though it "will consider the totality of circumstances" in enforcement actions. The DOT did not use notice and comment procedures. A trade association challenges the document as a legislative rule that required notice and comment.</p>
+                
+                <div class="doctrine-box">
+                    <h6>Step 1: Identify the Agency Action</h6>
+                    <ul>
+                        <li>The DOT issued a document titled "New Guidance on Vehicle Safety Standards."</li>
+                        <li>The document announces an expectation that manufacturers will include new technology.</li>
+                        <li>The DOT will "consider the totality of circumstances" in enforcement.</li>
+                        <li>The DOT did not follow notice and comment procedures.</li>
+                    </ul>
+                    <p><em>Question:</em> Is this a legislative rule requiring notice and comment, or does it fall within an exception?</p>
+                </div>
+                
+                <div class="doctrine-box">
+                    <h6>Step 2: Analyze the Action's Legal Effect</h6>
+                    <ol>
+                        <li><strong>Legislative Rule Indicators:</strong>
+                            <ul>
+                                <li>Does it create new rights or obligations? The expectation of new technology installation seems to create a new obligation.</li>
+                                <li>Does it amend or effectively amend a prior legislative rule? Unclear from the facts.</li>
+                                <li>Does it bind the agency or regulated parties? The "expects" language suggests binding effect, though "totality of circumstances" provides some flexibility.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Possible Exceptions:</strong>
+                            <ul>
+                                <li><em>Policy Statement?</em> Policy statements must genuinely preserve agency discretion and not impose binding norms. The "expects" language suggests binding effect, but "totality of circumstances" creates ambiguity.</li>
+                                <li><em>Interpretive Rule?</em> Interpretive rules explain existing legal obligations rather than creating new ones. The anti-collision technology requirement appears to be new, not an interpretation of existing obligations.</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <p><em>Analysis:</em> Courts use various tests to distinguish policy statements from legislative rules:</p>
+                    <ul>
+                        <li><strong>Binding Effect Test:</strong> Does the agency treat the document as binding in practice?</li>
+                        <li><strong>Substantial Impact Test:</strong> Does the document have a substantial impact on regulated parties?</li>
+                        <li><strong>Agency Characterization:</strong> How does the agency characterize the document? (Least important factor)</li>
+                    </ul>
+                </div>
+                
+                <div class="doctrine-box">
+                    <h6>Step 3: Apply Legal Standards to Facts</h6>
+                    <p>Under decisions like Appalachian Power v. EPA and Am. Mining Congress v. MSHA:</p>
+                    <ul>
+                        <li>The use of mandatory language ("expects") suggests a binding norm, not a genuine policy statement.</li>
+                        <li>The requirement to include new technology would have substantial impacts on manufacturers (likely costly).</li>
+                        <li>The vague "totality of circumstances" language may be insufficient to preserve true discretion, especially if the practical effect creates a de facto requirement.</li>
+                        <li>Calling the document "guidance" is not determinative if its practical effect is binding.</li>
+                    </ul>
+                    <p><em>Conclusion:</em> The document is likely a legislative rule disguised as guidance. It appears to establish a new binding norm with significant practical consequences, requiring manufacturers to install specific technology. The DOT should have used notice and comment procedures under APA § 553. A court would likely set aside the rule as procedurally defective.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="explanation" id="issue-spotting-moved">
+            <h5 class="icon-executive">Issue Spotting Exercises</h5>
+            <p>Identifying the relevant administrative law issues is a critical skill. These exercises help you develop the ability to recognize which doctrines apply to different fact patterns.</p>
+            
+            <div class="interactive-element">
+                <h6>Exercise 1: Multiple Issues Scenario</h6>
+                <p>Read the following scenario and identify all potential administrative law issues and applicable doctrines:</p>
+                <blockquote>
+                    The Environmental Protection Agency (EPA) publishes a document titled "Clarification of Greenhouse Gas Regulation" that expands the definition of "stationary source" to include previously unregulated small businesses. The document was issued without notice and comment procedures, with the EPA claiming it was merely an interpretive rule. The expanded definition would require thousands of small businesses to obtain costly permits. The rule is challenged by a coalition of small business owners two years after its publication. The EPA Administrator who issued the rule was appointed by the President as a "recess appointment" during a three-day Senate break.
+                </blockquote>
+                <button class="toggle-answer" data-target="app-issue-spotting-1">Show Issues</button>
+                <div id="app-issue-spotting-1" class="scenario-answer" style="display:none;">
+                    <h6>Administrative Law Issues:</h6>
+                    <ol>
+                        <li><strong>Procedural Requirements:</strong>
+                            <ul>
+                                <li>Was notice and comment required under APA § 553?</li>
+                                <li>Does the rule qualify as an interpretive rule exempt from notice and comment?</li>
+                                <li>Is this a legislative rule disguised as an interpretive rule? (The expansion to include new entities suggests it may be substantive)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Timeliness/Statute of Limitations:</strong>
+                            <ul>
+                                <li>Is the challenge brought within the applicable statute of limitations?</li>
+                                <li>The two-year delay may exceed the typical six-year limitation period under 28 U.S.C. § 2401</li>
+                            </ul>
+                        </li>
+                        <li><strong>Major Questions Doctrine:</strong>
+                            <ul>
+                                <li>Does the expansion to include thousands of small businesses constitute a question of vast economic significance?</li>
+                                <li>Is there clear congressional authorization for such an expansion?</li>
+                            </ul>
+                        </li>
+                        <li><strong>Appointment Clause Issues:</strong>
+                            <ul>
+                                <li>Was the recess appointment during a three-day break constitutional?</li>
+                                <li>Under NLRB v. Noel Canning, a three-day break may be too short to qualify as a recess for appointment purposes</li>
+                            </ul>
+                        </li>
+                        <li><strong>Standing:</strong>
+                            <ul>
+                                <li>Do the small business owners have Article III standing?</li>
+                                <li>Is their injury (cost of permits) concrete, particularized, and actual or imminent?</li>
+                                <li>Is the injury fairly traceable to the challenged rule?</li>
+                                <li>Would a favorable decision likely redress the injury?</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="interactive-element">
+                <h6>Exercise 2: Doctrinal Classification</h6>
+                <p>For each administrative law issue below, identify the applicable doctrine or test:</p>
+                <ol>
+                    <li>An agency modifies its longstanding interpretation of a statute without acknowledging the change.</li>
+                    <li>An agency denies a FOIA request, claiming the materials fall under the "deliberative process" exemption.</li>
+                    <li>A rule is promulgated by an officer who was not Senate-confirmed.</li>
+                    <li>An agency refuses to initiate a rulemaking despite receiving a petition from interest groups.</li>
+                    <li>An agency regulation imposes requirements on states to implement a federal program.</li>
+                </ol>
+                <button class="toggle-answer" data-target="app-issue-spotting-2">Show Classifications</button>
+                <div id="app-issue-spotting-2" class="scenario-answer" style="display:none;">
+                    <ol>
+                        <li><strong>Arbitrary and Capricious Review</strong> - Under FCC v. Fox Television, an agency changing position must acknowledge the change and provide good reasons for it.</li>
+                        <li><strong>Freedom of Information Act Exemption 5</strong> - This involves the application of FOIA exemptions, specifically the deliberative process privilege under Exemption 5.</li>
+                        <li><strong>Appointments Clause</strong> - This raises a constitutional question about whether the officer had proper authority under Article II.</li>
+                        <li><strong>Reviewability of Agency Inaction</strong> - Under Massachusetts v. EPA, an agency's denial of a rulemaking petition is reviewable, though under a highly deferential standard.</li>
+                        <li><strong>Anti-Commandeering Doctrine</strong> - This raises federalism issues under the Tenth Amendment and cases like New York v. United States and Printz v. United States, which prohibit the federal government from "commandeering" state governments.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="explanation" id="doctrine-application-moved">
+            <h5 class="icon-legislative">Doctrine Application</h5>
+            <p>These exercises focus on applying specific administrative law doctrines to targeted fact patterns. Each exercise isolates a particular doctrine for targeted practice.</p>
+            
+            <div class="interactive-element">
+                <h6>State Farm Arbitrary & Capricious Analysis</h6>
+                <p>The Food and Drug Administration (FDA) issues a rule requiring graphic warning labels covering 80% of cigarette packaging. The FDA justifies the rule based on studies showing that larger, graphic warnings increase awareness of smoking risks. The FDA acknowledges but dismisses industry comments requesting a smaller coverage requirement of 50%, stating only that "80% is more effective." The FDA did not analyze the economic impact of the 80% requirement versus alternative percentages.</p>
+                <p><strong>Apply the State Farm "hard look" factors to this scenario:</strong></p>
+                <button class="toggle-answer" data-target="app-doctrine-application-1">Show Analysis</button>
+                <div id="app-doctrine-application-1" class="scenario-answer" style="display:none;">
+                    <h6>State Farm "Hard Look" Analysis:</h6>
+                    <ol>
+                        <li><strong>Examination of Relevant Data:</strong> 
+                            <ul>
+                                <li>The FDA did examine studies on warning effectiveness, which is relevant data.</li>
+                                <li>However, the FDA failed to analyze the economic impact of the 80% requirement versus alternatives, which is also relevant data.</li>
+                                <li>A court would likely find this factor partially satisfied, but with significant deficiencies.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Satisfactory Explanation:</strong>
+                            <ul>
+                                <li>The FDA's explanation that "80% is more effective" is conclusory and lacks substantive reasoning.</li>
+                                <li>It fails to articulate why the marginal benefit of 80% versus 50% justifies the additional economic burden.</li>
+                                <li>A court would likely find this explanation inadequate under State Farm.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Important Aspects of the Problem:</strong>
+                            <ul>
+                                <li>The FDA failed to consider the economic impact, which is an important aspect of the problem.</li>
+                                <li>The agency did not address possible First Amendment commercial speech implications of requiring 80% of packaging for warnings.</li>
+                                <li>A court would likely find that the FDA failed to consider important aspects of the problem.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Reasonable Alternatives:</strong>
+                            <ul>
+                                <li>The FDA dismissed the 50% alternative without substantive analysis.</li>
+                                <li>The agency failed to explain why 80% was chosen over other possible percentages (60%, 70%, etc.).</li>
+                                <li>A court would likely find that the FDA failed to adequately consider reasonable alternatives.</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <p><strong>Conclusion:</strong> A court would likely find the rule arbitrary and capricious under the State Farm standard. The FDA's cursory dismissal of alternatives, failure to consider economic impacts, and inadequate explanation for the 80% requirement fall short of the reasoned analysis required by the APA. The court would likely remand to the agency for a more thorough analysis and explanation.</p>
+                </div>
+            </div>
+            
+            <div class="interactive-element">
+                <h6>Standing Analysis Application</h6>
+                <p>The Department of the Interior (DOI) grants permits for oil drilling in a national wildlife refuge. A conservation organization whose members occasionally visit the refuge for bird watching and photography challenges the permits. The organization's members claim they will suffer aesthetic and recreational injuries if drilling proceeds, though none have concrete plans to visit in the next year. The closest drilling site would be 20 miles from public access areas.</p>
+                <p><strong>Apply the requirements for Article III standing to this scenario:</strong></p>
+                <button class="toggle-answer" data-target="app-doctrine-application-2">Show Analysis</button>
+                <div id="app-doctrine-application-2" class="scenario-answer" style="display:none;">
+                    <h6>Standing Analysis:</h6>
+                    <ol>
+                        <li><strong>Injury in Fact:</strong> 
+                            <ul>
+                                <li>The claimed injuries are aesthetic and recreational interests in observing wildlife.</li>
+                                <li>Such interests can qualify as cognizable injuries under Lujan and Sierra Club v. Morton.</li>
+                                <li>However, the lack of concrete plans to visit the refuge in the next year makes the injury speculative rather than "actual or imminent" as required by Lujan.</li>
+                                <li>The distance of 20 miles between drilling sites and public access areas further weakens the concreteness and particularization of the injury.</li>
+                                <li>Under Summers v. Earth Island Institute, a mere "someday" intention to visit is insufficient.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Causation:</strong>
+                            <ul>
+                                <li>The causal connection between drilling 20 miles away and harm to bird watching opportunities is attenuated.</li>
+                                <li>The organization would need scientific evidence showing how drilling would impact wildlife throughout the refuge.</li>
+                                <li>Without such evidence, causation may be too speculative to satisfy Article III requirements.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Redressability:</strong>
+                            <ul>
+                                <li>If permits were invalidated, drilling would not occur, which would redress the alleged injury.</li>
+                                <li>This element is likely satisfied.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Organizational Standing:</strong>
+                            <ul>
+                                <li>Under Hunt v. Washington State Apple Advertising Commission, an organization needs at least one member with standing to sue in their own right.</li>
+                                <li>Given the weaknesses in individual standing, organizational standing is problematic.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Zone of Interests:</strong>
+                            <ul>
+                                <li>Environmental and recreational interests are generally within the zone of interests of statutes governing national wildlife refuges.</li>
+                                <li>This prudential standing requirement would likely be satisfied.</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <p><strong>Conclusion:</strong> A court would likely find that the organization lacks standing primarily due to insufficient injury in fact. Without members who have concrete plans to visit the refuge, the injury remains too speculative and fails the "actual or imminent" requirement under Lujan. The organization could potentially establish standing by identifying members with specific, planned visits to the refuge or by gathering scientific evidence showing how drilling 20 miles away would concretely impact the entire ecosystem visitors experience.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="explanation" id="progressive-difficulty-moved">
+            <h5 class="icon-judicial">Progressive Difficulty Problems</h5>
+            <p>These problems increase in complexity and difficulty, helping you build your analytical skills from basic to advanced. Start with the simpler problems and work your way to the more complex ones.</p>
+            
+            <div class="interactive-element">
+                <h6>Basic Level: Notice and Comment Requirements</h6>
+                <p>The Department of Agriculture (USDA) publishes a document titled "Guidance on Organic Certification Requirements." The document states that farms seeking organic certification "must" use certain approved pesticides and "must not" use others. The guidance is published on the USDA website without prior notice or opportunity for comment. A farming association challenges the document, claiming it is a legislative rule requiring notice and comment procedures under APA § 553.</p>
+                <p><strong>Question:</strong> Is the USDA document likely to be classified as a legislative rule or an interpretive rule/policy statement? Explain your analysis.</p>
+                <button class="toggle-answer" data-target="app-progressive-1">Show Analysis</button>
+                <div id="app-progressive-1" class="scenario-answer" style="display:none;">
+                    <h6>Analysis:</h6>
+                    <p>This problem tests basic understanding of the distinction between legislative rules and interpretive rules/policy statements:</p>
+                    <ol>
+                        <li><strong>Legislative Rule Indicators:</strong>
+                            <ul>
+                                <li>The document uses binding language ("must" and "must not") rather than suggestive language.</li>
+                                <li>It appears to establish substantive requirements for organic certification, not merely explain existing requirements.</li>
+                                <li>The title "Guidance" is not determinative; courts look to actual content and effect.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Interpretive Rule Analysis:</strong>
+                            <ul>
+                                <li>An interpretive rule explains existing legal obligations without creating new ones.</li>
+                                <li>If the pesticide requirements already exist in statutes or regulations, the document could be interpretive.</li>
+                                <li>However, the problem suggests these are new requirements, not interpretations of existing ones.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Policy Statement Analysis:</strong>
+                            <ul>
+                                <li>A policy statement must genuinely preserve agency discretion and not impose binding norms.</li>
+                                <li>The mandatory language ("must"/"must not") suggests a binding effect, not a tentative policy.</li>
+                                <li>There is no indication of preserved discretion in applying these requirements.</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <p><strong>Conclusion:</strong> The document is likely a legislative rule requiring notice and comment. The mandatory language creates binding legal obligations rather than interpreting existing ones. Under cases like Appalachian Power v. EPA, courts look beyond agency labels to the practical binding effect. The USDA should have used notice and comment procedures under APA § 553.</p>
+                </div>
+            </div>
+            
+            <div class="interactive-element">
+                <h6>Intermediate Level: Statutory Authority Analysis</h6>
+                <p>The Federal Communications Commission (FCC) issues a rule requiring all internet service providers (ISPs) to provide a minimum of 100 Mbps download speeds to all customers by 2026. The rule is estimated to cost the industry $50 billion in infrastructure upgrades. The FCC cites its authority under the Communications Act to "make available... a rapid, efficient, nationwide... communication service with adequate facilities at reasonable charges." ISPs challenge the rule, arguing the FCC lacks statutory authority for such a sweeping mandate.</p>
+                <p><strong>Question:</strong> Does the FCC have statutory authority for this rule? Apply relevant doctrines and cases in your analysis.</p>
+                <button class="toggle-answer" data-target="app-progressive-2">Show Analysis</button>
+                <div id="app-progressive-2" class="scenario-answer" style="display:none;">
+                    <h6>Analysis:</h6>
+                    <p>This intermediate problem requires applying both the Major Questions Doctrine and traditional statutory interpretation:</p>
+                    <ol>
+                        <li><strong>Major Questions Doctrine:</strong>
+                            <ul>
+                                <li>The rule has vast economic significance ($50 billion cost to industry).</li>
+                                <li>It represents a major transformation of the internet service market.</li>
+                                <li>Under West Virginia v. EPA, courts expect clear congressional authorization for such significant regulatory actions.</li>
+                                <li>The general language about "rapid, efficient, nationwide... communication service" lacks the specificity typically required for major questions.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Traditional Statutory Interpretation (Post-Loper Bright):</strong>
+                            <ul>
+                                <li>Without Chevron deference, the court must determine the best reading of the statute using traditional tools of interpretation.</li>
+                                <li>Text: Does "rapid, efficient" communication service authorize mandating specific speed minimums?</li>
+                                <li>The term "rapid" is relative and subjective, not clearly authorizing a specific numerical requirement.</li>
+                                <li>Context: The phrase "with adequate facilities at reasonable charges" suggests a balance between quality and cost, not a singular focus on speed.</li>
+                                <li>Purpose: While promoting better communication services is a purpose of the Act, the statute also aims to maintain reasonable costs.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Federalism Concerns:</strong>
+                            <ul>
+                                <li>The rule potentially intrudes on areas traditionally regulated by states.</li>
+                                <li>Under Gregory v. Ashcroft, courts expect clear statements from Congress before interpreting statutes to alter federal-state balance.</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <p><strong>Conclusion:</strong> The FCC likely lacks statutory authority for this specific rule. Under the Major Questions Doctrine, the general language about "rapid, efficient" service is insufficient to authorize a $50 billion nationwide speed mandate. Post-Loper Bright, without Chevron deference, the best reading of the statute does not support such a specific numerical requirement. A more tailored approach with flexible standards or one that accounts for regional differences would have a stronger statutory basis.</p>
+                </div>
+            </div>
+            
+            <div class="interactive-element">
+                <h6>Advanced Level: Multi-Issue Analysis</h6>
+                <p>The Securities and Exchange Commission (SEC) issues a rule requiring all publicly traded companies to disclose detailed information about their climate change risks and greenhouse gas emissions, including those of their suppliers and customers. The rule is estimated to cost companies $3.9 billion annually. The SEC Chair who approved the rule was appointed by the President after the Senate failed to act on the nomination for 120 days, using a provision in the SEC's organic statute that allows the President to appoint commissioners if the Senate does not act within 90 days. The rule was issued after notice and comment, but the final rule contains several significant provisions not included in the proposed rule. A coalition of business groups challenges the rule on multiple grounds.</p>
+                <p><strong>Question:</strong> Analyze all plausible administrative law challenges to this rule. Which is most likely to succeed?</p>
+                <button class="toggle-answer" data-target="app-progressive-3">Show Analysis</button>
+                <div id="app-progressive-3" class="scenario-answer" style="display:none;">
+                    <h6>Multi-Issue Analysis:</h6>
+                    <p>This advanced problem requires analyzing multiple administrative law issues:</p>
+                    <ol>
+                        <li><strong>Appointment Clause Challenge:</strong>
+                            <ul>
+                                <li>The SEC Chair was appointed without Senate confirmation using a statutory provision.</li>
+                                <li>Under the Constitution's Appointments Clause (Art. II, § 2, Cl. 2), principal officers (like agency heads) require Senate confirmation.</li>
+                                <li>Issue: Can a statute override the Constitution's appointment requirements?</li>
+                                <li>Analysis: Under NLRB v. SW General and similar cases, a statutory appointment mechanism that bypasses Senate confirmation for a principal officer likely violates the Appointments Clause.</li>
+                                <li>If the Chair's appointment was unconstitutional, actions taken by the Chair may be invalid.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Major Questions Doctrine:</strong>
+                            <ul>
+                                <li>The rule has vast economic significance ($3.9 billion annual cost).</li>
+                                <li>Climate disclosures represent a major policy decision with political and economic significance.</li>
+                                <li>Issue: Does the SEC's general authority to require disclosures clearly authorize climate change and emissions disclosures?</li>
+                                <li>Analysis: Under West Virginia v. EPA, courts expect clear congressional authorization for such significant regulatory actions. The SEC's general disclosure authority would likely be deemed insufficient for this specific requirement.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Logical Outgrowth Doctrine:</strong>
+                            <ul>
+                                <li>The final rule contains significant provisions not in the proposed rule.</li>
+                                <li>Issue: Were interested parties reasonably on notice of the potential changes?</li>
+                                <li>Analysis: Under CSX Transportation v. Surface Transportation Board, a final rule must be a "logical outgrowth" of the proposed rule. Significant new provisions not anticipated from the proposal may violate this requirement.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Statutory Authority:</strong>
+                            <ul>
+                                <li>Does the SEC's statutory authority to require disclosures "necessary or appropriate in the public interest or for the protection of investors" encompass climate risks and emissions?</li>
+                                <li>Post-Loper Bright analysis: Without Chevron deference, is this the best reading of the statute using traditional tools of interpretation?</li>
+                                <li>The link between some climate disclosures (especially Scope 3 emissions from customers) and investor protection may be tenuous.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Arbitrary and Capricious Review:</strong>
+                            <ul>
+                                <li>Did the SEC examine relevant data on costs and benefits?</li>
+                                <li>Did it consider important aspects like compliance difficulties for certain industries?</li>
+                                <li>Did it adequately justify its decision to include Scope 3 emissions?</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <p><strong>Most Likely to Succeed:</strong> The Major Questions Doctrine challenge is most likely to succeed. Given the $3.9 billion cost and the significant policy implications of mandatory climate disclosures, courts would expect clear congressional authorization. The SEC's general disclosure authority would likely be deemed insufficient for such a major economic and political question. Additionally, the logical outgrowth challenge is strong if the final rule contains significant provisions not reasonably foreseeable from the proposed rule.</p>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End of application-practice-content-moved -->
+
+    <!-- Content from synthesis-challenges.html will be inserted here -->
+    <div id="synthesis-challenges-content-moved">
+        <h4 id="synthesis-challenges-heading">Synthesis Challenges</h4>
+
+        <div class="section-navigation">
+            <a href="#cross-doctrinal-moved">Cross-Doctrinal Analysis</a>
+            <a href="#legal-process-moved">Legal Process Analysis</a>
+            <a href="#policy-tensions-moved">Policy Tension Resolution</a>
+            <a href="#advanced-hypotheticals-moved">Advanced Hypotheticals</a>
+        </div>
+
+        <div class="explanation" id="cross-doctrinal-moved">
+            <h5 class="icon-constitutional">Cross-Doctrinal Analysis</h5>
+            <p>True mastery of administrative law requires synthesizing multiple doctrines to solve complex problems. These exercises challenge you to identify and apply multiple doctrines simultaneously.</p>
+            
+            <div class="interactive-element">
+                <h6>Agency Design and Authority Exercise</h6>
+                <p>Congress creates a new federal agency, the Digital Privacy Commission (DPC), with a novel structure: five commissioners, each serving 10-year terms, removable by the President only for "neglect of duty or malfeasance." The commissioners may only be removed by a majority vote of the other commissioners, confirmed by the President. The DPC is authorized to "protect consumer privacy in the digital domain" and may impose civil penalties up to $500,000 per violation. Its funding comes directly from the penalties it collects, not congressional appropriations.</p>
+                <p>The DPC issues a rule requiring all technology companies to obtain affirmative consent from users before collecting any data, with a complex set of requirements for what constitutes valid consent. The rule is expected to cost the technology sector $25 billion annually to implement. A technology industry association challenges the DPC's structure and the rule.</p>
+                <p><strong>Question:</strong> Analyze all constitutional and administrative law issues presented by this scenario.</p>
+                <button class="toggle-answer" data-target="synth-synthesis-1">Show Comprehensive Analysis</button>
+                <div id="synth-synthesis-1" class="scenario-answer" style="display:none;">
+                    <h6>Multi-Doctrinal Analysis:</h6>
+                    <ol>
+                        <li><strong>Removal Restrictions and Separation of Powers:</strong>
+                            <ul>
+                                <li>The dual layer of removal protection (commissioners can only be removed by other commissioners, who themselves have for-cause protection) likely violates Article II.</li>
+                                <li>Under Free Enterprise Fund v. PCAOB (2010), dual for-cause removal restrictions impermissibly insulate officers from presidential control.</li>
+                                <li>The 10-year terms further diminish presidential control over the agency.</li>
+                                <li>The novel "commissioner majority vote" removal mechanism finds no support in Supreme Court precedent.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Appointments Clause:</strong>
+                            <ul>
+                                <li>If DPC commissioners are principal officers (likely given their authority and tenure), they must be nominated by the President and confirmed by the Senate under Article II, § 2, Cl. 2.</li>
+                                <li>If the statute specifies a different appointment method, it would raise constitutional concerns.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Non-Appropriations Funding Mechanism:</strong>
+                            <ul>
+                                <li>The self-funding mechanism may violate the Appropriations Clause (Art. I, § 9, Cl. 7).</li>
+                                <li>By funding the DPC through penalties it collects rather than congressional appropriations, the structure diminishes both congressional and presidential oversight.</li>
+                                <li>This creates problematic incentives for the agency to maximize enforcement for budgetary reasons.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Major Questions Doctrine:</strong>
+                            <ul>
+                                <li>The $25 billion economic impact clearly qualifies as a "major question."</li>
+                                <li>The vague authority to "protect consumer privacy in the digital domain" likely lacks the clear congressional authorization required for such significant regulations.</li>
+                                <li>Post-West Virginia v. EPA, courts demand explicit authorization for economically and politically significant rules.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Nondelegation Doctrine:</strong>
+                            <ul>
+                                <li>The broad authority to "protect consumer privacy" with minimal guidance may raise nondelegation concerns.</li>
+                                <li>While the Supreme Court has rarely invalidated statutes on nondelegation grounds, several justices have expressed interest in revitalizing the doctrine.</li>
+                                <li>The statute may lack an "intelligible principle" to guide the agency's discretion.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Arbitrary and Capricious Review:</strong>
+                            <ul>
+                                <li>Did the DPC examine relevant data about costs and benefits?</li>
+                                <li>Did it consider important aspects of the problem, like varied impacts across different industries?</li>
+                                <li>Did it consider reasonable alternatives, such as sector-specific approaches?</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <p><strong>Most Serious Issues:</strong> The constitutional problems are severe. The dual-layer removal restrictions almost certainly violate Article II under Free Enterprise Fund, while the self-funding mechanism raises serious Appropriations Clause concerns. On the statutory side, the Major Questions Doctrine provides a strong challenge to the substantive rule given its enormous economic impact and the vague statutory authorization.</p>
+                    <p><strong>Likely Outcome:</strong> A court would likely find at least the removal restrictions unconstitutional, but might sever these provisions while leaving the agency intact. The substantive rule would likely be invalidated under the Major Questions Doctrine. The funding mechanism presents a novel question that could go either way, though recent trends suggest courts might view such congressional bypassing with skepticism.</p>
+                </div>
+            </div>
+            
+            <div class="interactive-element">
+                <h6>Interlocking Doctrines Exercise</h6>
+                <p>The Department of Energy (DOE) issues a rule requiring power plants nationwide to capture 90% of their carbon emissions, citing authority under a provision of the Clean Air Act that authorizes the agency to establish "the best system of emission reduction" for existing sources. The rule would effectively require all coal plants to implement carbon capture and sequestration (CCS) technology at a cost of approximately $20 billion. Three months after the final rule is published, a coalition of energy companies and several states challenge the rule. During litigation, the DOE publishes a new document titled "Implementation Guidance" that changes several key compliance dates and creates new exemptions for certain facilities "facing economic hardship." The guidance is issued without notice and comment procedures. The challengers amend their complaint to include challenges to the guidance document.</p>
+                <p><strong>Question:</strong> Analyze how multiple administrative law doctrines interact in this complex scenario.</p>
+                <button class="toggle-answer" data-target="synth-synthesis-2">Show Integrated Analysis</button>
+                <div id="synth-synthesis-2" class="scenario-answer" style="display:none;">
+                    <h6>Interlocking Doctrines Analysis:</h6>
+                    <ol>
+                        <li><strong>Major Questions Doctrine & Statutory Authority:</strong>
+                            <ul>
+                                <li>The CCS mandate has vast economic significance ($20 billion cost) and transforms the power generation sector.</li>
+                                <li>The authority to determine "the best system of emission reduction" is a general provision that likely lacks the clear congressional authorization required for such a transformative rule.</li>
+                                <li>Following West Virginia v. EPA (which involved similar EPA regulations of power plants), the DOE likely lacks statutory authority for this specific mandate.</li>
+                                <li>Post-Loper Bright, without Chevron deference, the court would determine if this is the best reading of the statutory text using traditional tools of interpretation.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Timeliness & Ripeness:</strong>
+                            <ul>
+                                <li>The challenge is brought within three months, well within any applicable statute of limitations.</li>
+                                <li>The final rule is clearly a consummated agency action with legal consequences, thus the challenge is ripe for review.</li>
+                                <li>For the "Implementation Guidance," courts would need to determine if it constitutes final agency action under the Bennett v. Spear test.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Standing Doctrines:</strong>
+                            <ul>
+                                <li>Energy companies face direct compliance costs, satisfying injury, causation, and redressability requirements for Article III standing.</li>
+                                <li>States likely have parens patriae standing to protect economic interests within their borders and may also have proprietary standing if they own any affected facilities.</li>
+                                <li>States may also claim procedural injury from failure to follow proper rulemaking procedures.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Legislative vs. Interpretive Rules:</strong>
+                            <ul>
+                                <li>The "Implementation Guidance" appears to modify compliance obligations by changing deadlines and creating new exemptions.</li>
+                                <li>These modifications have substantive legal effect rather than merely interpreting existing requirements.</li>
+                                <li>Under cases like Appalachian Power v. EPA, guidance documents that effectively amend legislative rules require notice and comment.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Federalism & Cooperative Federalism:</strong>
+                            <ul>
+                                <li>The nationwide mandate implicates federalism concerns by potentially displacing traditional state authority over energy production.</li>
+                                <li>Under the Clean Air Act's cooperative federalism structure, states typically implement federal standards with significant flexibility.</li>
+                                <li>The direct federal mandate may conflict with this cooperative scheme.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Arbitrary & Capricious Review:</strong>
+                            <ul>
+                                <li>The agency would need to demonstrate that CCS technology is genuinely "adequately demonstrated" and economically feasible.</li>
+                                <li>The rule must consider important aspects of the problem, including reliability concerns, regional differences, and economic impacts.</li>
+                                <li>The sudden introduction of "economic hardship" exemptions suggests the original rule may have failed to adequately consider these factors.</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <p><strong>Doctrinal Interactions:</strong> This complex scenario demonstrates how multiple administrative law doctrines interact in challenging agency action. The threshold issues (standing, ripeness, finality) must be satisfied before courts will consider the merits. On the merits, the statutory authority question (particularly through the Major Questions Doctrine lens) would likely be dispositive in light of West Virginia v. EPA. The procedural challenge to the guidance document represents a separate avenue for invalidation. Even if statutory authority existed, the rule would face rigorous arbitrary and capricious review.</p>
+                    <p><strong>Likely Outcome:</strong> Following West Virginia v. EPA, a court would almost certainly find the rule exceeds the DOE's statutory authority under the Major Questions Doctrine. Additionally, the "Implementation Guidance" would likely be deemed a legislative rule requiring notice and comment. The agency's attempt to modify compliance requirements through guidance suggests potential arbitrary and capricious issues with the underlying rule as well.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="explanation" id="legal-process-moved">
+            <h5 class="icon-procedural">Legal Process Analysis</h5>
+            <p>These exercises challenge you to track administrative action through the entire legal process, from initial agency action through final judicial resolution.</p>
+            
+            <div class="interactive-element">
+                <h6>Complete Process Case Study</h6>
+                <p>The Consumer Product Safety Commission (CPSC) proposes a rule requiring all manufacturers of children's toys to conduct third-party testing for 20 specific chemicals. During the comment period, many manufacturers submit studies questioning the scientific basis for testing requirements for 5 of these chemicals, arguing they're not harmful in the concentrations found in toys. The CPSC issues a final rule that maintains all 20 chemical testing requirements, stating only that it "disagrees with the industry studies." A trade association files a petition for review in the D.C. Circuit.</p>
+                <p><strong>Question:</strong> Trace the complete administrative process and judicial review sequence for this rule, identifying key issues at each stage.</p>
+                <button class="toggle-answer" data-target="synth-legal-process-1">Show Process Analysis</button>
+                <div id="synth-legal-process-1" class="scenario-answer" style="display:none;">
+                    <h6>Administrative and Judicial Process Analysis:</h6>
+                    <ol>
+                        <li><strong>Rulemaking Initiation:</strong>
+                            <ul>
+                                <li>The CPSC initiates the rulemaking process, likely based on statutory authority in the Consumer Product Safety Act.</li>
+                                <li>Key Issue: Does the statute specifically authorize the CPSC to regulate these 20 chemicals, or is this based on general product safety authority?</li>
+                            </ul>
+                        </li>
+                        <li><strong>Notice of Proposed Rulemaking:</strong>
+                            <ul>
+                                <li>The CPSC publishes the proposed rule in the Federal Register, explaining the basis and purpose.</li>
+                                <li>Key Issue: Did the notice adequately explain the factual and scientific basis for regulating all 20 chemicals?</li>
+                            </ul>
+                        </li>
+                        <li><strong>Comment Period:</strong>
+                            <ul>
+                                <li>Manufacturers submit comments with scientific studies questioning the basis for 5 of the chemicals.</li>
+                                <li>Key Issue: Were these comments "significant" under Portland Cement v. Ruckelshaus, requiring the agency to respond meaningfully?</li>
+                            </ul>
+                        </li>
+                        <li><strong>Final Rule Publication:</strong>
+                            <ul>
+                                <li>The CPSC issues a final rule maintaining all 20 chemical testing requirements.</li>
+                                <li>The agency dismisses industry studies with a cursory statement of disagreement.</li>
+                                <li>Key Issue: Did the agency provide a reasoned explanation for rejecting the industry studies?</li>
+                            </ul>
+                        </li>
+                        <li><strong>Petition for Review:</strong>
+                            <ul>
+                                <li>The trade association files in the D.C. Circuit, likely within the statutory 60-day window.</li>
+                                <li>Key Issue: Does the association have standing to represent its members? (Likely yes, as the testing requirements directly affect manufacturers)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Judicial Review — Procedural Challenges:</strong>
+                            <ul>
+                                <li>The court examines whether the CPSC followed proper procedural requirements, including adequate notice and opportunity to comment.</li>
+                                <li>Key Issue: Did the CPSC respond adequately to significant comments as required by the APA?</li>
+                            </ul>
+                        </li>
+                        <li><strong>Judicial Review — Arbitrary & Capricious Analysis:</strong>
+                            <ul>
+                                <li>The court conducts "hard look" review under State Farm, examining whether the agency considered relevant factors and articulated a rational connection between facts found and choices made.</li>
+                                <li>Key Issue: Is the CPSC's dismissal of scientific studies with a mere statement of disagreement sufficient under State Farm?</li>
+                            </ul>
+                        </li>
+                        <li><strong>Judicial Review — Statutory Authority:</strong>
+                            <ul>
+                                <li>The court examines whether the CPSC has statutory authority for its testing requirements.</li>
+                                <li>Key Issue: Does the statute authorize mandatory third-party testing for these specific chemicals?</li>
+                            </ul>
+                        </li>
+                        <li><strong>Court Decision:</strong>
+                            <ul>
+                                <li>The court would likely find the final rule arbitrary and capricious with respect to the 5 contested chemicals.</li>
+                                <li>Key Issue: Should the court vacate the entire rule or only the portions related to the 5 contested chemicals?</li>
+                            </ul>
+                        </li>
+                        <li><strong>Remedy & Remand:</strong>
+                            <ul>
+                                <li>The court would likely remand to the agency to provide a more reasoned explanation or reconsider the requirements for the 5 chemicals.</li>
+                                <li>Key Issue: Will the court vacate the rule during remand or leave it in effect?</li>
+                            </ul>
+                        </li>
+                        <li><strong>Agency Response to Remand:</strong>
+                            <ul>
+                                <li>The CPSC might: (1) Better explain its rejection of the industry studies; (2) Modify the rule to exclude some chemicals; or (3) Conduct additional scientific review.</li>
+                                <li>Key Issue: If the CPSC makes significant changes, would a new notice and comment period be required?</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <p><strong>Likely Outcome:</strong> The court would likely find the CPSC's cursory dismissal of scientific studies arbitrary and capricious under State Farm, which requires agencies to examine relevant data and articulate a satisfactory explanation for their actions. The court would almost certainly remand for further explanation or reconsideration of the 5 contested chemicals. The court might sever and uphold the requirements for the 15 uncontested chemicals while vacating the requirements for the 5 contested chemicals.</p>
+                    <p><strong>Key Administrative Law Principles Illustrated:</strong> This scenario demonstrates the importance of reasoned agency decision-making, the requirement to respond meaningfully to significant comments, and how courts enforce these requirements through arbitrary and capricious review. It also illustrates the court's remedial flexibility in administrative law cases.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="explanation" id="policy-tensions-moved">
+            <h5 class="icon-legislative">Policy Tension Resolution</h5>
+            <p>Administrative law involves balancing competing policy concerns like expertise, democratic accountability, efficiency, and rights protection. These exercises explore how these tensions manifest in concrete cases.</p>
+            
+            <div class="interactive-element">
+                <h6>Expertise vs. Democratic Accountability</h6>
+                <p>The Environmental Protection Agency (EPA) issues a rule establishing stringent air quality standards based on complex scientific studies about the health effects of particulate matter. The rule is projected to save thousands of lives annually but will cost certain industries billions of dollars to implement. During the previous administration, the EPA had proposed but not finalized much less stringent standards based on different scientific models. The new administration explicitly cites policy priorities of environmental protection and climate change mitigation as factors in its decision. Industry groups challenge the rule, arguing the EPA inappropriately considered political factors rather than making a purely scientific determination.</p>
+                <p><strong>Question:</strong> How should courts balance agency expertise with democratic accountability through the political branches? What legal standards apply?</p>
+                <button class="toggle-answer" data-target="synth-policy-1">Show Policy Analysis</button>
+                <div id="synth-policy-1" class="scenario-answer" style="display:none;">
+                    <h6>Policy Tension Analysis:</h6>
+                    <ol>
+                        <li><strong>Tension Between Expertise and Politics:</strong>
+                            <ul>
+                                <li>Administrative agencies embody a tension: they are expert bodies with technical knowledge, but also part of the executive branch subject to presidential policy direction.</li>
+                                <li>Pure technocracy would ignore democratic accountability; pure politics would undermine expertise-based decision-making.</li>
+                                <li>The tension is particularly acute in science-based regulations with significant policy implications.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Supreme Court Guidance on the Balance:</strong>
+                            <ul>
+                                <li>In State Farm, the Court suggested that purely political considerations cannot justify regulatory action without reasoned explanation.</li>
+                                <li>However, in Fox Television, Justice Scalia noted that a change in administration and its policy priorities is a permissible basis for regulatory change, so long as the agency acknowledges the change and provides good reasons.</li>
+                                <li>Massachusetts v. EPA clarified that while agencies have discretion, they must ground decisions in the statutory criteria, not extra-statutory policy considerations.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Application to the EPA Air Quality Standards:</strong>
+                            <ul>
+                                <li>The Clean Air Act typically requires the EPA to set air quality standards based on public health considerations with an "adequate margin of safety," not economic costs.</li>
+                                <li>If the EPA explicitly relied on climate change policy (not specifically mentioned in the relevant CAA provisions), this could be problematic.</li>
+                                <li>However, if the agency based its decision on scientific evidence about health effects while acknowledging that the administration's priorities influenced its approach to uncertainty in the evidence, this would likely be permissible.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Key Legal Standards:</strong>
+                            <ul>
+                                <li>The EPA must demonstrate that its standards are based on the statutory criteria (health effects) and supported by substantial evidence.</li>
+                                <li>The agency must explain why it chose its approach over alternatives, including the previous administration's proposed standards.</li>
+                                <li>If scientific evidence could support multiple conclusions, the agency may choose among reasonable alternatives, but must explain its reasoning.</li>
+                                <li>If relying on new scientific studies, the agency must explain why these studies warrant a different outcome.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Proper vs. Improper Political Considerations:</strong>
+                            <ul>
+                                <li>Proper: Acknowledging administration priorities influenced how the agency weighed uncertain scientific evidence or exercised discretion within statutory bounds.</li>
+                                <li>Improper: Basing the decision on factors not contemplated by the statute or ignoring relevant scientific evidence for political reasons.</li>
+                                <li>The distinction is often subtle but crucial for judicial review.</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <p><strong>Resolution Framework:</strong> Courts should apply a balanced approach that acknowledges the legitimacy of political direction while ensuring agencies adhere to statutory mandates and reasoned decision-making:</p>
+                    <ol>
+                        <li>Examine whether the agency based its decision on factors that Congress intended it to consider in the authorizing statute.</li>
+                        <li>Review whether the agency examined the relevant scientific data and articulated a satisfactory explanation connecting that data to its conclusion.</li>
+                        <li>Acknowledge that when scientific evidence permits multiple reasonable interpretations, the administration's policy preferences may legitimately influence which reasonable interpretation the agency adopts.</li>
+                        <li>Require transparency about the role of policy considerations in the decision-making process.</li>
+                        <li>Ensure the agency properly explained any change in position from the previous administration.</li>
+                    </ol>
+                    <p><strong>Likely Outcome:</strong> If the EPA transparently explained its scientific basis while acknowledging policy considerations influenced its approach within statutory bounds, a court would likely uphold the rule. However, if the EPA explicitly relied on climate change considerations not contemplated by the Clean Air Act's national ambient air quality standards provisions, or if it failed to adequately explain its departure from the previous administration's approach, a court might find the decision arbitrary and capricious.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="explanation" id="advanced-hypotheticals-moved">
+            <h5 class="icon-executive">Advanced Hypotheticals</h5>
+            <p>These challenging hypotheticals test your ability to apply multiple doctrines to novel scenarios that push the boundaries of existing precedent.</p>
+            
+            <div class="interactive-element">
+                <h6>Novel Agency Design Challenge</h6>
+                <p>Congress creates the Emerging Technologies Commission (ETC) with a unique structure and authority. The ETC has seven commissioners: three appointed by the President with Senate confirmation, two appointed directly by the Speaker of the House, and two appointed directly by the Senate Majority Leader. Commissioners serve 8-year terms and can only be removed for "gross misconduct" by a supermajority vote of the commission itself. The ETC has authority to regulate "emerging technologies that pose significant risks to national security or public welfare," with power to ban technologies, mandate safety features, or impose operational restrictions. Its funding comes from a dedicated tax on technology companies based on their market capitalization. The ETC issues a rule requiring all artificial intelligence systems above a certain capability threshold to include monitoring features allowing government oversight of training processes and internal operations. The rule also prohibits deployment of certain AI capabilities deemed "high risk." A technology company challenges both the ETC's structure and its AI rule.</p>
+                <p><strong>Question:</strong> Analyze the constitutional and administrative law issues raised by this novel agency design and regulatory action.</p>
+                <button class="toggle-answer" data-target="synth-advanced-1">Show Comprehensive Analysis</button>
+                <div id="synth-advanced-1" class="scenario-answer" style="display:none;">
+                    <h6>Multi-Doctrinal Analysis:</h6>
+                    <ol>
+                        <li><strong>Appointments Clause Violations:</strong>
+                            <ul>
+                                <li>The appointment of commissioners directly by the Speaker and Senate Majority Leader clearly violates the Appointments Clause.</li>
+                                <li>Under Buckley v. Valeo and subsequent cases, principal officers must be appointed by the President with Senate confirmation.</li>
+                                <li>Even if commissioners were deemed inferior officers (unlikely given their authority and tenure), they would still need to be appointed by the President, department heads, or courts of law, not by legislators.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Separation of Powers - Removal Restrictions:</strong>
+                            <ul>
+                                <li>The self-removal mechanism (commission supermajority vote) contravenes the President's Article II authority.</li>
+                                <li>Under Free Enterprise Fund, multiple layers of removal protection are unconstitutional.</li>
+                                <li>The "gross misconduct" standard imposes a higher removal threshold than the typical "inefficiency, neglect of duty, or malfeasance" standard upheld for independent agencies.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Legislative Branch Encroachment:</strong>
+                            <ul>
+                                <li>Direct legislative appointment of executive officers violates basic separation of powers principles.</li>
+                                <li>This structure gives Congress control over executive functions, contrary to Bowsher v. Synar's prohibition on congressional control over execution of laws.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Non-Appropriations Funding:</strong>
+                            <ul>
+                                <li>The dedicated tax funding mechanism raises Appropriations Clause concerns.</li>
+                                <li>By circumventing annual appropriations, this structure diminishes congressional fiscal control.</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <h6>Statutory Authority & Regulatory Action Analysis:</h6>
+                    <ol>
+                        <li><strong>Nondelegation Concerns:</strong>
+                            <ul>
+                                <li>The broad authority to regulate "emerging technologies that pose significant risks" may lack an intelligible principle.</li>
+                                <li>The statute provides minimal guidance on what constitutes "significant risks."</li>
+                                <li>While the Supreme Court has rarely invalidated statutes on nondelegation grounds, this broad delegation may be vulnerable under recent judicial skepticism.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Major Questions Doctrine:</strong>
+                            <ul>
+                                <li>Regulation of AI capabilities and mandating government monitoring features presents a question of vast economic and political significance.</li>
+                                <li>The ETC would need clear congressional authorization for such sweeping regulation.</li>
+                                <li>The general authority over "emerging technologies" likely lacks the specificity required under West Virginia v. EPA.</li>
+                            </ul>
+                        </li>
+                        <li><strong>First Amendment Implications:</strong>
+                            <ul>
+                                <li>Government monitoring of AI systems may implicate First Amendment concerns, particularly if AI systems generate speech or expression.</li>
+                                <li>Prohibition on certain AI capabilities could restrict development of tools for artistic, journalistic, or expressive purposes.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Fourth Amendment Considerations:</strong>
+                            <ul>
+                                <li>Mandatory monitoring features allowing government oversight may constitute warrantless surveillance.</li>
+                                <li>The rule would need to address Fourth Amendment protections against unreasonable searches.</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <p><strong>Likely Outcome:</strong> The ETC's structure is clearly unconstitutional on multiple grounds, most obviously the Appointments Clause violation through legislative appointment of executive officers. A court would almost certainly invalidate the agency's structure. The AI regulation would likely fall as a result, though even if considered separately, it would face serious Major Questions Doctrine challenges, as the sweeping regulation of AI technology would require clear congressional authorization.</p>
+                    <p><strong>Severability Questions:</strong> A key question would be whether the unconstitutional structural provisions are severable from the rest of the statute. Given the fundamental nature of the Appointments Clause violation and its centrality to the agency's design, a court would likely find the entire agency structure inseverable and invalid. Even if the structural provisions were somehow severable, the AI rule would likely exceed the agency's statutory authority under the Major Questions Doctrine.</p>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End of synthesis-challenges-content-moved -->
     
     <!-- EXAM STRATEGY SECTION -->
     <div class="exam-guide-section" id="exam-strategy">
@@ -759,6 +2081,218 @@
             </div>
         </div>
     </div>
+
+    <!-- Content from exam-prep.html will be inserted here -->
+    <div id="exam-prep-content-moved">
+        <h4 id="exam-prep-heading">Exam Preparation Strategies</h4>
+
+        <div class="section-navigation">
+            <a href="#exam-approach-moved">Exam Approach</a>
+            <a href="#issue-spotting-moved-ep">Issue Spotting Guide</a>
+            <a href="#doctrine-checklist-moved">Doctrine Checklist</a>
+            <a href="#practice-questions-moved">Practice Questions</a>
+            <a href="#strategy-tips-moved">Strategy & Tips</a>
+        </div>
+
+        <div class="explanation" id="exam-approach-moved">
+            <h5 class="icon-judicial">Approaching Administrative Law Exams</h5>
+            <p>Administrative law exams typically present complex fact patterns that raise multiple issues across various doctrines. Success requires not only knowing the substantive law but also recognizing which issues to address and in what order. This section provides a structured approach for analyzing administrative law questions.</p>
+
+            <div class="test-box">
+                <h6>General Approach to Admin Law Questions</h6>
+                <ol>
+                    <li><strong>Identify the Agency Action</strong>: What is the agency doing (or not doing)? Is it rulemaking, adjudication, informal guidance, or something else?</li>
+                    <li><strong>Consider Threshold Issues</strong>: Can a court even hear this case?
+                        <ul>
+                            <li>Reviewability (Is the action reviewable or "committed to agency discretion"?)</li>
+                            <li>Standing (Does the plaintiff have Article III standing and fall within the zone of interests?)</li>
+                            <li>Ripeness (Is the case ready for review or premature?)</li>
+                            <li>Finality (Is the agency action "final" under the APA?)</li>
+                            <li>Exhaustion (Has the plaintiff exhausted administrative remedies?)</li>
+                        </ul>
+                    </li>
+                    <li><strong>Analyze Procedural Issues</strong>: Did the agency follow proper procedures?
+                        <ul>
+                            <li>If rulemaking: Were notice-and-comment requirements followed? Was the action exempt?</li>
+                            <li>If adjudication: Was formal adjudication required? Were proper procedures followed?</li>
+                        </ul>
+                    </li>
+                    <li><strong>Assess Substantive Issues</strong>: Was the agency's action legally valid?
+                        <ul>
+                            <li>Constitutional issues (nondelegation, major questions, separation of powers)</li>
+                            <li>Statutory interpretation (Skidmore analysis after Loper Bright; whether the agency's interpretation is the best reading of the statute)</li>
+                            <li>Arbitrary and capricious review (State Farm factors)</li>
+                        </ul>
+                    </li>
+                    <li><strong>Analyze Potential Remedies</strong>: If the agency action is invalid, what should the court do?
+                        <ul>
+                            <li>Remand without vacatur vs. vacatur</li>
+                            <li>Nationwide injunction vs. as-applied relief</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="mermaid">
+            flowchart TD
+                start["ADMIN LAW EXAM<br/>APPROACH"]:::examnode --> action["1. IDENTIFY AGENCY ACTION<br/>- Rule? Adjudication? Guidance?<br/>- What is the agency doing or not doing?"]:::examnode
+                action --> threshold["2. THRESHOLD ISSUES<br/>- Reviewability<br/>- Standing<br/>- Ripeness/Finality<br/>- Exhaustion"]:::examnode
+                threshold --> procedural["3. PROCEDURAL ISSUES<br/>- For rulemaking: Notice & comment?<br/>- For adjudication: Right procedures?<br/>- Exemptions or exceptions?"]:::examnode
+                procedural --> substantive["4. SUBSTANTIVE ISSUES<br/>- Constitutional issues<br/>- Statutory interpretation<br/>- Arbitrary & capricious review"]:::examnode
+                substantive --> remedies["5. REMEDIES<br/>- Remand vs. vacatur<br/>- Scope of relief"]:::examnode
+                
+                classDef examnode fill:#E6F0ED,stroke:#247BA0,stroke-width:2px,color:#000000;
+            </div>
+        </div>
+
+        <div class="explanation" id="issue-spotting-moved-ep">
+            <h5 class="icon-executive">Issue Spotting Guide</h5>
+            <p>Here are key phrases and fact patterns that should trigger your analysis of specific administrative law doctrines:</p>
+            <div class="comparison-table">
+                <table>
+                    <tr><th>Fact Pattern Signal</th><th>Potential Issue</th></tr>
+                    <tr><td>Agency claims authority over a major industry or economic sector</td><td>Major Questions Doctrine</td></tr>
+                    <tr><td>Statute contains broad, vague language</td><td>Nondelegation Doctrine</td></tr>
+                    <tr><td>Congressional committee/house tries to control agency directly</td><td>Legislative Veto/Chadha Issues</td></tr>
+                    <tr><td>Agency head has removal protection</td><td>Appointment/Removal Powers</td></tr>
+                    <tr><td>Agency issues a rule without notice and comment</td><td>APA § 553 Exceptions (interpretive rules, policy statements, good cause)</td></tr>
+                    <tr><td>Agency changes policy through case adjudication</td><td>Rulemaking vs. Adjudication Choice (Bell Aerospace)</td></tr>
+                    <tr><td>Agency changes course from previous position</td><td>Arbitrary & Capricious Review (reasoned explanation required)</td></tr>
+                    <tr><td>Agency fails to consider alternatives or important aspects</td><td>State Farm "Hard Look" Review</td></tr>
+                    <tr><td>Agency interprets ambiguous statute</td><td>Statutory Interpretation (post-Loper Bright framework)</td></tr>
+                    <tr><td>Agency interprets its own regulation</td><td>Kisor Deference (formerly Auer/Seminole Rock)</td></tr>
+                    <tr><td>Agency refuses to take enforcement action</td><td>Reviewability (Heckler v. Chaney presumption)</td></tr>
+                    <tr><td>Plaintiff has indirect or future injury</td><td>Standing (injury-in-fact, causation, redressability)</td></tr>
+                    <tr><td>Pre-enforcement challenge to a rule</td><td>Ripeness (Abbott Labs two-part test)</td></tr>
+                    <tr><td>Challenge to preliminary or interim agency action</td><td>Finality (Bennett v. Spear two-part test)</td></tr>
+                    <tr><td>Plaintiff bypasses available agency procedures</td><td>Exhaustion of Administrative Remedies</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="explanation" id="doctrine-checklist-moved">
+            <h5 class="icon-legislative">Doctrine Checklist</h5>
+            <div class="legislative-box">
+                <h6>Constitutional Framework</h6>
+                <ul>
+                    <li><strong>Nondelegation Doctrine</strong><ul><li>Does statute provide an "intelligible principle"?</li><li>How detailed is the statutory guidance?</li><li>Does the delegation raise concerns about private delegation?</li></ul></li>
+                    <li><strong>Major Questions Doctrine</strong><ul><li>Does agency claim authority over question of vast economic and political significance?</li><li>Is there clear congressional authorization?</li><li>Is this a "transformative expansion" of authority?</li><li>Has Congress considered and rejected similar proposals?</li></ul></li>
+                    <li><strong>Presidential Control</strong><ul><li>Is the President's removal power restricted?</li><li>Is this a multimember commission or single director?</li><li>Are there multiple layers of removal protection?</li></ul></li>
+                    <li><strong>Congressional Control</strong><ul><li>Does Congress try to control agency without bicameralism and presentment?</li><li>Is Congress using constitutional tools (appropriations, oversight, advice and consent)?</li></ul></li>
+                </ul>
+            </div>
+            <div class="executive-box">
+                <h6>Agency Procedures</h6>
+                <ul>
+                    <li><strong>Rulemaking Choice</strong><ul><li>Does the agency have authority to issue rules?</li><li>Is the agency proceeding through rulemaking or adjudication?</li><li>Is the choice within the agency's discretion (Bell Aerospace)?</li></ul></li>
+                    <li><strong>Notice and Comment Rulemaking</strong><ul><li>Did the agency provide adequate notice of the proposed rule?</li><li>Did the agency consider significant comments?</li><li>Is there a logical connection between the facts and the rule adopted?</li><li>Did the agency provide a reasoned explanation?</li></ul></li>
+                    <li><strong>Exceptions to Notice and Comment</strong><ul><li>Is the rule interpretive rather than legislative?</li><li>Is it a general statement of policy that genuinely preserves discretion?</li><li>Is it a procedural rule that doesn't substantially affect rights?</li><li>Is there good cause to bypass notice and comment?</li></ul></li>
+                    <li><strong>Formal Adjudication</strong><ul><li>Does the statute require a decision "on the record after opportunity for an agency hearing"?</li><li>Were APA §§ 554, 556, and 557 procedures followed?</li></ul></li>
+                </ul>
+            </div>
+            <div class="judicial-box">
+                <h6>Judicial Review</h6>
+                <ul>
+                    <li><strong>Statutory Interpretation (post-Loper Bright)</strong><ul><li>What is the best reading of the statute using traditional tools of interpretation?</li><li>Has the agency provided expertise or considered views deserving of respect?</li><li>Is the interpretation consistent, longstanding, and well-reasoned?</li></ul></li>
+                    <li><strong>Arbitrary and Capricious Review</strong><ul><li>Did the agency examine relevant data and articulate a satisfactory explanation?</li><li>Did the agency consider important aspects of the problem?</li><li>Is the explanation consistent with the evidence?</li><li>Did the agency consider obvious alternatives?</li><li>If changing course, did the agency acknowledge the change and provide good reasons?</li></ul></li>
+                    <li><strong>Substantial Evidence Review</strong><ul><li>Is there "such relevant evidence as a reasonable mind might accept"?</li><li>Does the record as a whole support the agency's factual findings?</li></ul></li>
+                    <li><strong>Regulatory Interpretation (Kisor Deference)</strong><ul><li>Is the regulation genuinely ambiguous after exhausting traditional interpretation tools?</li><li>Is the agency's interpretation reasonable?</li><li>Is it the agency's authoritative position?</li><li>Does it implicate agency expertise?</li><li>Does it reflect fair and considered judgment?</li></ul></li>
+                </ul>
+            </div>
+            <div class="legislative-box">
+                <h6>Access to Judicial Review</h6>
+                <ul>
+                    <li><strong>Reviewability</strong><ul><li>Does a statute preclude review?</li><li>Is the action committed to agency discretion by law?</li><li>Is this an enforcement decision presumptively unreviewable under Heckler?</li></ul></li>
+                    <li><strong>Standing</strong><ul><li>Is there injury in fact (concrete, particularized, actual or imminent)?</li><li>Is the injury fairly traceable to the challenged action?</li><li>Is it likely to be redressed by a favorable decision?</li><li>Does plaintiff fall within the "zone of interests" protected by the statute?</li><li>Is the plaintiff a state with "special solicitude"?</li></ul></li>
+                    <li><strong>Ripeness</strong><ul><li>Is the issue fit for judicial decision (purely legal, final action)?</li><li>Would withholding review cause hardship to the parties?</li></ul></li>
+                    <li><strong>Finality</strong><ul><li>Does the action mark the consummation of the agency's decision-making process?</li><li>Is it one by which rights or obligations have been determined or from which legal consequences flow?</li></ul></li>
+                    <li><strong>Exhaustion</strong><ul><li>Has the plaintiff exhausted administrative remedies?</li><li>Does a statute or regulation mandate exhaustion?</li><li>Do exceptions to exhaustion apply (futility, inadequate remedies, bias)?</li></ul></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="explanation" id="practice-questions-moved">
+            <h5 class="icon-procedural">Practice Questions</h5>
+            <div class="key-point">
+                <h6>Hypothetical 1: Major Questions Doctrine</h6>
+                <p><strong>Facts:</strong> The Federal Communications Commission (FCC) issues a rule requiring all social media platforms with more than 10 million users to implement content moderation policies that remove false or misleading information within 24 hours. The FCC relies on a provision in its organic statute authorizing it to "make such rules and regulations... as may be necessary in the execution of its functions." Several tech companies challenge the rule.</p>
+                <p><strong>Questions:</strong></p>
+                <ol>
+                    <li>Would the Major Questions Doctrine apply to this agency action? Why or why not?</li>
+                    <li>How would the factors from <span class="case-name">West Virginia v. EPA</span> apply?</li>
+                    <li>Would your analysis change if Congress had specifically authorized the FCC to "regulate social media platforms to prevent the spread of misinformation"?</li>
+                </ol>
+            </div>
+            <div class="key-point">
+                <h6>Hypothetical 2: Arbitrary and Capricious Review</h6>
+                <p><strong>Facts:</strong> The Food and Drug Administration (FDA) issues a rule requiring warning labels on high-sugar beverages. The rule applies to sodas but exempts flavored coffee drinks and fruit juices, even though they often contain comparable amounts of sugar. In the rule's statement of basis and purpose, the FDA states that "sugary beverages pose health risks" but doesn't address why coffee drinks and fruit juices are exempt. A soda manufacturer challenges the rule as arbitrary and capricious.</p>
+                <p><strong>Questions:</strong></p>
+                <ol>
+                    <li>What arguments would the soda manufacturer make under <span class="case-name">State Farm</span>?</li>
+                    <li>Would the FDA's rule likely be upheld or invalidated? Why?</li>
+                    <li>What could the FDA have done differently to strengthen its rule against challenge?</li>
+                </ol>
+            </div>
+            <div class="key-point">
+                <h6>Hypothetical 3: Standing</h6>
+                <p><strong>Facts:</strong> The Department of the Interior (DOI) lifts a ban on oil and gas leasing in a national wildlife refuge in Alaska. An environmental group whose members visit the refuge occasionally for bird-watching challenges the decision. The group argues that oil and gas development will harm wildlife and reduce their members' enjoyment of the area. DOI argues that the plaintiffs lack standing because development hasn't started yet and may never affect the specific areas the members visit.</p>
+                <p><strong>Questions:</strong></p>
+                <ol>
+                    <li>Do the environmental group's members have standing under <span class="case-name">Lujan</span>? Why or why not?</li>
+                    <li>How might the plaintiffs strengthen their standing arguments?</li>
+                    <li>Would the analysis change if the plaintiff was the State of Alaska rather than an environmental group?</li>
+                </ol>
+            </div>
+            <div class="key-point">
+                <h6>Hypothetical 4: Post-Loper Bright Statutory Interpretation</h6>
+                <p><strong>Facts:</strong> The Clean Water Act prohibits discharge of pollutants into "navigable waters," defined as "waters of the United States." The EPA and Army Corps of Engineers issue a rule interpreting this phrase to include wetlands with a "significant nexus" to traditionally navigable waters. A developer who wants to build on wetlands challenges the rule, arguing that "waters of the United States" should be limited to permanent, standing, or flowing bodies of water.</p>
+                <p><strong>Questions:</strong></p>
+                <ol>
+                    <li>How would a court analyze this challenge after <span class="case-name">Loper Bright</span>?</li>
+                    <li>What traditional tools of statutory interpretation would be relevant?</li>
+                    <li>What role would the agencies' expertise play in the court's analysis?</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="explanation" id="strategy-tips-moved">
+            <h5 class="icon-judicial">Exam Strategy and Tips</h5>
+            <div class="test-box">
+                <h6>General Exam Strategies</h6>
+                <ol>
+                    <li><strong>Organize Your Answer</strong><ul><li>Use headings and subheadings to structure your response</li><li>Consider using the checklist approach detailed above</li><li>Start with threshold issues before addressing the merits</li></ul></li>
+                    <li><strong>Be Methodical</strong><ul><li>Don't jump straight to the "interesting" issue while skipping prerequisites</li><li>Apply tests step by step, rather than jumping to conclusions</li><li>Consider both sides of close issues</li></ul></li>
+                    <li><strong>Use Cases Precisely</strong><ul><li>Cite relevant cases by name</li><li>Explain why a case is analogous or distinguishable</li><li>Focus on reasoning, not just holdings</li></ul></li>
+                    <li><strong>Mind Recent Developments</strong><ul><li>Pay special attention to recent Supreme Court decisions that modify doctrines</li><li>Note when a longstanding precedent has been overturned (e.g., Loper Bright)</li></ul></li>
+                    <li><strong>Manage Your Time</strong><ul><li>Allocate time based on the points/percentage assigned to each question</li><li>Don't get stuck on a single issue for too long</li><li>If time is running short, outline your remaining analysis</li></ul></li>
+                </ol>
+            </div>
+            <div class="note">
+                <h6>Professor Hoopes' Emphasis Areas</h6>
+                <p>Based on class materials and discussions, Professor Hoopes appears to place particular emphasis on:</p>
+                <ul>
+                    <li>Recent Supreme Court decisions changing administrative law doctrines</li>
+                    <li>The Major Questions Doctrine and its relationship to Nondelegation</li>
+                    <li>The post-Loper Bright framework for statutory interpretation</li>
+                    <li>Standing analysis in administrative law cases</li>
+                    <li>The distinction between different types of rules exempt from notice and comment</li>
+                </ul>
+                <p>Make sure to pay special attention to these areas in your preparation.</p>
+            </div>
+            <div class="warning">
+                <h6>Common Exam Mistakes to Avoid</h6>
+                <ul>
+                    <li>Confusing different standards of review (substantial evidence vs. arbitrary and capricious)</li>
+                    <li>Failing to address threshold issues before reaching the merits</li>
+                    <li>Jumping to conclusions without applying the full test or framework</li>
+                    <li>Stating only the majority position without acknowledging split decisions or evolving doctrines</li>
+                    <li>Focusing exclusively on seminal cases while ignoring recent developments that modify their holdings</li>
+                    <li>Applying pre-Loper Bright analysis to statutory interpretation questions</li>
+                    <li>Using generic statements without tying analysis to specific facts of the problem</li>
+                </ul>
+            </div>
+        </div>
+    </div> <!-- End of exam-prep-content-moved -->
 </div>
 
 <!-- No explicit script needed here, as it's now in flashcards.js -->

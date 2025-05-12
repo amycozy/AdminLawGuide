@@ -133,6 +133,12 @@ function loadSection(sectionName) {
                      console.error('setupSubsectionNavigation function not found after loadSection. Ensure js/navigation.js is loaded.');
                 }
 
+                // Initialize flashcards if the flashcard container is present in the loaded section
+                if (document.getElementById('flashcard-container') && typeof initializeFlashcardsGlobal === 'function') {
+                    console.log(`Flashcard container found in ${sectionName}, calling initializeFlashcardsGlobal.`);
+                    initializeFlashcardsGlobal();
+                }
+
                 // Scroll to top
                 window.scrollTo(0, 0);
             })
