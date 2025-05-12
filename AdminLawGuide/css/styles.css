@@ -159,6 +159,25 @@ a:hover {
     font-weight: bold;
 }
 
+.nav-group {
+    margin-bottom: 10px;
+}
+
+.nav-group-title {
+    font-weight: bold;
+    color: #555; /* A slightly muted color for the group title */
+    display: block;
+    margin-bottom: 5px;
+    padding-left: 5px; /* Align with general nav link padding */
+}
+
+.nav-group-links a {
+    display: block; /* Make sub-links stack vertically */
+    margin-left: 20px; /* Indent sub-links */
+    margin-bottom: 5px;
+    padding: 5px 10px; /* Slightly smaller padding for sub-links */
+}
+
 .section-navigation {
     background-color: var(--substantive-background); /* Lighter NEW_PINK */
     padding: 10px;
