@@ -215,18 +215,20 @@ img {
 }
 
 .key-point {
-    background-color: var(--accent, #f4f4f5); /* Shadcn accent background */
-    border: 1px solid var(--border, #e4e4e7); /* Shadcn border color */
+    background-color: var(--card, #ffffff); /* White background for key-point */
+    border: 1px solid var(--case-secondary, #70C1B3); /* Thematic border */
     border-left-width: 4px; /* Keep a thicker left border for emphasis */
-    border-left-color: var(--primary, #247BA0); /* Shadcn primary color (interactive blue) */
+    border-left-color: var(--interactive-primary, #247BA0); /* Interactive blue for emphasis */
     padding: 1rem; /* Consistent padding */
     margin: 1.5rem 0; /* Consistent margin */
     border-radius: var(--radius, 0.5rem); /* Shadcn border radius */
     color: var(--card-foreground, #09090b); /* Ensure good text contrast */
+    box-sizing: border-box;
+    width: 100%; /* Ensure it spans the .case-body-content padding box */
 }
 
 .key-point h5 { /* Style the "Significance" title within key-point */
-    color: var(--primary, #247BA0);
+    color: var(--interactive-primary, #247BA0);
     margin-top: 0;
     margin-bottom: 0.5rem;
     font-size: 1em; /* Adjust as needed */
@@ -287,17 +289,19 @@ img {
 
 /* Case box styling */
 .case-box {
-    background-color: var(--substantive-background); /* lighter NEW_PINK */
-    border: 1px solid var(--substantive-primary); /* NEW_PINK */
-    padding: 15px;
+    background-color: #E9F5F2; /* Very light mint - derived from --case-primary */
+    border: 1px solid var(--case-secondary, #70C1B3); /* NEW_TEAL as border */
+    padding: 0; /* Padding will be handled by header and body-content */
     margin: 20px 0;
-    border-radius: 5px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    border-radius: var(--radius, 0.5rem);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.07);
     position: relative;
-    overflow: hidden;
+    overflow: hidden; /* To contain rounded corners of children */
     clear: both; /* Ensure it clears any preceding floats or complex layouts */
     width: 100%; /* Explicitly set width */
     box-sizing: border-box; /* Ensure padding and border don't add to width */
+    display: flex; /* Make it a flex container to hold header and body-content */
+    flex-direction: column;
 }
 
 /* Case illustrations */
@@ -440,11 +444,11 @@ tr:nth-child(even) {
 /* Case illustration with side-by-side layout */
 .case-illustration-flex {
     display: flex; /* Use flexbox for overall container layout */
-    align-items: stretch; /* Align items to stretch to fill the card height if desired, or flex-start */
+    align-items: flex-start; /* Align top of image container with top of text container */
     gap: 0; /* Gap will be handled by padding in header/content */
     margin: 30px 0;
-    background-color: var(--card, #ffffff); /* Fallback to white */
-    border: 1px solid var(--border, #e4e4e7); /* Fallback to light gray */
+    background-color: #E9F5F2; /* Very light mint - derived from --case-primary */
+    border: 1px solid var(--case-secondary, #70C1B3); /* NEW_TEAL as border */
     border-radius: var(--radius, 0.5rem); /* Fallback to 0.5rem */
     padding: 0; /* Header and content will have their own padding */
     box-shadow: 0 2px 4px rgba(0,0,0,0.07);
@@ -456,26 +460,32 @@ tr:nth-child(even) {
 .case-illustration-flex .case-image {
     flex: 0 0 35%; /* Keep flex properties for the image container */
     text-align: center;
-    padding: 1.5rem; /* Add padding around the image if it's inside the card body */
+    padding: 1rem; /* Padding around the image */
+    background-color: rgba(255,255,255,0.3); /* Slight white tint to differentiate image area if needed */
+    align-self: stretch; /* Make image column stretch */
     display: flex;
     align-items: center;
     justify-content: center;
+    border-right: 1px solid var(--case-secondary, #70C1B3); /* Separator line */
+    box-sizing: border-box;
 }
 
 .case-illustration-flex .case-image img {
     max-width: 100%; /* Ensure image doesn't exceed its container */
-    max-height: 300px;
+    max-height: 280px; /* Slightly reduced max-height */
     width: auto;
-    border-radius: calc(var(--radius, 0.5rem) - 2px); /* Slightly less than card */
+    border-radius: calc(var(--radius, 0.5rem) - 4px); /* Slightly more rounding */
     box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-    border: 1px solid var(--border, #e4e4e7); /* Optional: adds a subtle border to image */
+    /* border: 1px solid var(--border, #e4e4e7); /* Optional: adds a subtle border to image */
 }
 
 /* New Case Header Styles */
 .case-header {
     padding: 1rem 1.5rem;
-    border-bottom: 1px solid var(--border, #e4e4e7);
-    background-color: var(--secondary, #f4f4f5); /* Light gray background from shadcn */
+    border-bottom: 1px solid var(--case-secondary, #70C1B3); /* Thematic border */
+    background-color: var(--card, #ffffff); /* White background for header for contrast */
+    width: 100%; /* Ensure header spans its container (.case-content or .case-box) */
+    box-sizing: border-box;
 }
 
 .case-illustration-flex .case-content {
