@@ -146,18 +146,35 @@ img {
 .main-navigation h3 {
     margin-top: 0;
     margin-bottom: 15px;
+    text-align: center;
+    border-bottom: 1px solid #d1e0e9;
+    padding-bottom: 10px;
+    color: var(--executive-accent);
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .main-navigation a {
-    display: inline-block;
-    margin-right: 15px;
-    margin-bottom: 8px;
+    display: block;
+    margin-bottom: 5px;
     padding: 8px 12px;
     border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.main-navigation > .nav-links > a {
+    text-align: center;
+    font-weight: bold;
+    background-color: #f0f7fc;
+    border-left: 3px solid var(--interactive-primary);
 }
 
 .main-navigation a:hover {
-    background-color: #e9ecef; /* Keeping a neutral hover for now, can be themed later */
+    background-color: #e0edf5;
     text-decoration: none;
 }
 
@@ -168,22 +185,37 @@ img {
 }
 
 .nav-group {
-    margin-bottom: 10px;
+    background-color: #f8fbfe;
+    border-radius: 4px;
+    padding: 10px;
+    border: 1px solid #e9ecef;
+    margin-bottom: 5px;
 }
 
 .nav-group-title {
     font-weight: bold;
-    color: #555; /* A slightly muted color for the group title */
+    color: #3a3a3a;
     display: block;
-    margin-bottom: 5px;
-    padding-left: 5px; /* Align with general nav link padding */
+    margin-bottom: 8px;
+    padding: 5px 10px;
+    border-bottom: 1px solid #e0e0e0;
+    background-color: rgba(36, 123, 160, 0.08);
+    border-radius: 3px;
+}
+
+.nav-group-links {
+    padding: 0 5px;
 }
 
 .nav-group-links a {
-    display: block; /* Make sub-links stack vertically */
-    margin-left: 20px; /* Indent sub-links */
+    display: block;
     margin-bottom: 5px;
-    padding: 5px 10px; /* Slightly smaller padding for sub-links */
+    padding: 5px 10px;
+    border-left: 2px solid transparent;
+}
+
+.nav-group-links a:hover {
+    border-left-color: var(--interactive-primary);
 }
 
 .section-navigation {
@@ -443,58 +475,78 @@ tr:nth-child(even) {
 
 /* Case illustration with side-by-side layout */
 .case-illustration-flex {
-    display: flex; /* Use flexbox for overall container layout */
-    align-items: flex-start; /* Align top of image container with top of text container */
-    gap: 0; /* Gap will be handled by padding in header/content */
+    display: flex; /* Changed to flex */
+    flex-direction: column; /* Stack header, main-area, key-point vertically */
     margin: 30px 0;
     background-color: #E9F5F2; /* Very light mint - derived from --case-primary */
     border: 1px solid var(--case-secondary, #70C1B3); /* NEW_TEAL as border */
     border-radius: var(--radius, 0.5rem); /* Fallback to 0.5rem */
-    padding: 0; /* Header and content will have their own padding */
+    padding: 0; 
     box-shadow: 0 2px 4px rgba(0,0,0,0.07);
-    width: 100%; /* Ensure it takes full width of its parent */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
-    overflow: hidden; /* To contain rounded corners of children if needed */
+    width: 100%; 
+    box-sizing: border-box; 
+    overflow: hidden; 
+}
+
+/* New container for image and main text, to sit below header and above key-point */
+.case-main-area {
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid var(--case-secondary, #70C1B3); /* Separator before key-point if key-point is outside */
 }
 
 .case-illustration-flex .case-image {
-    flex: 0 0 35%; /* Keep flex properties for the image container */
+    flex: 0 0 35%; 
     text-align: center;
-    padding: 1rem; /* Padding around the image */
-    background-color: rgba(255,255,255,0.3); /* Slight white tint to differentiate image area if needed */
-    align-self: stretch; /* Make image column stretch */
+    padding: 1rem; 
+    background-color: rgba(255,255,255,0.3); 
+    align-self: stretch; 
     display: flex;
     align-items: center;
     justify-content: center;
-    border-right: 1px solid var(--case-secondary, #70C1B3); /* Separator line */
+    border-right: 1px solid var(--case-secondary, #70C1B3); 
     box-sizing: border-box;
 }
 
 .case-illustration-flex .case-image img {
-    max-width: 100%; /* Ensure image doesn't exceed its container */
-    max-height: 280px; /* Slightly reduced max-height */
+    max-width: 100%; 
+    max-height: 280px; 
     width: auto;
-    border-radius: calc(var(--radius, 0.5rem) - 4px); /* Slightly more rounding */
+    border-radius: calc(var(--radius, 0.5rem) - 4px); 
     box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-    /* border: 1px solid var(--border, #e4e4e7); /* Optional: adds a subtle border to image */
 }
 
-/* New Case Header Styles */
+/* Case Header Styles - now a direct child of .case-illustration-flex or .case-box */
 .case-header {
     padding: 1rem 1.5rem;
-    border-bottom: 1px solid var(--case-secondary, #70C1B3); /* Thematic border */
-    background-color: var(--card, #ffffff); /* White background for header for contrast */
-    width: 100%; /* Ensure header spans its container (.case-content or .case-box) */
+    border-bottom: 1px solid var(--case-secondary, #70C1B3); 
+    background-color: var(--card, #ffffff); 
+    width: 100%; 
     box-sizing: border-box;
 }
 
-.case-illustration-flex .case-content {
-    flex: 1; /* Keep flex: 1 for the content container */
-    display: flex; /* Allow header and main content to stack */
-    flex-direction: column;
+/* This .case-content is now effectively the .case-main-area's text column */
+.case-illustration-flex .case-main-area .case-body-content {
+    flex: 1;
+    padding: 1.5rem; /* Standard padding for content area */
 }
 
-/* New class for the main body of text content within a case card */
-.case-body-content {
-    padding: 1.5rem; /* Standard padding for content area */
+/* If .case-content is used in .case-box (no image), it directly holds header and body */
+.case-box .case-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+/* Styles for .case-body-content when it's a direct child of .case-box (after header) */
+.case-box > .case-body-content {
+    padding: 1.5rem;
+}
+
+/* Key-point is now a direct child of .case-illustration-flex or .case-box */
+.case-illustration-flex > .key-point,
+.case-box > .key-point {
+    margin: 0; /* Remove external margins */
+    border-radius: 0 0 calc(var(--radius, 0.5rem) - 1px) calc(var(--radius, 0.5rem) - 1px); /* Round bottom corners */
+    border-top: 1px solid var(--case-secondary, #70C1B3); /* Add top border */
+    /* Ensure existing .key-point styles for background, padding, etc., are still effective or merged */
 }
