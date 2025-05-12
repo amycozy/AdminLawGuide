@@ -1,0 +1,205 @@
+<h2 id="review-page-section">Interactive Review & Practice Center</h2>
+
+<div class="explanation" id="review-page-intro">
+    <p>Welcome to the Interactive Review & Practice Center! This section is dedicated to active learning tools to help you master administrative law concepts. Use the tabs below to access flashcards, practice problems, and other interactive exercises.</p>
+</div>
+
+<div class="exam-guide-navigation review-page-tabs">
+    <a href="#" class="exam-guide-nav-link active" data-tab-target="review-flashcards">Flashcards</a>
+    <a href="#" class="exam-guide-nav-link" data-tab-target="review-practice-problems">Practice Problems</a>
+</div>
+
+<div class="exam-guide-content review-page-content">
+    <!-- Flashcards Section -->
+    <div class="exam-guide-section active" id="review-flashcards">
+        <h4>Spaced Repetition Flashcards</h4>
+        <p>Click on a card to flip it and check your understanding. Come back to these cards regularly to solidify your knowledge through spaced repetition.</p>
+        
+        <div class="shadcn-progress" style="margin-bottom: 0.5rem;">
+            <div class="shadcn-progress-indicator" style="width: 0%;"></div>
+        </div>
+        <p class="progress-text" style="text-align: center; margin-bottom: 1.5rem; font-size: 0.875rem; color: var(--muted-foreground);">0 of 25 cards mastered (0%)</p>
+        
+        <div class="shadcn-tabs-list category-tabs">
+            <button class="shadcn-tabs-trigger category-tab active" data-category="all" data-tab-target="flashcard-container">All Topics</button>
+            <button class="shadcn-tabs-trigger category-tab" data-category="judicial-review" data-tab-target="flashcard-container">Judicial Review</button>
+            <button class="shadcn-tabs-trigger category-tab" data-category="agency-procedure" data-tab-target="flashcard-container">Agency Procedure</button>
+            <button class="shadcn-tabs-trigger category-tab" data-category="constitutional" data-tab-target="flashcard-container">Constitutional Issues</button>
+        </div>
+            
+        <div class="shadcn-flashcard-controls">
+            <div class="shadcn-flashcard-actions">
+                <button id="shuffle-cards" class="shadcn-button shadcn-button-secondary shadcn-button-sm">Shuffle Cards</button>
+                <button id="show-different-cards" class="shadcn-button shadcn-button-default shadcn-button-sm">Show Different Cards</button>
+            </div>
+            <span class="shadcn-flashcard-meta">Showing 3 of 25 total flashcards</span>
+        </div>
+                
+        <div id="flashcard-container" class="shadcn-flashcard-container">
+            <!-- Flashcards will be populated by JavaScript -->
+        </div>
+    </div>
+
+    <!-- Practice Problems Section -->
+    <div class="exam-guide-section" id="review-practice-problems">
+        <h3>Practice Problems & Scenarios</h3>
+        <p>Apply your knowledge and test your understanding with these practice scenarios and hypotheticals. Work through these examples to strengthen your ability to analyze administrative law problems under exam conditions.</p>
+
+        <!-- Original Practice Arena Scenarios -->
+        <div class="interactive-element">
+            <h4>Scenario 1: Agency Authority</h4>
+            <p>The Department of Transportation (DOT) issues a rule requiring all smartphone manufacturers to include a feature that automatically disables text messaging capabilities when a phone is detected moving faster than 10 mph. The DOT claims authority under a statute that authorizes it to "issue regulations to enhance highway safety." Several technology companies challenge the rule.</p>
+            <div class="scenario-question">
+                <p><strong>Question:</strong> What doctrine(s) would you analyze to determine if DOT has the authority to issue this rule?</p>
+                <button class="toggle-answer" data-target="rp-answer1">Show Analysis</button>
+                <div id="rp-answer1" class="scenario-answer" style="display:none;">
+                    <p><strong>Analysis:</strong></p>
+                    <ol>
+                        <li><strong>Major Questions Doctrine:</strong> This is likely a question of vast economic and political significance...</li>
+                        <li><strong>Statutory Authority:</strong> Does the broad language "enhance highway safety" clearly authorize...</li>
+                        <li><strong>Nondelegation Concerns:</strong> Is "enhance highway safety" an intelligible principle...</li>
+                    </ol>
+                    <p>Given recent Supreme Court cases like West Virginia v. EPA, a court would likely find that Congress did not clearly authorize DOT...</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="interactive-element">
+            <h4>Scenario 2: Arbitrary and Capricious Review</h4>
+            <p>The Environmental Protection Agency (EPA) issues a final rule reducing the permissible levels of a certain air pollutant... An industry group challenges the rule as arbitrary and capricious.</p>
+            <div class="scenario-question">
+                <p><strong>Question:</strong> How would a court likely analyze this challenge under State Farm?</p>
+                <button class="toggle-answer" data-target="rp-answer2">Show Analysis</button>
+                <div id="rp-answer2" class="scenario-answer" style="display:none;">
+                    <p><strong>Analysis:</strong></p>
+                    <p>Under Motor Vehicle Manufacturers Association v. State Farm, a court would likely find this rule arbitrary and capricious because...</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="key-point">
+            <h4>Hypothetical 1: Major Questions Doctrine</h4>
+            <p><strong>Facts:</strong> The Federal Communications Commission (FCC) issues a rule requiring all social media platforms...</p>
+            <p><strong>Questions:</strong>...</p>
+        </div>
+
+        <div class="key-point">
+            <h4>Hypothetical 2: Standing</h4>
+            <p><strong>Facts:</strong> The Department of the Interior (DOI) lifts a ban on oil and gas leasing...</p>
+            <p><strong>Questions:</strong>...</p>
+        </div>
+
+        <!-- Content from application-practice.html -->
+        <hr style="margin: 2rem 0;">
+        <h4 id="application-practice-heading-moved">Application Practice Deep Dives</h4>
+
+        <div class="section-navigation">
+            <a href="#step-by-step-moved-rp">Step-by-Step Analysis</a>
+            <a href="#issue-spotting-moved-rp">Issue Spotting Exercises</a>
+            <a href="#doctrine-application-moved-rp">Doctrine Application</a>
+            <a href="#progressive-difficulty-moved-rp">Progressive Difficulty Problems</a>
+        </div>
+
+        <div class="explanation" id="step-by-step-moved-rp">
+            <h5 class="icon-judicial">Step-by-Step Analysis Models</h5>
+            <p>These step-by-step analyses demonstrate the methodical approach necessary for administrative law problems...</p>
+            <!-- ... (Full content from application-practice.html's "Step-by-Step Analysis Models" section) ... -->
+            <div class="interactive-element">
+                <h6>Judicial Review Analysis Model</h6>
+                <p>The Administrative Rulemaking Authority (ARA) issues a rule requiring all online retailers to implement enhanced cybersecurity protocols...</p>
+                <div class="doctrine-box"><h6>Step 1: Threshold Issues...</h6>...</div>
+                <div class="doctrine-box"><h6>Step 2: Statutory Authority Analysis...</h6>...</div>
+                <div class="doctrine-box"><h6>Step 3: Arbitrary and Capricious Review...</h6>...</div>
+            </div>
+            <div class="interactive-element">
+                <h6>Rulemaking Procedure Analysis Model</h6>
+                <p>The Department of Transportation (DOT) issues a document titled "New Guidance on Vehicle Safety Standards."...</p>
+                <div class="doctrine-box"><h6>Step 1: Identify the Agency Action...</h6>...</div>
+                <div class="doctrine-box"><h6>Step 2: Analyze the Action's Legal Effect...</h6>...</div>
+                <div class="doctrine-box"><h6>Step 3: Apply Legal Standards to Facts...</h6>...</div>
+            </div>
+        </div>
+
+        <div class="explanation" id="issue-spotting-moved-rp">
+            <h5 class="icon-executive">Issue Spotting Exercises</h5>
+            <p>Identifying the relevant administrative law issues is a critical skill...</p>
+            <!-- ... (Full content from application-practice.html's "Issue Spotting Exercises" section) ... -->
+            <div class="interactive-element">
+                <h6>Exercise 1: Multiple Issues Scenario</h6>...
+                <button class="toggle-answer" data-target="app-issue-spotting-1-rp">Show Issues</button>
+                <div id="app-issue-spotting-1-rp" class="scenario-answer" style="display:none;">...</div>
+            </div>
+            <div class="interactive-element">
+                <h6>Exercise 2: Doctrinal Classification</h6>...
+                <button class="toggle-answer" data-target="app-issue-spotting-2-rp">Show Classifications</button>
+                <div id="app-issue-spotting-2-rp" class="scenario-answer" style="display:none;">...</div>
+            </div>
+        </div>
+
+        <div class="explanation" id="doctrine-application-moved-rp">
+            <h5 class="icon-legislative">Doctrine Application</h5>
+            <p>These exercises focus on applying specific administrative law doctrines...</p>
+            <!-- ... (Full content from application-practice.html's "Doctrine Application" section) ... -->
+            <div class="interactive-element">
+                <h6>State Farm Arbitrary & Capricious Analysis</h6>...
+                <button class="toggle-answer" data-target="app-doctrine-application-1-rp">Show Analysis</button>
+                <div id="app-doctrine-application-1-rp" class="scenario-answer" style="display:none;">...</div>
+            </div>
+            <div class="interactive-element">
+                <h6>Standing Analysis Application</h6>...
+                <button class="toggle-answer" data-target="app-doctrine-application-2-rp">Show Analysis</button>
+                <div id="app-doctrine-application-2-rp" class="scenario-answer" style="display:none;">...</div>
+            </div>
+        </div>
+
+        <div class="explanation" id="progressive-difficulty-moved-rp">
+            <h5 class="icon-judicial">Progressive Difficulty Problems</h5>
+            <p>These problems increase in complexity and difficulty...</p>
+            <!-- ... (Full content from application-practice.html's "Progressive Difficulty Problems" section) ... -->
+            <div class="interactive-element"><h6>Basic Level: Notice and Comment Requirements</h6>...<button class="toggle-answer" data-target="app-progressive-1-rp">Show Analysis</button><div id="app-progressive-1-rp" class="scenario-answer" style="display:none;">...</div></div>
+            <div class="interactive-element"><h6>Intermediate Level: Statutory Authority Analysis</h6>...<button class="toggle-answer" data-target="app-progressive-2-rp">Show Analysis</button><div id="app-progressive-2-rp" class="scenario-answer" style="display:none;">...</div></div>
+            <div class="interactive-element"><h6>Advanced Level: Multi-Issue Analysis</h6>...<button class="toggle-answer" data-target="app-progressive-3-rp">Show Analysis</button><div id="app-progressive-3-rp" class="scenario-answer" style="display:none;">...</div></div>
+        </div>
+    </div>
+
+    <!-- Content from synthesis-challenges.html -->
+    <hr style="margin: 2rem 0;">
+    <div id="synthesis-challenges-content-moved-rp">
+        <h4 id="synthesis-challenges-heading-moved">Synthesis Challenges</h4>
+        <div class="section-navigation">
+            <a href="#cross-doctrinal-moved-rp">Cross-Doctrinal Analysis</a>
+            <a href="#legal-process-moved-rp">Legal Process Analysis</a>
+            <a href="#policy-tensions-moved-rp">Policy Tension Resolution</a>
+            <a href="#advanced-hypotheticals-moved-rp">Advanced Hypotheticals</a>
+        </div>
+        <div class="explanation" id="cross-doctrinal-moved-rp">
+            <h5 class="icon-constitutional">Cross-Doctrinal Analysis</h5>
+            <p>True mastery of administrative law requires synthesizing multiple doctrines...</p>
+            <!-- ... (Full content from synthesis-challenges.html's "Cross-Doctrinal Analysis" section, ensuring unique toggle IDs e.g., synth-synthesis-1-rp) ... -->
+            <div class="interactive-element"><h6>Agency Design and Authority Exercise</h6>...<button class="toggle-answer" data-target="synth-synthesis-1-rp">Show Comprehensive Analysis</button><div id="synth-synthesis-1-rp" class="scenario-answer" style="display:none;">...</div></div>
+            <div class="interactive-element"><h6>Interlocking Doctrines Exercise</h6>...<button class="toggle-answer" data-target="synth-synthesis-2-rp">Show Integrated Analysis</button><div id="synth-synthesis-2-rp" class="scenario-answer" style="display:none;">...</div></div>
+        </div>
+        <div class="explanation" id="legal-process-moved-rp">
+            <h5 class="icon-procedural">Legal Process Analysis</h5>
+            <p>These exercises challenge you to track administrative action...</p>
+            <!-- ... (Full content from synthesis-challenges.html's "Legal Process Analysis" section, ensuring unique toggle IDs e.g., synth-legal-process-1-rp) ... -->
+            <div class="interactive-element"><h6>Complete Process Case Study</h6>...<button class="toggle-answer" data-target="synth-legal-process-1-rp">Show Process Analysis</button><div id="synth-legal-process-1-rp" class="scenario-answer" style="display:none;">...</div></div>
+        </div>
+        <div class="explanation" id="policy-tensions-moved-rp">
+            <h5 class="icon-legislative">Policy Tension Resolution</h5>
+            <p>Administrative law involves balancing competing policy concerns...</p>
+            <!-- ... (Full content from synthesis-challenges.html's "Policy Tension Resolution" section, ensuring unique toggle IDs e.g., synth-policy-1-rp) ... -->
+            <div class="interactive-element"><h6>Expertise vs. Democratic Accountability</h6>...<button class="toggle-answer" data-target="synth-policy-1-rp">Show Policy Analysis</button><div id="synth-policy-1-rp" class="scenario-answer" style="display:none;">...</div></div>
+        </div>
+        <div class="explanation" id="advanced-hypotheticals-moved-rp">
+            <h5 class="icon-executive">Advanced Hypotheticals</h5>
+            <p>These challenging hypotheticals test your ability to apply multiple doctrines...</p>
+            <!-- ... (Full content from synthesis-challenges.html's "Advanced Hypotheticals" section, ensuring unique toggle IDs e.g., synth-advanced-1-rp) ... -->
+            <div class="interactive-element"><h6>Novel Agency Design Challenge</h6>...<button class="toggle-answer" data-target="synth-advanced-1-rp">Show Comprehensive Analysis</button><div id="synth-advanced-1-rp" class="scenario-answer" style="display:none;">...</div></div>
+        </div>
+    </div>
+</div>
+
+<div class="back-to-top">
+    <a href="#review-page-section">Back to Top</a>
+</div>

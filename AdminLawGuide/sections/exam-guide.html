@@ -19,8 +19,8 @@
         <p>Build your foundation through active recall and spaced repetition. These tools help you solidify core concepts and strengthen your understanding of administrative law principles.</p>
         
         <div class="mastery-tabs">
-            <div class="mastery-tab active" data-tab-target="tab-flashcards">Flashcards</div>
-            <div class="mastery-tab" data-tab-target="tab-comparisons">Concept Comparisons</div>
+            {-- <div class="mastery-tab active" data-tab-target="tab-flashcards">Flashcards</div> --} {/* Flashcards moved to review-page.html */}
+            <div class="mastery-tab active" data-tab-target="tab-comparisons">Concept Comparisons</div> {/* Make this active now */}
             <div class="mastery-tab" data-tab-target="tab-quizzes">Self-Quizzes</div>
             <div class="mastery-tab" data-tab-target="tab-visual-maps">Visual Knowledge Maps</div>
             <div class="mastery-tab" data-tab-target="tab-concept-reinforcement">Concept Reinforcement</div>
@@ -28,42 +28,12 @@
         </div>
         
         <div class="mastery-content">
-            <!-- Flashcards Section - Redesigned with shadcn/ui components -->
-            <div class="mastery-section active" id="tab-flashcards">
-                <h4>Spaced Repetition Flashcards</h4>
-                <p>Click on a card to flip it and check your understanding. Come back to these cards regularly to solidify your knowledge through spaced repetition.</p>
-                
-                <!-- Progress tracking bar - Using shadcn styles -->
-                <div class="shadcn-progress" style="margin-bottom: 0.5rem;">
-                    <div class="shadcn-progress-indicator" style="width: 0%;"></div>
-                </div>
-                <p class="progress-text" style="text-align: center; margin-bottom: 1.5rem; font-size: 0.875rem; color: var(--muted-foreground);">0 of 25 cards mastered (0%)</p> {/* progress-text class will need to be added to shadcn-components.css or use existing shadcn text style */}
-                
-                <!-- Category tabs - Using shadcn styles -->
-                <div class="shadcn-tabs-list category-tabs"> {/* Added category-tabs for JS hook if still needed, or JS can target .shadcn-tabs-trigger within a specific parent */}
-                    <button class="shadcn-tabs-trigger category-tab active" data-category="all" data-tab-target="flashcard-container">All Topics</button>
-                    <button class="shadcn-tabs-trigger category-tab" data-category="judicial-review" data-tab-target="flashcard-container">Judicial Review</button>
-                    <button class="shadcn-tabs-trigger category-tab" data-category="agency-procedure" data-tab-target="flashcard-container">Agency Procedure</button>
-                    <button class="shadcn-tabs-trigger category-tab" data-category="constitutional" data-tab-target="flashcard-container">Constitutional Issues</button>
-                </div>
-                    
-                <!-- Flashcard controls - Using shadcn styles for buttons -->
-                <div class="shadcn-flashcard-controls"> {/* This class will need to be added to shadcn-components.css */}
-                    <div class="shadcn-flashcard-actions"> {/* This class will need to be added to shadcn-components.css */}
-                        <button id="shuffle-cards" class="shadcn-button shadcn-button-secondary shadcn-button-sm">Shuffle Cards</button>
-                        <button id="show-different-cards" class="shadcn-button shadcn-button-default shadcn-button-sm">Show Different Cards</button>
-                    </div>
-                    <span class="shadcn-flashcard-meta">Showing 3 of 25 total flashcards</span> {/* Using existing .shadcn-flashcard-meta */}
-                </div>
-                        
-                <!-- Flashcard container - will be populated by JavaScript -->
-                <div id="flashcard-container" class="shadcn-flashcard-container"></div>
-                
-            </div>
+            {-- Flashcards Section - Redesigned with shadcn/ui components --}
+            {-- Content of tab-flashcards removed --}
             
             
             <!-- Concept Comparisons Section -->
-            <div class="mastery-section" id="tab-comparisons">
+            <div class="mastery-section" id="tab-comparisons"> {/* This should become active if it's the first one now */}
                 <h4>Concept Comparisons</h4>
                 <p>Strengthen your understanding by comparing and contrasting related concepts in administrative law.</p>
                 
