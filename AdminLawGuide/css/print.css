@@ -1,45 +1,97 @@
 /* AdminLawGuide/css/print.css - Styles for printing */
 
+/* Page setup and numbering */
+@page {
+    size: letter portrait;
+    margin: 0.5in;
+    counter-increment: page;
+}
+
+@page {
+    @bottom-right {
+        content: "Page " counter(page);
+        font-size: 8pt;
+    }
+}
+
 @media print {
     body {
         font-family: 'Times New Roman', Times, serif; /* Common serif font for print */
-        font-size: 12pt;
-        line-height: 1.4;
+        font-size: 10pt; /* Smaller base font size to fit more content */
+        line-height: 1.3; /* Tighter line spacing */
         background-color: #ffffff !important; /* Ensure white background */
         color: #000000 !important; /* Ensure black text */
-        margin: 0.5in !important; /* Standard print margins */
+        margin: 0.4in !important; /* Slightly smaller margins */
         max-width: 100% !important; /* Allow content to use full page width */
+    }
+
+    /* Table of contents for printed version */
+    #content-container::before {
+        content: "ADMINISTRATIVE LAW - EXAM REFERENCE";
+        display: block;
+        font-size: 14pt;
+        font-weight: bold;
+        margin: 20px 0;
+        text-align: center;
+        border-bottom: 1px solid #000;
+        page-break-after: avoid;
     }
 
     h1, h2, h3, h4, h5, h6 {
         color: #000000 !important;
         page-break-after: avoid; /* Avoid breaking pages right after a heading */
         font-family: 'Georgia', serif; /* Keep heading font if desired */
+        margin: 0.7em 0 0.3em 0 !important; /* Reduced margins */
     }
 
     h1 {
-        font-size: 18pt;
+        font-size: 16pt; /* Slightly smaller */
         border-bottom: 2px solid #000000;
+        page-break-before: always; /* Start h1 on a new page */
+        margin-top: 0 !important; /* No top margin when at page start */
     }
     h1::after { /* Hide decorative SVG underline for print */
         display: none !important;
     }
 
     h2 {
-        font-size: 16pt;
+        font-size: 14pt; /* Slightly smaller */
         border-bottom: 1px solid #000000;
         background: none !important; /* Remove gradient background */
+        page-break-before: always; /* Force page breaks before major sections */
     }
 
     h3 {
-        font-size: 14pt;
+        font-size: 12pt; /* Slightly smaller */
         border-left: 3px solid #000000;
         color: #000000 !important;
+        padding-left: 5px;
     }
 
     h4 {
-        font-size: 12pt;
+        font-size: 11pt; /* Slightly smaller */
         font-weight: bold;
+    }
+
+    /* Paragraph and list spacing */
+    p, li {
+        margin: 0.25em 0 !important; /* Smaller margins */
+        line-height: 1.3 !important; /* Tighter line height */
+    }
+
+    ul, ol {
+        padding-left: 1.2em !important; /* Reduce list indentation */
+        margin: 0.3em 0 !important; /* Reduced margins */
+    }
+
+    /* Add section titles to headers for context */
+    .explanation h3::before {
+        display: block;
+        content: "Admin Law: " attr(id);
+        font-size: 8pt;
+        font-style: italic;
+        color: #666;
+        margin-bottom: 2px;
     }
 
     a {
@@ -51,7 +103,7 @@
     a[href^="http"]::after,
     a[href^="//"]::after {
         content: " (" attr(href) ")";
-        font-size: 9pt;
+        font-size: 8pt; /* Smaller */
         font-style: italic;
         color: #555555;
     }
@@ -59,7 +111,6 @@
     a[href^="#"]::after {
         content: "";
     }
-
 
     /* Hide non-essential elements */
     .main-navigation,
@@ -72,12 +123,17 @@
     .back-to-top,
     .universal-disclaimer, /* Assuming disclaimer is not needed for personal outline */
     .mascot-speech .mascot-image, /* Hide mascot images within speech bubbles if they are purely decorative */
-    .case-box::before /* Hide decorative corner fold */
+    .case-box::before, /* Hide decorative corner fold */
+    .flip-hint, 
+    .flip-back-container,
+    .toggle-answer,
+    .mascot-concept-icon,
+    .mascot-checkpoint::before
      {
         display: none !important;
     }
 
-    /* Style content boxes for print */
+    /* Style content boxes for print - with exam focus */
     .key-point,
     .example,
     .warning,
@@ -90,122 +146,223 @@
     .mascot-concept,
     .mascot-checkpoint,
     .character-challenge {
-        background-color: #ffffff !important;
+        background-color: #f9f9f9 !important; /* Very light gray background */
         border: 1px solid #cccccc !important; /* Light grey border */
-        padding: 10px;
-        margin: 15px 0;
+        padding: 7px !important; /* Smaller padding */
+        margin: 10px 0 !important; /* Reduced margins */
         box-shadow: none !important;
+        page-break-inside: avoid; /* Try to keep boxes on one page */
     }
-    .key-point { border-left: 3px solid #999999 !important; }
-    .example { border-left: 3px solid #999999 !important; }
-    .warning { border-left: 3px solid #999999 !important; }
+    
+    /* Add exam callouts to key elements */
+    .key-point { 
+        border-left: 4px solid #000000 !important; 
+    }
+    .key-point::before {
+        content: "⭐ EXAM TIP";
+        display: block;
+        font-weight: bold;
+        font-size: 9pt;
+        margin-bottom: 3px;
+    }
+    
+    .doctrine-box { 
+        border-left: 4px solid #000000 !important; 
+    }
+    .doctrine-box::before {
+        content: "📘 KEY DOCTRINE";
+        display: block;
+        font-weight: bold;
+        font-size: 9pt;
+        margin-bottom: 3px;
+    }
+    
+    .test-box { 
+        border-left: 4px solid #000000 !important; 
+    }
+    .test-box::before {
+        content: "⚖️ LEGAL TEST";
+        display: block;
+        font-weight: bold;
+        font-size: 9pt;
+        margin-bottom: 3px;
+    }
+    
+    .example { border-left: 3px solid #666666 !important; }
+    .warning { border-left: 3px solid #666666 !important; }
 
 
-    /* Case illustrations */
+    /* Case illustrations - optimized for print and space */
     .case-illustration,
     .case-illustration-flex {
         page-break-inside: avoid; /* Try to keep illustrations on one page */
-        margin: 10px 0; /* Reduced margin */
+        margin: 8px 0 !important; /* Further reduced margin */
         padding: 0;
         background-color: #ffffff !important;
-        border: none !important;
+        border: 1px solid #cccccc !important;
         box-shadow: none !important;
     }
     .case-illustration-flex .case-image img,
     .case-illustration img {
-        max-width: 120px !important; /* Significantly reduced width */
-        max-height: 100px !important; /* Significantly reduced height */
+        max-width: 80px !important; /* Further reduced width */
+        max-height: 80px !important; /* Further reduced height */
         width: auto !important; /* Maintain aspect ratio */
         border: 1px solid #dddddd;
         margin: 5px auto; /* Reduced margin */
         display: block;
+        opacity: 0.85; /* Slightly lighter to save ink */
     }
     .case-illustration-flex {
-        display: block; /* Stack image and content for print */
+        display: flex !important; /* Keep side-by-side for space efficiency */
+        align-items: center !important;
     }
-    .case-illustration-flex .case-image,
+    .case-illustration-flex .case-image {
+        flex: 0 0 90px !important; /* Fixed width for image column */
+        padding: 5px !important;
+    }
     .case-illustration-flex .case-content {
-        flex: none !important;
-        width: 100% !important;
+        flex: 1 !important; /* Take remaining space */
+        padding: 5px !important;
+    }
+    
+    /* Highlight case names for easy reference */
+    .case-name, 
+    .case-title,
+    .case-box h4 {
+        font-weight: bold !important;
+        text-decoration: underline !important;
     }
 
 
-    /* Mermaid diagrams - attempt to make them print better */
+    /* Improved Mermaid diagrams for print */
     .mermaid {
         page-break-inside: avoid;
-        text-align: left !important; /* Align to left for better flow */
+        page-break-before: avoid;
+        page-break-after: avoid;
+        text-align: center !important; 
         overflow: visible !important; /* Show full diagram */
         background-color: #ffffff !important;
-        border: 1px solid #cccccc;
-        padding: 10px;
+        border: 1px solid #999999 !important;
+        padding: 8px !important;
+        margin: 10px auto !important;
+        max-width: 6.5in !important; /* Keep within page margins */
     }
     .mermaid svg {
         max-width: 100% !important; /* Ensure SVG scales down */
         height: auto !important;
+        stroke-width: 1.5px !important; /* Slightly thicker lines */
     }
-    /* You might need to target specific mermaid elements if default print is poor */
+    .mermaid text {
+        font-weight: bold !important;
+        font-size: 9pt !important; /* Ensure readable text size */
+    }
 
 
+    /* Enhanced tables */
+    table {
+        width: 100% !important;
+        border-collapse: collapse !important;
+        margin: 8px 0 !important;
+        page-break-inside: avoid;
+        font-size: 9pt !important; /* Smaller font for tables */
+    }
+    
     table, th, td {
         border: 1px solid #666666 !important; /* Darker borders for tables */
-        page-break-inside: avoid;
     }
+    
     th {
         background-color: #eeeeee !important;
+        padding: 3px 5px !important; /* Reduced padding */
+    }
+    
+    td {
+        padding: 3px 5px !important; /* Reduced padding */
     }
 
-    /* Ensure flashcard content is visible if printed from a page with them */
-    .flashcard .flashcard-inner.flipped .flashcard-front,
+    /* Optimized flashcard display for exam reference */
+    .flashcard {
+        page-break-inside: avoid;
+        margin-bottom: 8px !important;
+    }
+    
+    .flashcard .flashcard-inner .flashcard-front,
     .flashcard .flashcard-inner .flashcard-back {
-        display: block !important; /* Show both sides or just back? For outline, maybe just back. */
+        display: block !important;
         position: static !important;
         transform: none !important;
         background-color: #ffffff !important;
-        border: 1px dashed #cccccc;
-        padding: 5px;
-        margin-bottom: 10px;
+        border: 1px solid #000000 !important;
+        padding: 5px !important;
+        margin-bottom: 8px !important;
+        page-break-inside: avoid;
     }
-     .flashcard .flashcard-inner .flashcard-front {
-        /* display: none !important; */ /* Option: hide front for outline */
-     }
-    .flip-hint, .flip-back-container {
-        display: none !important;
+    
+    .flashcard .flashcard-inner .flashcard-front::before {
+        content: "Question:";
+        font-weight: bold;
+        display: block;
+        margin-bottom: 3px;
+        font-size: 9pt;
+    }
+    
+    .flashcard .flashcard-inner .flashcard-back::before {
+        content: "Answer:";
+        font-weight: bold;
+        display: block;
+        margin-bottom: 3px;
+        font-size: 9pt;
     }
 
-    /* Scenario answers should be visible */
+    /* Make all scenario answers visible */
     .scenario-answer {
         display: block !important;
-        border: 1px dashed #cccccc;
-        padding: 5px;
+        border: 1px solid #000000 !important;
+        padding: 5px !important;
+        margin-top: 5px !important;
+        background-color: #f9f9f9 !important;
     }
-    .toggle-answer { /* Hide the button itself */
-        display: none !important;
+    
+    .scenario-answer::before {
+        content: "Answer:";
+        font-weight: bold;
+        display: block;
+        margin-bottom: 3px;
+        font-size: 9pt;
     }
 
-    /* Mascot specific elements if they are too large or decorative */
-    .mascot-container .mascot-image {
-        max-width: 50px !important; /* Significantly reduced mascot images */
-        max-height: 50px !important;
-        width: auto !important; /* Maintain aspect ratio */
+    /* Two-column layouts for space efficiency */
+    .navigation-cards, .mascot-resources-grid {
+        column-count: 2 !important;
+        column-gap: 15px !important;
+        display: block !important;
     }
-    .guide-panel-image img {
-        max-width: 40px !important; /* Significantly reduced panel images */
+    
+    .nav-card, .mascot-resource-card {
+        break-inside: avoid;
+        border: 1px solid #ccc !important;
+        margin-bottom: 8px !important;
+        padding: 5px !important;
+    }
+    
+    /* Further reduce mascot images */
+    .mascot-container .mascot-image {
+        max-width: 40px !important; /* Further reduced mascot images */
         max-height: 40px !important;
         width: auto !important; /* Maintain aspect ratio */
     }
-    .mascot-concept-icon {
-        display: none !important; /* Hide small icons if they don't add much */
+    
+    .guide-panel-image img {
+        max-width: 30px !important; /* Further reduced panel images */
+        max-height: 30px !important;
+        width: auto !important; /* Maintain aspect ratio */
     }
-    .mascot-checkpoint::before {
-        display: none !important; /* Hide pseudo-element icons */
+    
+    /* All images optimization */
+    img {
+        max-height: 80px !important;
+        max-width: 80px !important;
+        height: auto !important;
+        width: auto !important;
     }
-    .navigation-cards, .mascot-resources-grid {
-        display: block !important; /* Stack cards */
-    }
-    .nav-card, .mascot-resource-card {
-        page-break-inside: avoid;
-        border: 1px solid #ccc;
-        margin-bottom: 10px;
-    }
-
 }
