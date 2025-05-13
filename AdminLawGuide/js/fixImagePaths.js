@@ -45,8 +45,9 @@
         
         // Check if the path is relative and starts with ../assets
         if (src && src.startsWith('../assets')) {
-            // Replace with absolute path for GitHub Pages
-            const newSrc = src.replace('../assets', '/AdminLawGuide/assets');
+            // We're using a base tag now, but we still need to fix section paths
+            // Convert from "../assets/..." to "assets/..."
+            const newSrc = src.replace('../assets', 'assets');
             img.setAttribute('src', newSrc);
         }
     }
@@ -60,7 +61,7 @@
         elementsWithBgImage.forEach(function(el) {
             const style = el.getAttribute('style');
             if (style && style.includes('../assets')) {
-                const newStyle = style.replace(/\.\.\/assets/g, '/AdminLawGuide/assets');
+                const newStyle = style.replace(/\.\.\/assets/g, 'assets');
                 el.setAttribute('style', newStyle);
             }
         });

@@ -107,6 +107,10 @@ function loadSection(sectionName) {
                 return response.text();
             })
             .then(html => {
+                // Fix image paths directly in the HTML content before inserting into DOM
+                // This complements the fixImagePaths.js approach for more reliable path fixing
+                html = html.replace(/src="\.\.\/assets\//g, 'src="assets/');
+                
                 contentContainerForLoadSection.innerHTML = html;
                 
                 // Initialize mermaid diagrams in the new content
