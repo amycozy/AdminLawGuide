@@ -1,6 +1,6 @@
-# Administrative Law Guide - Professor Hoopes' Class
+# Administrative Law Guide for Class
 
-This repository contains a comprehensive study guide for Administrative Law, based on Professor Hoopes' course. The guide provides detailed explanations of key concepts, case summaries, and visual aids to help students understand the complex doctrines of administrative law.
+This repository contains a comprehensive study guide for Administrative Law, based on the course I took in Spring 2025. The guide provides detailed explanations of key concepts, case summaries, and visual aids to help students understand the complex doctrines of administrative law.
 
 ## Overview
 
