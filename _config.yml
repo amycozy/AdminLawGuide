@@ -1,12 +1,11 @@
 theme: jekyll-theme-minimal
 title: Administrative Law Guide
 description: A comprehensive interactive guide to understanding administrative law
-baseurl: "/AdminLawGuide"
-url: ""
 include: 
   - "*.html"
   - "*.js"
   - "*.css"
-  - "assets/**/*"
+  - "/AdminLawGuide/**/*"
+# Redirect all requests to main index.html
 plugins:
   - jekyll-redirect-from
