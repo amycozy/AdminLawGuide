@@ -10,3 +10,14 @@ include:
   - "assets/**/*"
 plugins:
   - jekyll-redirect-from
+
+# Add these settings for proper asset URL handling
+sass:
+  style: compressed
+  
+# Define site-wide variables for asset paths
+defaults:
+  - scope:
+      path: ""
+    values:
+      image_path: "/AdminLawGuide/assets"
