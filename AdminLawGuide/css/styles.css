@@ -473,6 +473,32 @@ tr:nth-child(even) {
     }
 }
 
+/* Footer Styles */
+.site-footer {
+    margin-top: 50px;
+    padding: 20px 0;
+    border-top: 1px solid #eaeaea;
+    text-align: center;
+    font-size: 0.9em;
+    color: #666;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+}
+
+.site-footer a {
+    color: var(--interactive-primary);
+}
+
+.site-footer a:hover {
+    text-decoration: underline;
+}
+
+.site-footer .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
 /* Case illustration with side-by-side layout */
 .case-illustration-flex {
     display: flex; /* Changed to flex */

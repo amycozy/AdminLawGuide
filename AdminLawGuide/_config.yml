@@ -1,0 +1,9 @@
+theme: jekyll-theme-minimal
+title: Administrative Law Guide
+description: A comprehensive interactive guide to understanding administrative law
+baseurl: ""
+include: 
+  - "*.html"
+  - "*.js"
+  - "*.css"
+  - "assets/**/*"
