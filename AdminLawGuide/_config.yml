@@ -1,8 +1,9 @@
+# AdminLawGuide Jekyll Configuration
 theme: jekyll-theme-minimal
 title: Administrative Law Guide
 description: A comprehensive interactive guide to understanding administrative law
-baseurl: "/AdminLawGuide"
-url: ""
+baseurl: "/AdminLawProject"  # Must match repository name
+url: "https://amycozy.github.io"  
 include: 
   - "*.html"
   - "*.js"
@@ -11,7 +12,7 @@ include:
 plugins:
   - jekyll-redirect-from
 
-# Add these settings for proper asset URL handling
+# Asset handling
 sass:
   style: compressed
   
@@ -20,4 +21,4 @@ defaults:
   - scope:
       path: ""
     values:
-      image_path: "/AdminLawGuide/assets"
+      image_path: "/AdminLawProject/AdminLawGuide/assets"

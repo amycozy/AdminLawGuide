@@ -1,5 +1,18 @@
 // Execute immediately, don't wait for DOMContentLoaded
 (function() {
+    // Get the baseUrl from a meta tag (fallback to hardcoded value if not found)
+    function getBaseUrl() {
+        // Try to get from Jekyll template first
+        const jekyllBaseUrl = document.querySelector('meta[name="jekyll-baseurl"]');
+        if (jekyllBaseUrl && jekyllBaseUrl.getAttribute('content')) {
+            return jekyllBaseUrl.getAttribute('content');
+        }
+        // Fallback to hardcoded path that matches GitHub Pages repository name
+        return '/AdminLawProject';
+    }
+    
+    const baseUrl = getBaseUrl();
+    
     // Try to fix images as soon as they're created
     const fixImageObserver = new MutationObserver(function(mutations) {
         mutations.forEach(function(mutation) {
@@ -43,11 +56,16 @@
     function fixImagePath(img) {
         const src = img.getAttribute('src');
         
-        // Check if the path is relative and starts with ../assets
-        if (src && src.startsWith('../assets')) {
-            // We're using a base tag now, but we still need to fix section paths
-            // Convert from "../assets/..." to "assets/..."
-            const newSrc = src.replace('../assets', 'assets');
+        // Skip if it's already an absolute URL or contains site.baseurl
+        if (!src || src.startsWith('http') || src.startsWith('/') || 
+            src.includes('site.baseurl') || src.includes('{{')) {
+            return;
+        }
+        
+        // Handle the case where src starts with ../assets
+        if (src.startsWith('../assets')) {
+            // For GitHub Pages with Jekyll, we need the full path
+            const newSrc = baseUrl + '/AdminLawGuide/assets' + src.substring(9);
             img.setAttribute('src', newSrc);
         }
     }
@@ -61,7 +79,7 @@
         elementsWithBgImage.forEach(function(el) {
             const style = el.getAttribute('style');
             if (style && style.includes('../assets')) {
-                const newStyle = style.replace(/\.\.\/assets/g, 'assets');
+                const newStyle = style.replace(/\.\.\/assets/g, baseUrl + '/AdminLawGuide/assets');
                 el.setAttribute('style', newStyle);
             }
         });
